@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MemberController as Member;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // echo "web"; die;
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+  //  return view('welcome');
+//});
+Route::get('/', [Member::class, 'index']);
+Route::get('/member-submit-request', [Member::class, 'memberSubmitRequest']);
 
 // Route::get('/loadgridview', function () {
 	// error_log("ROOT ROUTE");
