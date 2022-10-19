@@ -12,7 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// echo "web"; die;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/loadgridview', function () {
+	// error_log("ROOT ROUTE");
+    // return view('stylist.postloginview.create_grid');
+// });
+Route::get('/loadgridview','App\Http\Controllers\CreateGridController@loadgridview');
