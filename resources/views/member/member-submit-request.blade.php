@@ -27,7 +27,7 @@
         </div>
         <!--------------------souring hub--------->
         <div id="browse-soursing" class="mt-5">
-           
+            <div id="message-box"></div>
             <div class="row align-items-center" id="fulfill-request">
                 <div class="col-lg-6 ">
                     <div class="Neon Neon-theme-dragdropbox mt-5">

@@ -69,7 +69,6 @@
                 </li>
                 <li class=" nav-item"><a href="#"><i class="ft-sidebar"></i><span class="menu-title" data-i18n="">Sign
                             Out</span></a>
-
                 </li>
 
             </ul>
