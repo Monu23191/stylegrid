@@ -19,9 +19,9 @@
             <div class="col-md-4 quick-link text-right">
                 <span class="mr-5"><a hrf="">Quick Link</a></span>
                 <div class="row justify-content-end my-2 mr-2">
-                    <a href="" class="mx-1"><img src="{{ asset('app-assets/images/icons/Chat.svg') }}" alt=""></a>
+                    <a href="" class="mx-1"><img src="{{ asset('member/app-assets/images/icons/Chat.svg') }}" alt=""></a>
                     <!-- <a href="" class="mx-1"><img src="app-assets/images/icons/File Invoice.svg" alt=""></a> -->
-                    <a href="" class="mx-1"><img src="{{ asset('app-assets/images/icons/Gear.svg') }}" alt=""></a>
+                    <a href="" class="mx-1"><img src="{{ asset('member/app-assets/images/icons/Gear.svg') }}" alt=""></a>
                 </div>
             </div>
         </div>
@@ -36,18 +36,19 @@
                             <div class="Neon-input-inner py-4">
                                 <div class="Neon-input-text ">
                                     <h3>Upload an image of the product here</h3>
-                                </div><a class="Neon-input-choose-btn blue"><img src="{{ asset('app-assets/images/icons/plus.png') }}" alt="" id="image_preview"></a>
+                                </div><a class="Neon-input-choose-btn blue"><img src="{{ asset('member/app-assets/images/icons/plus.png') }}" alt="" id="image_preview"></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="p-3 lg-border-left ">
-                        <form id="submit-request" action="client-submit-request-complete.html" class=" ">
+                        <form id="submit-request-form" action="client-submit-request-complete.html" class=" ">
+                            @csrf
                             <div class="form-group">
                                 <label for="">Enter the name of the product here:</label>
                                 <input type="text" class="form-control submit-input" aria-describedby="emailHelp"
-                                    placeholder="Enter product name..."  id="product_name">
+                                    placeholder="Enter product name..."  id="product_name" name="product_name">
 
                             </div>
                             <div class="form-group">
@@ -69,13 +70,13 @@
                             <div class="form-group">
                                 <label for="">What is the product type? (Bag, Dress, Heels etc)</label>
                                 <input type="text" class="form-control submit-input" aria-describedby="emailHelp"
-                                    placeholder="Enter product type..." id="product_type">
+                                    placeholder="Enter product type..." id="product_type" name="product_type">
 
                             </div>
                             <div class="form-group">
                                 <label for="">Does the product have a size? Leave blank if none.</label>
                                 <input type="text" class="form-control submit-input" aria-describedby="emailHelp"
-                                    placeholder="Enter product size..." id="product_size">
+                                    placeholder="Enter product size..." id="product_size" name="product_size">
 
                             </div>
                             <div class="form-group">
@@ -96,7 +97,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">When do you require the product by?</label>
-                                <input type="date" class="form-control submit-input" id="target_date" placeholder="Enter due date...">
+                                <input type="date" class="form-control submit-input" id="deliver_date" name="deliver_date" placeholder="Enter due date...">
                             </div>
                                 <button type="button" class="submit-request px-3  mt-2" id="submit-request-btn">Submit request</button>
                         </form>

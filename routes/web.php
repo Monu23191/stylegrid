@@ -19,6 +19,7 @@ use App\Http\Controllers\MemberController as Member;
 //});
 Route::get('/', [Member::class, 'index']);
 Route::get('/member-submit-request', [Member::class, 'memberSubmitRequest']);
+Route::post('/member-submit-request-post', [Member::class, 'memberSubmitRequestPost']);
 
 // Route::get('/loadgridview', function () {
 	// error_log("ROOT ROUTE");
