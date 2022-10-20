@@ -8,7 +8,7 @@
     </div>
     <div class="content-body">
         <!-- Revenue, Hit Rate & Deals -->
-        <div class="row my-3">
+        <div class="flex-column-reverse flex-md-row mt-lg-3 row">
             <div class="col-md-8">
                 <h1>Submit sourcing request</h1>
                 <h3>Upload an image and add product details of what you need.</h3>
@@ -26,11 +26,12 @@
             </div>
         </div>
         <!--------------------souring hub--------->
-        <div id="browse-soursing" class="mt-5">
+        <div id="browse-soursing" class="mt-lg-5 mt-2">
             <div id="message-box"></div>
+            <form id="submit-request-form" action="client-submit-request-complete.html" class=" ">
             <div class="row align-items-center" id="fulfill-request">
                 <div class="col-lg-6 ">
-                    <div class="Neon Neon-theme-dragdropbox mt-5">
+                    <div class="Neon Neon-theme-dragdropbox mt-lg-5">
                         <input name="files[]" id="filer_input2" multiple="multiple"  type="file">
                         <div class="Neon-input-dragDrop py-5 px-4">
                             <div class="Neon-input-inner py-4">
@@ -43,7 +44,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="p-3 lg-border-left ">
-                        <form id="submit-request-form" action="client-submit-request-complete.html" class=" ">
+                       
                             @csrf
                             <div class="form-group">
                                 <label for="">Enter the name of the product here:</label>
@@ -100,10 +101,11 @@
                                 <input type="date" class="form-control submit-input" id="deliver_date" name="deliver_date" placeholder="Enter due date...">
                             </div>
                                 <button type="button" class="submit-request px-3  mt-2" id="submit-request-btn">Submit request</button>
-                        </form>
+                        
                     </div>
 
                 </div>
+                </form>
             </div>
         </div>
         <!--------------------end of souring Hub--------->

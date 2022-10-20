@@ -20,7 +20,7 @@
                         <div class="row justify-content-end my-2">
                             <a href="" class="mx-1"><img src="stylist/app-assets/images/icons/Chat.svg" alt=""></a>
                             <a href="" class="mx-1"><img src="stylist/app-assets/images/icons/File Invoice.svg" alt=""></a>
-                            <a href="" class="mx-1"><img src="app-assets/images/icons/Gear.svg" alt=""></a>
+                            <a href="" class="mx-1"><img src="stylist/app-assets/images/icons/Gear.svg" alt=""></a>
 
                         </div>
 
@@ -179,7 +179,7 @@
                                             <div class="Neon-input-text ">
                                                 <h3>Upload an image of the product here</h3>
                                             </div><a class="Neon-input-choose-btn blue"><img
-                                                    src="app-assets/images/icons/plus.png" alt=""></a>
+                                                    src="stylist/app-assets/images/icons/plus.png" alt=""></a>
                                         </div>
                                     </div>
                                 </div>

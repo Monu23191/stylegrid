@@ -2519,7 +2519,7 @@ margin-bottom: 23px; */
   }
 
   .carousel-caption button {
-    font-size: 18px;
+    font-size: 14px;
     height: 27px;
   }
 
@@ -2532,9 +2532,11 @@ margin-bottom: 23px; */
   .content-body h1,#inbox-msg h3,#style-news h1,#footer h1,
   #browse-soursing h1,#notice-board h1,#refer-client h1,#create-grid-1 h1{
     font-size: 25px;
+    line-height: 30px;
   }
   .content-body h3,#browse-soursing h2,#footer p{
     font-size: 16px;
+    line-height: 26px;
   }
   #board-detail h1{
     font-size: 15px;
