@@ -1346,7 +1346,7 @@ select.form-control {
     color: #2C303B; }
   .navbar-light .navbar-nav .nav-link,
   .navbar-semi-light .navbar-nav .nav-link {
-    color: #FFFFFF; } }
+    color: #000; } }
 
 @media (min-width: 576px) {
   .search-box input {
