@@ -8,20 +8,20 @@
     </div>
     <div class="content-body">
         <!-- Revenue, Hit Rate & Deals -->
-        <div class="flex-column-reverse flex-md-row mt-lg-3 row">
-            <div class="col-md-8">
+        <div class=" mt-lg-3 row">
+            <div class="col-8">
                 <h1>Submit sourcing request</h1>
                 <h3>Upload an image and add product details of what you need.</h3>
                 <!-- <div class="mt-3">
                     <a href=""><button class="make-request">Make New Request</button></a>
                 </div> -->
             </div>
-            <div class="col-md-4 quick-link text-right">
-                <span class="mr-5"><a hrf="">Quick Link</a></span>
-                <div class="row justify-content-end my-2 mr-2">
+            <div class="col-4 quick-link text-right">
+                <span class="mr-lg-5"><a hrf="">Quick Link</a></span>
+                <div class="d-flex justify-content-end my-2 mr-lg-2">
                     <a href="" class="mx-1"><img src="{{ asset('member/app-assets/images/icons/Chat.svg') }}" alt=""></a>
                     <!-- <a href="" class="mx-1"><img src="app-assets/images/icons/File Invoice.svg" alt=""></a> -->
-                    <a href="" class="mx-1"><img src="{{ asset('member/app-assets/images/icons/Gear.svg') }}" alt=""></a>
+                    <a href="" class="mx-lg-1"><img src="{{ asset('member/app-assets/images/icons/Gear.svg') }}" alt=""></a>
                 </div>
             </div>
         </div>

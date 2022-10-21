@@ -2501,6 +2501,7 @@ margin-bottom: 23px; */
   height: 19px;
 }
 
+
 /********************end  client-dashboard***************8/
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -2522,7 +2523,9 @@ margin-bottom: 23px; */
     font-size: 14px;
     height: 27px;
   }
-
+.footer-border-bottom{
+  border-bottom: 1px solid #fff;
+}
   
   .raise-bg-img p,
   .raise-bg .btn,
@@ -2540,6 +2543,9 @@ margin-bottom: 23px; */
   }
   #board-detail h1{
     font-size: 15px;
+  }
+  .quick-link img{
+    height: 35px;
   }
 }
 
@@ -2564,7 +2570,9 @@ margin-bottom: 23px; */
     font-size: 18px;
     height: 27px;
   } */
-
+  .footer-border-bottom{
+    border-bottom: 1px solid #fff;
+  }
   
   .raise-bg-img p,
   .raise-bg .btn,
@@ -2582,6 +2590,9 @@ margin-bottom: 23px; */
   }
   .border-right1{
     border: 0px !important;
+  }
+  .quick-link img{
+    height: 35px;
   }
 }
 
@@ -2614,6 +2625,12 @@ margin-bottom: 23px; */
       #board-detail h1{
         font-size: 15.9px;
       }
+      .quick-link img{
+        height: 45px;
+      }
+      .footer-border-bottom{
+        border-bottom: 1px solid #fff;
+      }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -2621,7 +2638,9 @@ margin-bottom: 23px; */
   .one-caroImg {
     width: 80vw;
   }
-
+  .footer-border-bottom{
+    border-bottom: 0px;
+  }
   #twoPagecarousel .carousel-caption p,
   .img-width p {
     font-size: 10px;
