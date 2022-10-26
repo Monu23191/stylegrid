@@ -89,12 +89,20 @@
                                                 <td>{{$source_row['country_name']}}</td>
                                                 <td>{{date('d/m/Y',strtotime($source_row['p_deliver_date']))}}</td>
                                                 <?php
-                                                if($source_row['total_offer']>0){
-                                                    if($source_row['total_offer']==1){
+
+                                                if($source_row['total_offer']>0 && $source_row['p_status']!='Fulfilled'){
+                                                    $balance_offer=$source_row['total_offer']-$source_row['decline_offer'];
+                                                    if($balance_offer==0){
+                                                        ?>
+                                                        <td class="orange-color">{{$source_row['p_status']}}</td>
+                                                        <?php
+                                                    }else{
+                                                        if($source_row['total_offer']==1){
                                                         ?>
                                                         <td class="green-color">Offer Received</td> 
                                                         <?php
                                                     }else{
+
                                                         ?>
                                                         <td class="green-color">
                                                             {{$source_row['total_offer']}} Offers Received
@@ -104,12 +112,26 @@
                                                         </td> 
                                                         <?php
                                                     }
+                                                    ?>
+                                                    <td><a href="{{'/offer-received/'.$source_row['p_slug']}}"><button class="">View Order</button></a></td> 
+                                                    <?php
+                                                    }
+                                                    
                                                 ?>
-                                                <td><a href="{{'/offer-received/'.$source_row['p_slug']}}"><button class="">View Order</button></a></td> 
                                                 <?php
                                                 }else{
+                                                    if($source_row['p_status']=='Fulfilled'){
+                                                        ?>
+                                                        <td class="blue-color">{{$source_row['p_status']}}</td>
+                                                        
+                                                        <?php
+                                                    }else{
+                                                        ?>
+                                                        <td class="orange-color">{{$source_row['p_status']}}</td>
+                                                        <?php
+                                                    }
                                                     ?>
-                                                    <td class="orange-color">{{$source_row['p_status']}}</td>
+                                                    
                                                     <?php
                                                 }
                                                 ?>
@@ -117,28 +139,6 @@
                                             <?php
                                         }    
                                         ?>
-                                        
-                                        <!-- <tr>
-                                            <td class="d-flex"><span class="dot"></span>Off-White Jordan 4&apos;s
-                                            </td>
-                                            <td>EU37</td>
-                                            <td>Shoes</td>
-                                            <td>Off-White</td>
-                                            <td>Amina Muaddi</td>
-                                            <td>31/09/22</td>
-                                            <td class="green-color">3 Offers Received</td>
-                                            <td><a href="client-multiple-order-received.html"><button class="">View Order</button></a></td>
-                                        </tr>
-                                        <tr style="border-bottom: 0px !important;">
-                                            <td class="d-flex"><span class="dot"></span>Off-White Jordan 4&apos;s
-                                            </td>
-                                            <td>N/A</td>
-                                            <td>Shoes</td>
-                                            <td>Amina Muaddi</td>
-                                            <td>USA</td>
-                                            <td>31/09/22</td>
-                                            <td class="orange-color">Pending</td>
-                                          </tr>-->
                                     </tbody>
                                 </table>
                             </div>

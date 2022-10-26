@@ -137,6 +137,9 @@ class MemberController extends Controller
     public function memberOfferReceived($id){
         $member=new Member();
         $offer_list=$member->memberOfferDetails(['s.p_slug'=>$id]);
+        if(!count($offer_list)){
+            return redirect('/sourcing');
+        }
         return view('member.multiple-offer-received',compact('offer_list'));
     }
     public function memberOfferAcceptedSuccessful(Request $request){
@@ -148,13 +151,27 @@ class MemberController extends Controller
             $member=new Member();
             $selected_offer_id=$request->selected_offer_id;
             if(!empty($selected_offer_id)){
-                $response=$member->memberAcceptOffer($selected_offer_id);
+                $response['status']=$member->memberAcceptOffer($selected_offer_id);
             }else{
                 $response['status']=0;
             }
             return json_encode($response);
         }  
     }
+
+    public function memberDeclineOffer(Request $request){
+        if($request->ajax()){
+            $member=new Member();
+            $decline_offer_id=$request->decline_offer_id;
+            if(!empty($decline_offer_id)){
+                $response['status']=$member->memberDeclineOffer($decline_offer_id);
+            }else{
+                $response['status']=0;
+            }
+            return json_encode($response);
+        }  
+    }
+    
     
     
 }

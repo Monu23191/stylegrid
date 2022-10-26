@@ -139,6 +139,7 @@ class Member extends Model
 			if(count($where)){
 				$this->db->where($where);
 			}
+			$this->db->where('s.p_status', '<>', 'Fulfilled');
 			$this->db->orderBy("so.id","DESC");
 			$response_data=$this->db->get();
 			return $response_data;
@@ -154,14 +155,16 @@ class Member extends Model
 			$sourcing_id=$result->sourcing_id;
 			$this->db = DB::table('sg_sourcing');
 			$this->db->where(array('id'=>$sourcing_id));
-			$this->db->update(['status'=>'Fulfilled']);
+			$this->db->update(['p_status'=>'Fulfilled']);
 			$this->db = DB::table('sg_sourcing_offer');
 			$this->db->where(array('id'=>$offer_id));
 			$this->db->update(['status'=>1]);
+			return true;
 		}
+		return false;
 	}
 
-	function memberAcceptDecline($offer_id){
+	function memberDeclineOffer($offer_id){
 		$this->db = DB::table('sg_sourcing_offer');
         $this->db->select(["sourcing_id"]);
         $this->db->where(['id'=>$offer_id]);
@@ -170,8 +173,8 @@ class Member extends Model
 			$this->db = DB::table('sg_sourcing_offer');
 			$this->db->where(array('id'=>$offer_id));
 			$this->db->update(['status'=>2]);
+			return true;
 		}
+		return false;
 	}
-	
-	
 }

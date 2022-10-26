@@ -1,3 +1,4 @@
+
 var brandList=[];
 function selectBrand(brand_id){
     $('#brand').val(brandList[brand_id]);
@@ -55,11 +56,10 @@ $(function(){
                         dvPreview.append(img);
                     }
                     //$('#image_preview_remove').show();
-                   // reader.readAsDataURL(file[0]);                
+                   reader.readAsDataURL(file[0]);                
            // });
         }
     });
-    $('#sourceConfirmationPopUp').modal('show');
     $("#deliver_date" ).datepicker({ minDate: 0});
     $('#submit-request-btn').click(function(){
         $('#submit-request-form input, select ').css('border', '1px solid #ccc');
@@ -111,8 +111,6 @@ $(function(){
             success: function(ajaxresponse) {
                 response = JSON.parse(ajaxresponse);
                 if (response['status']) {
-                    //$('#message-box').html('<div class="alert alert-success"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>' + response['message'] + '</div>');
-                    //closePopup('message-box');
                     setTimeout(function(){
                         window.location = "/member-submit-request-complete";
                     }, 500);
@@ -123,11 +121,15 @@ $(function(){
             }
         });
     })
-
     $('.accept-offer').click(function(){
         $('#selected_offer_id').val($(this).attr('data-id'));
-        $('#sourceConfirmationPopUp').modal('show');
+        $('#acceptOffer').modal('show');
     })
+    $('.decline-offer').click(function(){
+        $('#decline_offer_id').val($(this).attr('data-id'));
+        $('#declineOffer').modal('show');
+    })
+    
     $('#accept-offer-btn').click(function(){
         var selected_offer_id=$('#selected_offer_id').val();
         if(selected_offer_id>0){
@@ -143,6 +145,28 @@ $(function(){
                     if (response['status']) {
                         setTimeout(function(){
                             window.location = "/member-offer-accepted";
+                        }, 500);
+                    }
+                }
+            })
+        }
+    })
+
+    $('#decline-offer-btn').click(function(){
+        var decline_offer_id=$('#decline_offer_id').val();
+        if(decline_offer_id>0){
+            $.ajax({
+                url : '/member-decline-offer',
+                method : "POST",
+                data : {
+                    'decline_offer_id':decline_offer_id,
+                    '_token': constants.csrf_token
+                },
+                success : function (ajaxresponse){
+                    response = JSON.parse(ajaxresponse);
+                    if (response['status']) {
+                        setTimeout(function(){
+                            window.location = "/sourcing";
                         }, 500);
                     }
                 }

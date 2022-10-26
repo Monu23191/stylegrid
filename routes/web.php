@@ -22,6 +22,7 @@ Route::get('/sourcing', [Member::class, 'memberSourcing']);
 Route::get('/offer-received/{title}', [Member::class, 'memberOfferReceived']);
 Route::get('/member-offer-accepted', [Member::class, 'memberOfferAcceptedSuccessful']);
 Route::post('/member-accept-offer', [Member::class, 'memberAcceptOffer']);
+Route::post('/member-decline-offer', [Member::class, 'memberDeclineOffer']);
 Route::get('/member-submit-request-complete', [Member::class, 'memberSubmitRequestComplete']);
 Route::get('/member-grid', [Member::class, 'memberGrid']);
 Route::get('/member-grid-details', [Member::class, 'memberGridDetails']);
