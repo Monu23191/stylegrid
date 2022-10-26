@@ -78,19 +78,47 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="d-flex"><span class="dot"></span>Hermes Mini Kelly 22
-                                            </td>
-                                            <td>N/A</td>
-                                            <td>@Beg</td>
-                                            <td>Hermes</td>
-                                            <td>UAE</td>
-                                            <td>31/09/22</td>
-                                            <td class="green-color">Offer Received</td>
-                                            <td><a href="client-sourcing-offer-received.html"><button class="">View
-                                                        Order</button></a></td>
-                                        </tr>
-                                        <tr>
+                                        <?php
+                                        foreach($source_list_data as $source_row){
+                                            ?>
+                                            <tr>
+                                                <td class="d-flex"><span class="dot"></span>{{$source_row['p_name']}}</td>
+                                                <td>{{$source_row['p_size']}}</td>
+                                                <td>{{$source_row['p_type']}}</td>
+                                                <td>{{$source_row['name']}}</td>
+                                                <td>{{$source_row['country_name']}}</td>
+                                                <td>{{date('d/m/Y',strtotime($source_row['p_deliver_date']))}}</td>
+                                                <?php
+                                                if($source_row['total_offer']>0){
+                                                    if($source_row['total_offer']==1){
+                                                        ?>
+                                                        <td class="green-color">Offer Received</td> 
+                                                        <?php
+                                                    }else{
+                                                        ?>
+                                                        <td class="green-color">
+                                                            {{$source_row['total_offer']}} Offers Received
+                                                            <?php if($source_row['decline_offer']){
+                                                                 echo "/ ".$source_row['decline_offer']." Declined";
+                                                            } ?>
+                                                        </td> 
+                                                        <?php
+                                                    }
+                                                ?>
+                                                <td><a href="{{'/offer-received/'.$source_row['p_slug']}}"><button class="">View Order</button></a></td> 
+                                                <?php
+                                                }else{
+                                                    ?>
+                                                    <td class="orange-color">{{$source_row['p_status']}}</td>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </tr>
+                                            <?php
+                                        }    
+                                        ?>
+                                        
+                                        <!-- <tr>
                                             <td class="d-flex"><span class="dot"></span>Off-White Jordan 4&apos;s
                                             </td>
                                             <td>EU37</td>
@@ -110,7 +138,7 @@
                                             <td>USA</td>
                                             <td>31/09/22</td>
                                             <td class="orange-color">Pending</td>
-                                          </tr>
+                                          </tr>-->
                                     </tbody>
                                 </table>
                             </div>
@@ -140,29 +168,29 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="d-flex"><span class="blue-dot"></span>Dior Monogram Hoodie
-                                            </td>
-                                            <td>N/A</td>
-                                            <td>@Beg</td>
-                                            <td>Hermes</td>
-                                            <td>UAE</td>
-                                            <td>31/09/22</td>
-                                            <td class="blue-color">Fufilled</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr style="border-bottom: 0px !important;">
-                                            <td class="d-flex"><span class="red-dot"></span>Nike Dunk Lows
-                                            </td>
-                                            <td>EU37</td>
-                                            <td>Shoes</td>
-                                            <td>Off-White</td>
-                                            <td>Amina Muaddi</td>
-                                            <td>31/09/22</td>
-                                            <td class="red-color">Expired</td>
-                                            <td></td>
-                                        </tr>
-
+                                        <?php
+                                        foreach($previous_source_list as $source_row){
+                                            ?>
+                                            <tr>
+                                                <td class="d-flex"><span class="dot"></span>{{$source_row->p_name}}</td>
+                                                <td>{{$source_row->p_size}}</td>
+                                                <td>{{$source_row->p_type}}</td>
+                                                <td>{{$source_row->name}}</td>
+                                                <td>{{$source_row->country_name}}</td>
+                                                <td>{{date('d/m/Y',strtotime($source_row->p_deliver_date))}}</td>
+                                                <?php
+                                                if($source_row->p_status=='Expired'){
+                                                    ?><td class="red-color">{{$source_row->p_status}}</td><?php
+                                                }
+                                                if($source_row->p_status=='Fufilled'){
+                                                    ?><td class="blue-color">{{$source_row->p_status}}</td><?php
+                                                }
+                                                ?>
+                                                
+                                            </tr>
+                                            <?php
+                                        }    
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>

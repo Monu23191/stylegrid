@@ -29,23 +29,37 @@
         <div id="browse-soursing" class="mt-lg-5 mt-2">
             <div id="message-box"></div>
             <form id="submit-request-form" action="client-submit-request-complete.html" class=" ">
+<<<<<<< HEAD
             <div class="row align-items-center" id="fulfill-request">
                 <div class="col-lg-6 ">
                     <div class="Neon Neon-theme-dragdropbox mt-lg-5">
                         <input name="files[]" id="filer_input2" multiple="multiple"  type="file">
+=======
+            @csrf
+            <div class="row align-items-center" id="fulfill-request">
+                <div class="col-lg-6 ">
+                    <div class="Neon Neon-theme-dragdropbox mt-5">
+                        <!-- <input name="files[]" id="filer_input2" multiple="multiple"  type="file">-->
+                        <input name="source_image" id="filer_input2"  type="file" >
+>>>>>>> b025b88ac11c91c4d1fd27ac204c640a7ad3ec9d
                         <div class="Neon-input-dragDrop py-5 px-4">
                             <div class="Neon-input-inner py-4">
                                 <div class="Neon-input-text ">
                                     <h3>Upload an image of the product here</h3>
-                                </div><a class="Neon-input-choose-btn blue"><img src="{{ asset('member/app-assets/images/icons/plus.png') }}" alt="" id="image_preview"></a>
+                                </div><a class="Neon-input-choose-btn blue"><img  src="{{ asset('member/app-assets/images/icons/plus.png') }}" alt="" id="image_preview"></a>
+                                <div id="divImageMediaPreview"></div>
+                                <a href="javascript:void(0)" style="display: none;" id="image_preview_remove">Remove</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="p-3 lg-border-left ">
+<<<<<<< HEAD
                        
                             @csrf
+=======
+>>>>>>> b025b88ac11c91c4d1fd27ac204c640a7ad3ec9d
                             <div class="form-group">
                                 <label for="">Enter the name of the product here:</label>
                                 <input type="text" class="form-control submit-input" aria-describedby="emailHelp"
@@ -54,19 +68,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Tell us the brand of the product:</label>
-                                <select class="form-control submit-input" name="brand" id="brand">
-                                    <option value="">Select Brand</option>
-                                    <?php
-                                    foreach($brand_list as $brand){
-                                        ?>
-                                        <option value="{{$brand->id}}">{{$brand->name}}</option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
-                                <!--<input type="text" class="form-control submit-input" aria-describedby="emailHelp"
-                                    placeholder="Enter brand name...">-->
-
+                                <input type="text" class="form-control submit-input" aria-describedby="emailHelp"
+                                    placeholder="Enter brand name..." id="brand" name="brand">
+                                <div id="autsuggestion_section"></div>
                             </div>
                             <div class="form-group">
                                 <label for="">What is the product type? (Bag, Dress, Heels etc)</label>
@@ -98,15 +102,21 @@
                             </div>
                             <div class="form-group">
                                 <label for="">When do you require the product by?</label>
-                                <input type="date" class="form-control submit-input" id="deliver_date" name="deliver_date" placeholder="Enter due date...">
+                                <input type="text"  onpaste="return false;" class="form-control submit-input" id="deliver_date" name="deliver_date" placeholder="Enter due date...">
                             </div>
+<<<<<<< HEAD
                                 <button type="button" class="submit-request px-3  mt-2" id="submit-request-btn">Submit request</button>
                         
+=======
+                            <button type="button" class="submit-request px-3  mt-2" id="submit-request-btn">Submit request</button>
+                        </form>
+>>>>>>> b025b88ac11c91c4d1fd27ac204c640a7ad3ec9d
                     </div>
 
                 </div>
                 </form>
             </div>
+        </form>
         </div>
         <!--------------------end of souring Hub--------->
     </div>
