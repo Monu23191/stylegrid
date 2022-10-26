@@ -104,8 +104,9 @@
                                             if($offer->status!=2){
                                                 ?>
                                                     <div class="ml-2">
-                                                        <!--<a href="javascript:void(0)" class="accept-btn px-3 accept-offer" data-id="<?php echo $offer->id;?>">Accept Offer</a>-->
-                                                        <button type="button" class="accept-btn px-3 accept-offer" data-id="<?php echo $offer->id;?>">Accept Offer</button>
+                                                        <a href="javascript:void(0)" class="accept-btn px-3 accept-offer" data-id="<?php echo $offer->id;?>">Accept Offer</a>
+                                                        <!--<button type="submit" class="accept-btn px-3"
+                                                            data-toggle="modal" data-target="#accept"></button>-->
                                                     </div>
         
                                                     <div class="ml-2 mt-lg-0 mt-2">
@@ -207,4 +208,7 @@
         </div>
     </div>
 </div>
+<!-- <script>
+    $('#sourceConfirmationPopUp').modal('show');
+</script> -->
 @stop

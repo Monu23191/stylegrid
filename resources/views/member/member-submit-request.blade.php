@@ -8,33 +8,31 @@
     </div>
     <div class="content-body">
         <!-- Revenue, Hit Rate & Deals -->
-        <div class="row my-3">
-            <div class="col-md-8">
+        <div class=" mt-lg-3 row">
+            <div class="col-8">
                 <h1>Submit sourcing request</h1>
                 <h3>Upload an image and add product details of what you need.</h3>
                 <!-- <div class="mt-3">
                     <a href=""><button class="make-request">Make New Request</button></a>
                 </div> -->
             </div>
-            <div class="col-md-4 quick-link text-right">
-                <span class="mr-5"><a hrf="">Quick Link</a></span>
-                <div class="row justify-content-end my-2 mr-2">
+            <div class="col-4 quick-link text-right">
+                <span class="mr-lg-5"><a hrf="">Quick Link</a></span>
+                <div class="d-flex justify-content-end my-2 mr-lg-2">
                     <a href="" class="mx-1"><img src="{{ asset('member/app-assets/images/icons/Chat.svg') }}" alt=""></a>
                     <!-- <a href="" class="mx-1"><img src="app-assets/images/icons/File Invoice.svg" alt=""></a> -->
-                    <a href="" class="mx-1"><img src="{{ asset('member/app-assets/images/icons/Gear.svg') }}" alt=""></a>
+                    <a href="" class="mx-lg-1"><img src="{{ asset('member/app-assets/images/icons/Gear.svg') }}" alt=""></a>
                 </div>
             </div>
         </div>
         <!--------------------souring hub--------->
-        <div id="browse-soursing" class="mt-5">
+        <div id="browse-soursing" class="mt-lg-5 mt-2">
             <div id="message-box"></div>
             <form id="submit-request-form" action="client-submit-request-complete.html" class=" ">
-            @csrf
             <div class="row align-items-center" id="fulfill-request">
                 <div class="col-lg-6 ">
-                    <div class="Neon Neon-theme-dragdropbox mt-5">
-                        <!-- <input name="files[]" id="filer_input2" multiple="multiple"  type="file">-->
-                        <input name="source_image" id="filer_input2"  type="file" >
+                    <div class="Neon Neon-theme-dragdropbox mt-lg-5">
+                        <input name="files[]" id="filer_input2" multiple="multiple"  type="file">
                         <div class="Neon-input-dragDrop py-5 px-4">
                             <div class="Neon-input-inner py-4">
                                 <div class="Neon-input-text ">
@@ -48,6 +46,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="p-3 lg-border-left ">
+                       
+                            @csrf
                             <div class="form-group">
                                 <label for="">Enter the name of the product here:</label>
                                 <input type="text" class="form-control submit-input" aria-describedby="emailHelp"
@@ -92,11 +92,17 @@
                                 <label for="">When do you require the product by?</label>
                                 <input type="text"  onpaste="return false;" class="form-control submit-input" id="deliver_date" name="deliver_date" placeholder="Enter due date...">
                             </div>
+<<<<<<< HEAD
+                                <button type="button" class="submit-request px-3  mt-2" id="submit-request-btn">Submit request</button>
+                        
+=======
                             <button type="button" class="submit-request px-3  mt-2" id="submit-request-btn">Submit request</button>
                         </form>
+>>>>>>> b025b88ac11c91c4d1fd27ac204c640a7ad3ec9d
                     </div>
 
                 </div>
+                </form>
             </div>
         </form>
         </div>

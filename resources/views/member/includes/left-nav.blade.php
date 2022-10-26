@@ -4,8 +4,8 @@
 
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <a class="nav-link close-navbar text-right pr-2 d-lg-none d-block"><i class="ft-x"></i></a>
-                <li class="nav-item"><a href=""><i class="box-shadow mr-5"><img src="{{ asset('/member/app-assets/images/icons/User.svg') }}"
-                                alt=""><img src="{{ asset('/member/app-assets/images/icons/Help.svg') }}" alt=""
+                <li class="nav-item"><a href=""><i class="box-shadow mr-5"><img src="member/app-assets/images/icons/User.svg"
+                                alt=""><img src="member/app-assets/images/icons/Bell.svg" alt=""
                                 style="margin-left: 3px"></i><span class="menu-title">
                             <i class="box-shadow ml-5"><img src="{{ asset('/member/app-assets/images/icons/Gear.svg') }}" alt="">
                                 <img src="{{ asset('/member/app-assets/images/icons/Help.svg') }}" style="margin-left: 3px" alt=""></i>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="stylist/app-assets/vendors/css/vendors.min.css">
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" type="text/css" href="stylist/app-assets/css/bootstrap.css">

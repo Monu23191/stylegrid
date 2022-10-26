@@ -8,20 +8,20 @@
         </div>
         <div class="content-body">
             <!-- Revenue, Hit Rate & Deals -->
-            <div class="row my-3">
-                <div class="col-md-8">
+            <div class="mt-lg-3 row">
+                <div class="col-8">
                     <h1>Welcome to your product sourcing overview</h1>
                     <h3>Check the status on your existing sourcing requests or submit a new request.</h3>
                     <div class="mt-3">
                         <a href="member-submit-request"><button class="make-request">Make New Request</button></a>
                     </div>
                 </div>
-                <div class="col-md-4 quick-link text-right">
-                    <span class="mr-5"><a hrf="">Quick Link</a></span>
-                    <div class="row justify-content-end my-2 mr-2">
-                        <a href="" class="mx-1"><img src="{{ asset('app-assets/images/icons/Chat.svg') }}" alt=""></a>
+                <div class="col-4 quick-link text-right">
+                    <span class="mr-lg-5"><a hrf="">Quick Link</a></span>
+                    <div class="d-flex justify-content-end my-2 mr-lg-2">
+                        <a href="" class="mx-1"><img src="{{ asset('member/app-assets/images/icons/Chat.svg') }}" alt=""></a>
                         <!-- <a href="" class="mx-1"><img src="app-assets/images/icons/File Invoice.svg" alt=""></a> -->
-                        <a href="" class="mx-1"><img src="{{ asset('app-assets/images/icons/Gear.svg') }}" alt=""></a>
+                        <a href="" class="mx-lg-1"><img src="{{ asset('member/app-assets/images/icons/Gear.svg') }}" alt=""></a>
                     </div>
 
                 </div>
@@ -33,7 +33,7 @@
                           <h1>Live Requests</h1>
                           </div>
                     <!-- Pills navs -->
-                    <div class="col-lg-6 d-flex justify-lg-content-end justify-content-center">
+                    <div class="col-lg-6 d-flex justify-content-lg-end justify-content-center mt-lg-0 mt-2">
                         <ul id="myTab_1" role="tablist" class="nav nav-tabs   flex-sm-row text-center  rounded-nav">
                             <li class="nav-item ">
                                 <a id="home-tab" data-toggle="tab" href="#home_1" role="tab" aria-controls="home"
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <!-----------------new table-------------->
-                <div class="row mt-3">
+                <div class="text-lg-left text-center mt-3">
                     <h1 class=" pl-1">Previous Requests</h1>
                 </div>
                 <div class="row w-100">
