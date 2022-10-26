@@ -29,19 +29,10 @@
         <div id="browse-soursing" class="mt-lg-5 mt-2">
             <div id="message-box"></div>
             <form id="submit-request-form" action="client-submit-request-complete.html" class=" ">
-<<<<<<< HEAD
             <div class="row align-items-center" id="fulfill-request">
                 <div class="col-lg-6 ">
                     <div class="Neon Neon-theme-dragdropbox mt-lg-5">
                         <input name="files[]" id="filer_input2" multiple="multiple"  type="file">
-=======
-            @csrf
-            <div class="row align-items-center" id="fulfill-request">
-                <div class="col-lg-6 ">
-                    <div class="Neon Neon-theme-dragdropbox mt-5">
-                        <!-- <input name="files[]" id="filer_input2" multiple="multiple"  type="file">-->
-                        <input name="source_image" id="filer_input2"  type="file" >
->>>>>>> b025b88ac11c91c4d1fd27ac204c640a7ad3ec9d
                         <div class="Neon-input-dragDrop py-5 px-4">
                             <div class="Neon-input-inner py-4">
                                 <div class="Neon-input-text ">
@@ -55,11 +46,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="p-3 lg-border-left ">
-<<<<<<< HEAD
                        
                             @csrf
-=======
->>>>>>> b025b88ac11c91c4d1fd27ac204c640a7ad3ec9d
                             <div class="form-group">
                                 <label for="">Enter the name of the product here:</label>
                                 <input type="text" class="form-control submit-input" aria-describedby="emailHelp"

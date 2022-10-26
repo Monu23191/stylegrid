@@ -35,6 +35,9 @@
   src: url(../font/Roboto/Roboto-Light.ttf);
 
 }
+body{
+  overflow-y: auto;
+}
 
 .blue-color {
   color: #3361FF !important;

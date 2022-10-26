@@ -6,18 +6,18 @@
     </div>
     <div class="content-body">
         <!-- Revenue, Hit Rate & Deals -->
-        <div class="row my-3">
+        <div class="row mt-md-3">
             <div class="col-8">
                 <h1>Request submitted</h1>
                 <h3>Your request has now been submitted. You will be notified when a your product has been
                     sourced.</h3>
             </div>
             <div class="col-4 quick-link text-right">
-                <span class="mr-5"><a hrf="">Quick Link</a></span>
-                <div class="row justify-content-end mr-3 my-2">
-                    <a href="" class="mx-1"><img src="app-assets/images/icons/Chat.svg" alt=""></a>
+                <span class="mr-md-5"><a hrf="">Quick Link</a></span>
+                <div class="d-flex justify-content-end mr-md-3 my-2">
+                    <a href="" class="mx-1"><img src="member/app-assets/images/icons/Chat.svg" alt=""></a>
                     <!-- <a href="" class="mx-1"><img src="app-assets/images/icons/File Invoice.svg" alt=""></a> -->
-                    <a href="" class="mx-1"><img src="app-assets/images/icons/Gear.svg" alt=""></a>
+                    <a href="" class="mx-lg-1"><img src="member/app-assets/images/icons/Gear.svg" alt=""></a>
 
                 </div>
 
