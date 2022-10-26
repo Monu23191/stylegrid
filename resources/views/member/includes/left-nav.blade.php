@@ -4,17 +4,17 @@
 
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <a class="nav-link close-navbar text-right pr-2 d-lg-none d-block"><i class="ft-x"></i></a>
-                <li class="nav-item"><a href=""><i class="box-shadow mr-5"><img src="app-assets/images/icons/User.svg"
-                                alt=""><img src="member/app-assets/images/icons/Bell.svg" alt=""
+                <li class="nav-item"><a href=""><i class="box-shadow mr-5"><img src="{{ asset('/member/app-assets/images/icons/User.svg') }}"
+                                alt=""><img src="{{ asset('/member/app-assets/images/icons/Help.svg') }}" alt=""
                                 style="margin-left: 3px"></i><span class="menu-title">
-                            <i class="box-shadow ml-5"><img src="{{ asset('member/app-assets/images/icons/Gear.svg') }}" alt="">
-                                <img src="{{ asset('member/app-assets/images/icons/Help.svg') }}" style="margin-left: 3px" alt=""></i>
+                            <i class="box-shadow ml-5"><img src="{{ asset('/member/app-assets/images/icons/Gear.svg') }}" alt="">
+                                <img src="{{ asset('/member/app-assets/images/icons/Help.svg') }}" style="margin-left: 3px" alt=""></i>
                         </span>
                     </a>
                 </li>
 
                 <li class="nav-item text-center">
-                    <div class="stylish-img"><img src="{{ asset('member/app-assets/images/gallery/Profile Picture (1).png') }}"
+                    <div class="stylish-img"><img src="{{ asset('/member/app-assets/images/gallery/Profile Picture (1).png') }}"
                             class="img-fluid" alt="">
                     </div>
 
@@ -30,7 +30,7 @@
                         class="menu-title profession" data-i18n=""><img
                             src="app-assets/images/gallery/check-mark.png" alt=""></span></a> </li> -->
                 </li>
-                <li class=" nav-item mt-5"><a href="index.html"><i class="ft-home"></i><span class="menu-title"
+                <li class=" nav-item mt-5"><a href="{{ url('/') }}"><i class="ft-home"></i><span class="menu-title"
                             data-i18n="">Home</span></a>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="ft-layers"></i><span class="menu-title"
@@ -39,15 +39,15 @@
                 <li class=" nav-item"><a href="#"><i class="ft-monitor"></i><span class="menu-title"
                             data-i18n="">Shop</span></a>
                 </li>
-                <li class=" nav-item"><a href="client-grid.html"><i class="ft-layout"></i><span class="menu-title"
+                <li class=" nav-item"><a href="{{ url('/member-grid') }}"><i class="ft-layout"></i><span class="menu-title"
                             data-i18n="">Grids</span></a>
 
                 </li>
-                <li class=" nav-item"><a href="{{ url('/') }}" class="active"><i class="ft-zap active"></i><span
+                <li class=" nav-item"><a href="{{ url('/sourcing') }}" class="active"><i class="ft-zap active"></i><span
                             class="menu-title" data-i18n="">Sourcing</span></a>
 
                 </li>
-                <li class=" nav-item "><a href="orders.html" class=""><i class="ft-aperture "></i><span class="menu-title"
+                <li class=" nav-item "><a href="{{ url('/member-orders') }}" class=""><i class="ft-aperture "></i><span class="menu-title"
                             data-i18n="">Orders</span></a>
 
                 </li>
