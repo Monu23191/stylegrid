@@ -11,21 +11,21 @@ class MemberController extends Controller
 {
     public function index()
     {
-        return view('member.index');
+        return view('member.dashboard.index');
     }
 
     public function memberGrid()
     {
-        return view('member.member-grid');
+        return view('member.dashboard.member-grid');
     }
     public function memberGridDetails()
     {
-        return view('member.member-grid-details');
+        return view('member.dashboard.member-grid-details');
     }
 
     public function memberOrders()
     {
-        return view('member.member-orders');
+        return view('member.dashboard.member-orders');
     }
     public function memberSourcing()
     {
@@ -55,14 +55,14 @@ class MemberController extends Controller
             $source_list_data[]=$data;
         }
         $previous_source_list=$member->getSourceList(['s.member_stylist_type'=>'0','s.member_stylist_id'=>1],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'<=','value'=>date('Y-m-d')]]);
-        return view('member.source-list',compact('source_list_data','previous_source_list'));
+        return view('member.dashboard.source-list',compact('source_list_data','previous_source_list'));
     }
 
     public function memberSubmitRequest(Request $request){
         $member=new Member();
         $country_list=$member->getCountryList();
         $brand_list=$member->getBrandList();
-        return view('member.member-submit-request',compact('country_list','brand_list'));
+        return view('member.dashboard.member-submit-request',compact('country_list','brand_list'));
     }
     
 
@@ -91,7 +91,7 @@ class MemberController extends Controller
             $source_image= $request->file('source_image');
             if(!empty($source_image)){
                 $new_name = rand() . '.' . $source_image->getClientOriginalExtension();
-                $source_image->move(public_path('member/attachments/source'), $new_name);
+                $source_image->move(public_path('member/dashboard/attachments/source'), $new_name);
                 $source_image_name=$new_name;
             }
             $member=new Member();
@@ -132,7 +132,7 @@ class MemberController extends Controller
         
     }
     public function memberSubmitRequestComplete(Request $request){       
-        return view('member.member-submit-request-complete');
+        return view('member.dashboard.member-submit-request-complete');
     }
     public function memberOfferReceived($id){
         $member=new Member();
@@ -140,10 +140,10 @@ class MemberController extends Controller
         if(!count($offer_list)){
             return redirect('/sourcing');
         }
-        return view('member.multiple-offer-received',compact('offer_list'));
+        return view('member.dashboard.multiple-offer-received',compact('offer_list'));
     }
     public function memberOfferAcceptedSuccessful(Request $request){
-        return view('member.member-offer-accepted');
+        return view('member.dashboard.member-offer-accepted');
     }
 
     public function memberAcceptOffer(Request $request){

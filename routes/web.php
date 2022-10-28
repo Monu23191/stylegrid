@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController as Member;
+use App\Http\Controllers\MemberWebsiteController as Website;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,10 @@ use App\Http\Controllers\MemberController as Member;
 //Route::get('/', function () {
   //  return view('welcome');
 //});
+
+Route::get('/member-registration', [Website::class, 'index']);
+Route::get('/member-login', [Website::class, 'memberLogin']);
+
 Route::get('/', [Member::class, 'index']);
 Route::get('/sourcing', [Member::class, 'memberSourcing']);
 Route::get('/offer-received/{title}', [Member::class, 'memberOfferReceived']);
