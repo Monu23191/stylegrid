@@ -20,7 +20,11 @@ use Storage;
 class CreateGridController extends BaseController
 {
     // use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-	
+	  public function index()
+    {
+      
+        return view('stylist.postloginview.dashboard');
+    }
 	
 	public function loadgridview()
 	{
