@@ -11,7 +11,7 @@
                                 href="#"><i class="ft-menu"></i></a></li>
     
                         <li class="dropdown nav-item mega-dropdown d-lg-block d-none"><a
-                                class="dropdown-toggle nav-link" href="#" data-toggle="dropdown">Hi Georgia! Welcome to
+                                class="dropdown-toggle nav-link" href="#" data-toggle="dropdown">Hi Max! Welcome to
                                 your StyleGrid Dashboard.</a>
     
                         </li>

@@ -15,19 +15,18 @@
             </div>
             <div class="content-body">
                 <!-- Revenue, Hit Rate & Deals -->
-                <div class="flex-column-reverse flex-md-row mt-lg-3 row">
-                    <div class="col-md-8">
-                    <div class="col-md-8">
+                <div class=" mt-lg-3 row">
+                   <div class="col-8">
                         <h1>Let&apos;s get styling.</h1>
                         <h3>Create a new StyleGrid and send to your clients via PDF or weblink.</h3>
                     </div>
                     </div>
-                    <div class="col-md-4 quick-link text-right">
-                        <span class="mr-5"><a hrf="">Quick Link</a></span>
-                        <div class="row justify-content-end my-2">
-                            <a href="" class="mx-1"><img src="stylist/app-assets/images/icons/Chat.svg" alt=""></a>
+                    <div class="col-4 quick-link text-right">
+                        <span class="mr-lg-5"><a hrf="">Quick Link</a></span>
+                        <div class="d-flex justify-content-end my-2">
+                            <a href="" class="mx-lg-1"><img src="stylist/app-assets/images/icons/Chat.svg" alt=""></a>
                             <a href="" class="mx-1"><img src="stylist/app-assets/images/icons/File Invoice.svg" alt=""></a>
-                            <a href="" class="mx-1"><img src="app-assets/images/icons/Gear.svg" alt=""></a>
+                            <a href="" class="mx-lg-1"><img src="stylist/app-assets/images/icons/Gear.svg" alt=""></a>
 
                         </div>
 
@@ -87,6 +86,7 @@
     </div>
     <!--------------------end of fulfil souring request--------->
     <!--  Modal -->
+<<<<<<< HEAD
     
 	   @include("stylist.postloginview.partials.footer.footerjs")
   <input type="hidden" value="2" id="randomnum" readonly>
@@ -123,6 +123,43 @@
 	  html +='<div class="col-lg-2 px-0 text-lg-left text-center mjaddanother" id="addanother'+count+'"><button type="submit" class="px-3 form-border addblock" onclick="addblock('+count+')"  ><img src="stylist/app-assets/images/icons/plus.png" alt=""><br>Add another block</button></div>';
 	 
 	  html +='<div class="col-lg-6 px-lg-5"><div class="Neon Neon-theme-dragdropbox mt-5"><input name="files[]" id="filer_input2" multiple="multiple" type="file"><div class="Neon-input-dragDrop py-5 px-4 mx-lg-3"><div class="Neon-input-inner py-2"><div class="Neon-input-text"><h3>Add your feature image here...</h3></div><a class="Neon-input-choose-btn blue"><imgsrc="stylist/app-assets/images/icons/plus.png" alt=""></a></div></div></div></div></div></div></div><div class="col-lg-1"></div></div>';
+=======
+    <div class="modal fade" id="add-item-form" tabindex="-1" role="dialog" aria-labelledby="acceptLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content pt-1">
+                <div class="mr-2">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body py-2">
+                    <h1 class="text-center modal-submit-request">Submit Sourcing Request</h1>
+                    <div id="browse-soursing" class="mt-2">
+
+                        <div class="row align-items-center" id="fulfill-request">
+                            <div class="col-lg-6 ">
+                                <div class="Neon Neon-theme-dragdropbox mt-3">
+                                    <input name="files[]" id="filer_input2" multiple="multiple" type="file">
+                                    <div class="Neon-input-dragDrop py-5 px-4">
+                                        <div class="Neon-input-inner py-4">
+                                            <div class="Neon-input-text ">
+                                                <h3>Upload an image of the product here</h3>
+                                            </div><a class="Neon-input-choose-btn blue"><img
+                                                    src="stylist/app-assets/images/icons/plus.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-3 lg-border-left ">
+                                    <form id="submit-request" action="client-submit-request-complete.html" class=" ">
+                                        <div class="form-group">
+                                            <label for="">Enter the name of the product here:</label>
+                                            <input type="text" class="form-control submit-input"
+                                                aria-describedby="emailHelp" placeholder="Enter product name...">
+>>>>>>> 73cd23deeedf17c89777637b9c8d8d2f53e2a2ae
 
 
 	$('.appendrowhere').append(html);

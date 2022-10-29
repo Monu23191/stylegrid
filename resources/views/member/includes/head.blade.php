@@ -17,5 +17,10 @@
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('member/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('member/assets/css/jquery-ui.css') }}">
     <!-- END: Custom CSS-->
 </head>
+
+<img id="blah" alt="your image" width="100" height="100" />
+
+<input type="file" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
