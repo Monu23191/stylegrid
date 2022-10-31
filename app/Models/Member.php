@@ -31,9 +31,10 @@ class Member extends Model
 				"m.id",
 				"m.email",
             	"m.phone",
+				"m.verified"
 			]);
 			$this->db->where($where);
-			$response_data=$this->db->get();
+			$response_data=$this->db->get()->first();
 			return $response_data;
 		}
 	}

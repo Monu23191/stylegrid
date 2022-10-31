@@ -31,7 +31,12 @@ $(function(){
         success : function (ajaxresponse){
             response = JSON.parse(ajaxresponse);
             if(response['status']){
-              console.log(response);
+              $('#message_box').html('<div class="alert alert-success">'+response['message']+'</div>');
+              setTimeout(function(){
+                window.location = "/member-dashboard";
+            }, 500);
+            }else{
+              $('#message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
             }
         }
     })
@@ -40,26 +45,29 @@ $(function(){
     }
   })
 })
-//if(constants.current_url=='/member-registration'){
+if(constants.current_url=='/member-registration'){
           var currentTab = 0; // Current tab is set to be the first tab (0)
           showTab(currentTab); // Display the current tab
-  //      }
+        }
         
         function showTab(n) {
-            var x = document.getElementsByClassName("tab");
-            x[n].style.display = "block";
-            if (n == 0) {
-                document.getElementById("prevBtn").style.display = "none";
-            } else {
-                document.getElementById("prevBtn").style.display = "inline";
-            }
-            if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = "Submit";
-            } else {
-                document.getElementById("nextBtn").innerHTML = "Next";
-            }
-            fixStepIndicator(n)
-        }
+          // This function will display the specified tab of the form...
+          var x = document.getElementsByClassName("tab");
+          x[n].style.display = "block";
+          //... and fix the Previous/Next buttons:
+          if (n == 0) {
+              document.getElementById("prevBtn").style.display = "none";
+          } else {
+              document.getElementById("prevBtn").style.display = "inline";
+          }
+          if (n == (x.length - 1)) {
+              document.getElementById("nextBtn").innerHTML = "Submit";
+          } else {
+              document.getElementById("nextBtn").innerHTML = "Next";
+          }
+          //... and run a function that will display the correct step indicator:
+          fixStepIndicator(n)
+      }
 
         function nextPrev(n) {
             var x = document.getElementsByClassName("tab");

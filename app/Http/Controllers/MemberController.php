@@ -3,14 +3,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use Illuminate\Support\Str;
+use Session;
 /*
 @author-Sunil Kumar Mishra
 date:19-10-2022
 */
 class MemberController extends Controller
 {
-    public function index()
-    {
+ 
+    public function __construct(){
+            $this->middleware(function ($request, $next) {
+            if(!Session::get("loggedin")) {
+                return redirect("/member-login");
+            }
+            return $next($request);
+        });
+    }
+    
+    public function memberDashboard(Request $request){
         return view('member.dashboard.index');
     }
 
@@ -131,6 +141,7 @@ class MemberController extends Controller
         }  
         
     }
+
     public function memberSubmitRequestComplete(Request $request){       
         return view('member.dashboard.member-submit-request-complete');
     }

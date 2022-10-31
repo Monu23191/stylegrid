@@ -67,7 +67,7 @@
                             data-i18n="">Help Centre</span></a>
 
                 </li>
-                <li class=" nav-item"><a href="#"><i class="ft-sidebar"></i><span class="menu-title" data-i18n="">Sign
+                <li class=" nav-item"><a href="{{url('/member-logout')}}"><i class="ft-sidebar"></i><span class="menu-title" data-i18n="">Sign
                             Out</span></a>
                 </li>
 
