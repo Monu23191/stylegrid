@@ -1,75 +1,292 @@
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
+$(function(){
+  $('#member-login-btn').click(function(){
+    $('#member-login-form input').css('border', '1px solid #ccc');
+    $('.error').html('');
+    $('.message').html('');
+    var email=makeTrim($('#email').val());
+    var password=makeTrim($('#password').val());
+    var status=true;
+    if(email==''){
+      $('#email').css('border', '2px solid #cc0000');
+      $('#email_error').html('Please enter email');
+      status=false;
+    }else{
+      if (!validEmail(email)) {
+        $('#email').css('border', '2px solid #cc0000');
+        $('#email_error').html('Please enter a valid Email ID');
+        status = false;
+      }
+    }
+    if(password==''){
+      $('#password').css('border', '2px solid #cc0000');
+      $('#password_error').html('Please enter password');
+      status=false;
+    }
+    if(status){
+      $.ajax({
+        url : '/member-login-post',
+        method : "POST",
+        async: false,
+        data : $('#member-login-form').serialize(),
+        success : function (ajaxresponse){
+            response = JSON.parse(ajaxresponse);
+            if(response['status']){
+              console.log(response);
+            }
+        }
+    })
+    }else{
+      $('#message_box').html('<div class="alert alert-danger">Please enter all the mandatory fields!</div>');
+    }
+  })
+})
+//if(constants.current_url=='/member-registration'){
+          var currentTab = 0; // Current tab is set to be the first tab (0)
+          showTab(currentTab); // Display the current tab
+  //      }
+        
+        function showTab(n) {
+            var x = document.getElementsByClassName("tab");
+            x[n].style.display = "block";
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+            }
+            fixStepIndicator(n)
+        }
 
-function showTab(n) {
-  // This function will display the specified tab of the form...
-  var x = document.getElementsByClassName("tab");
-  x[n].style.display = "block";
-  //... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  //... and run a function that will display the correct step indicator:
-  fixStepIndicator(n)
+        function nextPrev(n) {
+            var x = document.getElementsByClassName("tab");
+            if (n == 1 && !validateForm()) {
+              return false;
+            }
+            x[currentTab].style.display = "none";
+            currentTab = currentTab + n;
+            if (currentTab >= x.length) {
+              addMember();
+              return false;
+            }
+            showTab(currentTab);
+        }
+
+        function validateForm() {
+          $('#member-registration-form input, select ').css('border', '1px solid #ccc');
+          $('.error').html('');
+          $('.message').html('');
+          var x, y, i, valid = true;
+          if(currentTab==0){
+            valid = false
+            return  setpOneValidation();
+          }
+          if(currentTab==1){
+            valid = false
+            return  setpTwoValidation();
+          }
+          if(currentTab==2){
+            valid = false
+            return  setpThreeValidation();
+          }
+          if(currentTab==3){
+            valid = false
+            return  setpFourValidation();
+          }
+          if(currentTab==4){
+            valid = false
+            return  setpFiveValidation();
+          }
+          
+          if (valid) {
+            document.getElementsByClassName("step")[currentTab].className += " finish";
+        }
+        return valid; 
+        }
+
+        function fixStepIndicator(n) {
+            // This function removes the "active" class of all steps...
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            //... and adds the "active" class on the current step:
+            x[n].className += " active";
+        }
+function addMember(){
+  $.ajax({
+    url : '/add-member',
+    method : "POST",
+    async: false,
+    data : $('#member-registration-form').serialize(),
+    success : function (ajaxresponse){
+        response = JSON.parse(ajaxresponse);
+        if(response['status']){
+          $('#next-previous').remove();
+          $('#steps-next-previous').remove();
+          $('.success_tab').show();
+        }
+    }
+})
 }
+function setpOneValidation(){
+  $('#member-registration-form input, select ').css('border', '1px solid #ccc');
+  $('.error').html('');
+  $('.message').html('');
+  var full_name=makeTrim($('#full_name').val());
+  var email=makeTrim($('#email').val());
+  var phone=makeTrim($('#phone').val());
+  var password=makeTrim($('#password').val());
+  var confirm_password=makeTrim($('#confirm_password').val());
 
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form...
-  if (currentTab >= x.length) {
-    // ... the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
+  var status=true;
+  if(full_name==''){
+    $('#full_name').css('border', '2px solid #cc0000');
+    $('#full_name_error').html('Please enter name');
+    status=false;
   }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
-}
-
-function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
+  if(email==''){
+    $('#email').css('border', '2px solid #cc0000');
+    status=false;
+  }else {
+    if (!validEmail(email)) {
+      $('#email').css('border', '2px solid #cc0000');
+      $('#email_error').html('Please enter a valid Email ID');
+      status = false;
+    }else{
+      $.ajax({
+        url : '/check-member-existance',
+        method : "POST",
+        async: false,
+        data : {
+          'key':'email',
+          'value':email,
+          '_token': constants.csrf_token
+        },
+        success : function (ajaxresponse){
+            response = JSON.parse(ajaxresponse);
+            if (!response['status']) {
+              $('#email').css('border', '2px solid #cc0000');
+              $('#email_error').html('Email Address already exists!');
+              status = false; 
+            }
+        }
+    })
     }
   }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
+  if(phone==''){
+    $('#phone').css('border', '2px solid #cc0000');
+    $('#phone_error').html('Please enter Phone');
+    status=false;
+  }else{
+    $.ajax({
+      url : '/check-member-existance',
+      method : "POST",
+      async: false,
+      data : {
+        'key':'phone',
+        'value':phone,
+        '_token': constants.csrf_token
+      },
+      success : function (ajaxresponse){
+          response = JSON.parse(ajaxresponse);
+          if (!response['status']) {
+            $('#phone').css('border', '2px solid #cc0000');
+            $('#phone_error').html('Phone Number already exists!');
+            status = false; 
+          }
+      }
+  })
   }
-  return valid; // return the valid status
+
+  if(password==''){
+    $('#password').css('border', '2px solid #cc0000');
+    $('#password_error').html('Please enter Password');
+    status=false;
+  }else{
+    if (password.length < 8) {
+        $('#password').css('border', '2px solid #cc0000');
+        $('#password_error').html('Your password must be at least 8 characters.');
+        status = false;
+    }
+    else if (password.search(/[a-z]/i) < 0) {
+        $('#password').css('border', '2px solid #cc0000');
+        $('#password_error').html('Your password must contain at least one letter.');
+        status = false;
+    }else if(password.search(/[0-9]/) < 0){
+        $('#password').css('border', '2px solid #cc0000');
+        $('#password_error').html('Your password must contain at least one digit.');
+        status = false;
+    }
+  }
+  if (confirm_password == '') {
+    $('#confirm_password').css('border', '2px solid #cc0000');
+    $('#confirm_password_error').html('Required*');
+    status = false;
+  }
+  if (password != '') {
+    if (confirm_password != password) {
+      $('#confirm_password').css('border', '2px solid #cc0000');
+      $('#confirm_password_error').html('Password and Confirm Password do not match.');
+      status = false;
+    }
+  }
+  if(!status){
+    $('#message_box').html('<div class="alert alert-danger">Please enter all the mandatory fields!</div>');
+  }
+  return status;
 }
 
-function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
+function setpTwoValidation(){
+  $('.message').html('');
+  var status=true;
+  if (!$('#shop').is(':checked') && !$('#style').is(':checked') && !$('#source').is(':checked')) {
+    status=false;
   }
-  //... and adds the "active" class on the current step:
-  x[n].className += " active";
+  if(!status){
+    $('#message_box').html('<div class="alert alert-danger">Please select at least one!</div>');
+  }
+  return status;
 }
-$(function(){
-  //alert('hello');
-})
+function setpThreeValidation(){
+  var status=true;
+  if($("input[name='gender']:checked").val()==undefined){
+    status=false;
+    $('#message_box').html('<div class="alert alert-danger">Please select your gender!</div>');
+  }
+  return status;
+}
+
+function setpFourValidation(){
+  var status=true;
+  if($("#country_id").val()==''){
+    status=false;
+    $('#message_box').html('<div class="alert alert-danger">Please select your country!</div>');
+  }
+  return status;
+}
+
+function setpFiveValidation(){
+  var status=true;
+  var total_selected_brand=$('.brand_list_check').filter(':checked').length;
+  if(total_selected_brand==0){
+    status=false;
+    $('#message_box').html('<div class="alert alert-danger">Please select at least one brand!</div>');
+  }
+  return status;
+}
+
+function makeTrim(x) {
+  if (x) {
+      return x.replace(/^\s+|\s+$/gm, '');
+  } else {
+      return x;
+  }
+}
+function validEmail(email) {
+  var re = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  return re.test(email);
+}

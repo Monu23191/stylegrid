@@ -105,10 +105,17 @@
 
                                                         ?>
                                                         <td class="green-color">
-                                                            {{$source_row['total_offer']}} Offers Received
-                                                            <?php if($source_row['decline_offer']){
+                                                            <?php
+                                                            $balance_offer=$source_row['total_offer']-$source_row['decline_offer'];
+                                                            if($balance_offer==1){
+                                                                echo "Offer Received";
+                                                            }else{
+                                                                echo $balance_offer. "Offers Received";
+                                                            } 
+                                                            if($source_row['decline_offer']){
                                                                  echo "/ ".$source_row['decline_offer']." Declined";
-                                                            } ?>
+                                                            }
+                                                            ?>
                                                         </td> 
                                                         <?php
                                                     }

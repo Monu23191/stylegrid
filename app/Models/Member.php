@@ -24,6 +24,20 @@ class Member extends Model
 		$response_data=$this->db->get();
 		return $response_data;
 	}
+	function checkMemberExistance($where){
+		if(count($where)){
+			$this->db = DB::table('sg_member AS m');
+			$this->db->select([
+				"m.id",
+				"m.email",
+            	"m.phone",
+			]);
+			$this->db->where($where);
+			$response_data=$this->db->get();
+			return $response_data;
+		}
+	}
+	
 	function getBrandList($where=[],$search=''){
 		$this->db = DB::table('sg_brand AS b');
 		$this->db->select([

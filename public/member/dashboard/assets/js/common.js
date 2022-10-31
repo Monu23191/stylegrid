@@ -4,6 +4,9 @@ function selectBrand(brand_id){
     $('#brand').val(brandList[brand_id]);
     $('#autsuggestion_section').html('');
 }
+$(window).load(function() {
+    $('#submit-request-form').get(0).reset(); //clear form data on page load
+});
 $(function(){
     $('#brand').keyup(function(){
         $('#autsuggestion_section').html('');
@@ -77,35 +80,7 @@ $(function(){
     });
     $("#deliver_date" ).datepicker({ minDate: 0});
     $('#submit-request-btn').click(function(){
-        $('.error').html('');
-        $('#submit-request-form input, select ').css('border', '1px solid #ccc');
-        var product_name=makeTrim($('#product_name').val());
-        var brand=makeTrim($('#brand').val());
-        var product_type=makeTrim($('#product_type').val());
-        var country=makeTrim($('#country').val());
-        var deliver_date=makeTrim($('#deliver_date').val());
-        
-        var status=true;
-        if(product_name==''){
-            $('#product_name').css('border', '2px solid #cc0000');
-            status=false;
-        }
-        if(brand==''){
-            $('#brand').css('border', '2px solid #cc0000');
-            status=false;
-        }
-        if(product_type==''){
-            $('#product_type').css('border', '2px solid #cc0000');
-            status=false;
-        }
-        if(country==''){
-            $('#country').css('border', '2px solid #cc0000');
-            status=false;
-        }
-        if(deliver_date==''){
-            $('#deliver_date').css('border', '2px solid #cc0000');
-            status=false;
-        }
+       var status=sourceFormValidation();
         if(status){
             $('#sourceConfirmationPopUp').modal('show');
             return false;
@@ -116,26 +91,36 @@ $(function(){
         return false;
     })
     $('#add-source-confirm-button').click(function(){
-        $.ajax({
-            type: 'POST',
-            url: '/member-submit-request-post',                
-            data: new FormData($("#submit-request-form")[0]),
-            async : false,
-            cache : false,
-            contentType : false,
-            processData : false,
-            success: function(ajaxresponse) {
-                response = JSON.parse(ajaxresponse);
-                if (response['status']) {
-                    setTimeout(function(){
-                        window.location = "/member-submit-request-complete";
-                    }, 500);
-                } else {
-                    $('#message-box').html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>' + response['message'] + '</div>');
-                    return false;
+        var status=sourceFormValidation();
+        if(status){
+            $.ajax({
+                type: 'POST',
+                url: '/member-submit-request-post',                
+                data: new FormData($("#submit-request-form")[0]),
+                async : false,
+                cache : false,
+                contentType : false,
+                processData : false,
+                success: function(ajaxresponse) {
+                    response = JSON.parse(ajaxresponse);
+                    if (response['status']) {
+                        $('#sourceConfirmationPopUp').modal('hide');
+                        $("#submit-request-form").trigger("reset");
+                        setTimeout(function(){
+                            window.location = "/member-submit-request-complete";
+                        }, 500);
+                    } else {
+                        $('#message-box').html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>' + response['message'] + '</div>');
+                        return false;
+                    }
                 }
-            }
-        });
+            });
+        }else{
+            $('#sourceConfirmationPopUp').modal('hide');
+		    $('#message-box').html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>Please enter the mandatory fields!</div>');
+            $(window).scrollTop(0);
+        }
+        return false;
     })
     $('.accept-offer').click(function(){
         $('#selected_offer_id').val($(this).attr('data-id'));
@@ -181,15 +166,55 @@ $(function(){
                 success : function (ajaxresponse){
                     response = JSON.parse(ajaxresponse);
                     if (response['status']) {
-                        setTimeout(function(){
+                        $('#declineOffer').modal('hide');
+                        $('#declined_section'+decline_offer_id).html('<div class="ml-2"><div class="px-3 red-color"><b>Declined Offer</b></div></div>');
+                        var total_class=$('.offer_class').length;
+                        var total_decline_class=$('.decline').length;
+                        if(total_class==total_decline_class){
+                          setTimeout(function(){
                             window.location = "/sourcing";
                         }, 500);
+                        }
+                        
                     }
                 }
             })
         }
     })
 })
+
+function sourceFormValidation(){
+    $('.error').html('');
+    $('#submit-request-form input, select ').css('border', '1px solid #ccc');
+    var product_name=makeTrim($('#product_name').val());
+    var brand=makeTrim($('#brand').val());
+    var product_type=makeTrim($('#product_type').val());
+    var country=makeTrim($('#country').val());
+    var deliver_date=makeTrim($('#deliver_date').val());
+    
+    var status=true;
+    if(product_name==''){
+        $('#product_name').css('border', '2px solid #cc0000');
+        status=false;
+    }
+    if(brand==''){
+        $('#brand').css('border', '2px solid #cc0000');
+        status=false;
+    }
+    if(product_type==''){
+        $('#product_type').css('border', '2px solid #cc0000');
+        status=false;
+    }
+    if(country==''){
+        $('#country').css('border', '2px solid #cc0000');
+        status=false;
+    }
+    if(deliver_date==''){
+        $('#deliver_date').css('border', '2px solid #cc0000');
+        status=false;
+    }
+    return status;
+}
 function makeTrim(x) {
     if (x) {
         return x.replace(/^\s+|\s+$/gm, '');

@@ -20,7 +20,10 @@ use App\Http\Controllers\MemberWebsiteController as Website;
 //});
 
 Route::get('/member-registration', [Website::class, 'index']);
+Route::post('/add-member', [Website::class, 'addMember']);
+Route::post('/check-member-existance', [Website::class, 'checkMemberExistance']);
 Route::get('/member-login', [Website::class, 'memberLogin']);
+Route::post('/member-login-post', [Website::class, 'memberLoginPost']);
 
 Route::get('/', [Member::class, 'index']);
 Route::get('/sourcing', [Member::class, 'memberSourcing']);

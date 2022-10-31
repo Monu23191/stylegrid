@@ -1,56 +1,50 @@
 @extends('member.website.layouts.default')
 @section('content')
-
 <div class="container-fluid">
-    <div class="container">
-        <div id="signup">
-            <div class="row justify-content-center">
-                <h1>Sign up to StyleGrid</h1>
-                <p class="text-center">Create your account today and enjoy a 30 day free trial, with access to a dedicated stylist and
-                    exclusive luxury product.</p><br>
+    <div id="signup">
+        <div class="row justify-content-center">
+            <div class="col-md-6 dis-flex mt-5">
+                <div class="signin mt-5">
+                <h1>Sign in to your Stylist account</h1>
+                <p class="text-center">Please enter your email and password to log in to your StyleGrid stylist
+                    account.</p><br>
 
-            </div>
-            <div>
-                <h6>Let’s get started.</h6>
-            </div>
-            <div class="dis-flex mt-2">
-                <form>
-                    <div class="inputbox">
-                        <div class="form-group">
-                            <input type="text" required="required">
-                            <span>Full Name</span>
-                        </div>
-                    </div>
-                    <div class="inputbox">
-                        <div class="form-group">
-                            <input type="text" required="required">
-                            <span>Email Address</span>
-                        </div>
-                    </div>
-                    <div class="inputbox">
-                        <div class="form-group">
-                            <input type="text" required="required">
-                            <span>Phone Number</span>
-                        </div>
-                    </div>
-                    <div class="inputbox">
-                        <div class="form-group">
-                            <input type="text" required="required">
-                            <div>
-                                <span>Create Password</span>
+
+                <div class="dis-flex ">
+                    <div id="message_box" class="message"></div>
+                    <form id="member-login-form">
+                        @csrf
+                        <div class="inputbox">
+                            <div class="form-group">
+                                <input type="text" name="email" id="email">
+                                <span id="email_error" class="error"></span>
+                                <span>Email Address</span>
                             </div>
                         </div>
-                    </div>
-
-</form>
+                        <div class="inputbox">
+                            <div class="form-group">
+                                <input type="password" name="password" id="password">
+                                <span id="password_error" class="error"></span>
+                                <span>Password</span>
+                            </div>
+                        </div>
+                        <div><a href="" class="forgot-pass">
+                            <h3>Forgot password?</h3>
+                        </a></div>
+                        <div class="text-center"><a href="javascript:void(0);"><button type="button" class="sign-in px-2" id="member-login-btn">Sign In</button></a>
+                        </div>
+                        <div class="mt-2"><h5>if you are a client,<a href="{{url('/member-registration')}}"> please click here to <br>sign in.</a></h5></div>
+                    </form>
+                </div>
             </div>
-
-            
         </div>
-    </div>
+            <div class="col-md-6 mt-2">
+                <div>
+                    <img src="{{ asset('member/website/assets/images/login2.png') }}" class="" alt="" style="width:100% ;">
+                </div>
+            </div>
+        </div>
 
-</div>
-<div class="text-right mr-5 ">
-    <a href="signup-1.html"><button type="submit" class="next-btn">Next</button></a>
+    </div>
 </div>
 @stop

@@ -54,7 +54,7 @@ class MemberController extends Controller
             }
             $source_list_data[]=$data;
         }
-        $previous_source_list=$member->getSourceList(['s.member_stylist_type'=>'0','s.member_stylist_id'=>1],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'<=','value'=>date('Y-m-d')]]);
+        $previous_source_list=$member->getSourceList(['s.member_stylist_type'=>'0','s.member_stylist_id'=>1],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'<','value'=>date('Y-m-d')]]);
         return view('member.dashboard.source-list',compact('source_list_data','previous_source_list'));
     }
 

@@ -99,7 +99,7 @@
                                                 price.</label>
                                         </div>
                                         <div class="w-100">
-                                            <div class="my-2 row">
+                                            <div class="my-2 row offer_class <?php if($offer->status==2){ echo 'decline';}?>" id="declined_section<?php echo $offer->id;?>">
                                             <?php
                                             if($offer->status!=2){
                                                 ?>
