@@ -1,4 +1,4 @@
-@font-face {
+E @font-face {
   font-family: 'Genos';
   src: url(../font/genos/fonts/ttf/Genos-Regular.ttf);
 }
@@ -35,7 +35,8 @@
   src: url(../font/Roboto/Roboto-Light.ttf);
 
 }
-body{
+
+body {
   overflow-y: auto;
 }
 
@@ -114,10 +115,12 @@ body{
   .topnav .search-container {
     float: none;
   }
-  .content-body h1{
+
+  .content-body h1 {
     font-size: 25px;
   }
-  .content-body h3{
+
+  .content-body h3 {
     font-size: 16px;
   }
 
@@ -2503,8 +2506,13 @@ margin-bottom: 23px; */
   border: transparent;
   height: 19px;
 }
-.error{
+
+.error {
   color: #ff0000;
+  position: absolute;
+  top: 46px;
+  right: 0;
+  font-size: 1.2rem;
 }
 
 
@@ -2529,28 +2537,41 @@ margin-bottom: 23px; */
     font-size: 14px;
     height: 27px;
   }
-.footer-border-bottom{
-  border-bottom: 1px solid #fff;
-}
-  
+
+  .footer-border-bottom {
+    border-bottom: 1px solid #fff;
+  }
+
   .raise-bg-img p,
   .raise-bg .btn,
   .raise-bg-img .btn {
     font-size: 16px;
   }
-  .content-body h1,#inbox-msg h3,#style-news h1,#footer h1,
-  #browse-soursing h1,#notice-board h1,#refer-client h1,#create-grid-1 h1{
+
+  .content-body h1,
+  #inbox-msg h3,
+  #style-news h1,
+  #footer h1,
+  #browse-soursing h1,
+  #notice-board h1,
+  #refer-client h1,
+  #create-grid-1 h1 {
     font-size: 25px;
     line-height: 30px;
   }
-  .content-body h3,#browse-soursing h2,#footer p{
+
+  .content-body h3,
+  #browse-soursing h2,
+  #footer p {
     font-size: 16px;
     line-height: 26px;
   }
-  #board-detail h1{
+
+  #board-detail h1 {
     font-size: 15px;
   }
-  .quick-link img{
+
+  .quick-link img {
     height: 35px;
   }
 }
@@ -2570,34 +2591,49 @@ margin-bottom: 23px; */
     font-size: 12px;
     letter-spacing: 0.64px;
   }
+
   .carousel-control-next {
-    right: 30px; }
+    right: 30px;
+  }
+
   /* .carousel-caption button {
     font-size: 18px;
     height: 27px;
   } */
-  .footer-border-bottom{
+  .footer-border-bottom {
     border-bottom: 1px solid #fff;
   }
-  
+
   .raise-bg-img p,
   .raise-bg .btn,
   .raise-bg-img .btn {
     font-size: 16px;
   }
-  .content-body h1,#browse-soursing h1,#notice-board h1,#refer-client h1,#footer h1,#create-grid-1 h1{
+
+  .content-body h1,
+  #browse-soursing h1,
+  #notice-board h1,
+  #refer-client h1,
+  #footer h1,
+  #create-grid-1 h1 {
     font-size: 25px;
   }
-  .content-body h3,#browse-soursing h2,#footer p{
+
+  .content-body h3,
+  #browse-soursing h2,
+  #footer p {
     font-size: 16px;
   }
-  #board-detail h1{
+
+  #board-detail h1 {
     font-size: 15px;
   }
-  .border-right1{
+
+  .border-right1 {
     border: 0px !important;
   }
-  .quick-link img{
+
+  .quick-link img {
     height: 35px;
   }
 }
@@ -2611,32 +2647,46 @@ margin-bottom: 23px; */
   .table-responsive {
     display: block !important;
   }
-  .content-body h1,#browse-soursing h1,#notice-board h1,#create-grid-1 h1{
+
+  .content-body h1,
+  #browse-soursing h1,
+  #notice-board h1,
+  #create-grid-1 h1 {
     font-size: 32px;
   }
-  #refer-client h1{
+
+  #refer-client h1 {
     font-size: 37.812px;
   }
-  .content-body h3,.raise-bg h1{
+
+  .content-body h3,
+  .raise-bg h1 {
     font-size: 24px;
   }
-    .carousel-control-next {
-      right: -30px; } 
-      #footer h1{
-        font-size: 48px;
-      }
-      .raise-bg-img h1{
-        font-size: 24px;
-      }
-      #board-detail h1{
-        font-size: 15.9px;
-      }
-      .quick-link img{
-        height: 45px;
-      }
-      .footer-border-bottom{
-        border-bottom: 1px solid #fff;
-      }
+
+  .carousel-control-next {
+    right: -30px;
+  }
+
+  #footer h1 {
+    font-size: 48px;
+  }
+
+  .raise-bg-img h1 {
+    font-size: 24px;
+  }
+
+  #board-detail h1 {
+    font-size: 15.9px;
+  }
+
+  .quick-link img {
+    height: 45px;
+  }
+
+  .footer-border-bottom {
+    border-bottom: 1px solid #fff;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -2644,14 +2694,17 @@ margin-bottom: 23px; */
   .one-caroImg {
     width: 80vw;
   }
-  .footer-border-bottom{
+
+  .footer-border-bottom {
     border-bottom: 0px;
   }
+
   #twoPagecarousel .carousel-caption p,
   .img-width p {
     font-size: 10px;
   }
-  .border-right1{
+
+  .border-right1 {
     border: 1px solid #626E82 !important
   }
 
@@ -2683,4 +2736,3 @@ margin-bottom: 23px; */
     display: inline-table !important;
   }
 }
-
