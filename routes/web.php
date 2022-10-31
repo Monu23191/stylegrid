@@ -25,6 +25,10 @@ Route::post('/check-member-existance', [Website::class, 'checkMemberExistance'])
 Route::get('/member-login', [Website::class, 'memberLogin']);
 Route::post('/member-login-post', [Website::class, 'memberLoginPost']);
 
+Route::domain('stylist.com')->group(function () {
+Route::get('/','App\Http\Controllers\CreateGridController@index');
+Route::get('/loadgridview','App\Http\Controllers\CreateGridController@loadgridview');
+});
 Route::get('/', [Member::class, 'index']);
 Route::get('/sourcing', [Member::class, 'memberSourcing']);
 Route::get('/offer-received/{title}', [Member::class, 'memberOfferReceived']);
@@ -43,4 +47,4 @@ Route::post('/member-submit-request-post', [Member::class, 'memberSubmitRequestP
 	// error_log("ROOT ROUTE");
     // return view('stylist.postloginview.create_grid');
 // });
-Route::get('/loadgridview','App\Http\Controllers\CreateGridController@loadgridview');
+
