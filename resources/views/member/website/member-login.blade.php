@@ -17,14 +17,14 @@
                         <div class="inputbox">
                             <div class="form-group">
                                 <input type="text" name="email" id="email">
-                                <span id="email_error" class="error"></span>
+                                <div id="email_error" class="error"></div>
                                 <span>Email Address</span>
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
                                 <input type="password" name="password" id="password">
-                                <span id="password_error" class="error"></span>
+                                <div id="password_error" class="error"></div>
                                 <span>Password</span>
                             </div>
                         </div>
