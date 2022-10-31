@@ -18,5 +18,6 @@
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="stylist/assets/css/style.css">
+	 <link rel="stylesheet" href="{{ asset('stylist/assets/css/jquery-ui.css') }}">
     <!-- END: Custom CSS-->
 </head>

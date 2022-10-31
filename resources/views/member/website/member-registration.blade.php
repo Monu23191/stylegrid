@@ -3,7 +3,7 @@
 <form id="member-registration-form" action="">
     @csrf
     <!-- One "tab" for each step in the form: -->
-    <div class="message" id="message_box"></div>
+    <!-- <div class="message" id="message_box"></div> -->
     <div class="mt-2"><h5>if you are a client,<a href="{{url('/member-login')}}"> please click here to <br>sign Up.</a></h5></div>
 
     <div class="tab">
@@ -26,34 +26,34 @@
                                 <input type="text" name="full_name" id="full_name">
                                 <span>Full Name</span>
                             </div>
-                            <span id="full_name_error" class="error"></span>
+                            <div id="full_name_error" class="error"></div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
                                 
                                 <input type="text" name="email" id="email">
-                                <span id="email_error" class="error"></span>
+                                <div id="email_error" class="error">email error</div>
                                 <span>Email Address</span>
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
                                 <input type="text" id="phone" name="phone">
-                                <span id="phone_error" class="error"></span>
+                                <div id="phone_error" class="error"></div>
                                 <span>Phone Number</span>
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
                                 <input type="password" id="password" name="password">
-                                <span id="password_error" class="error"></span>
+                                <div id="password_error" class="error"></div>
                                 <span>Create Password</span>
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
                                 <input type="password" id="confirm_password" name="confirm_password">
-                                <span id="confirm_password_error" class="error"></span>
+                                <div id="confirm_password_error" class="error"></div>
                                 <span>Create Confirm Password</span>
                             </div>
                         </div>
@@ -75,6 +75,7 @@
                         little more information about your tastes and style preferences.</p><br>
 
                 </div>
+                <div class="message" id="message_box"></div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="text-right">
@@ -129,9 +130,19 @@
                         brands that suit you best.</p><br>
 
                 </div>
+                <div class="message" id="message_box"></div>
                 <div class="row mt-3">
                     <div class="col-md-4 text-center mt-2">
-                        <div class="text-right">
+                    <label>
+                        <input type="radio" name="test" value="small" checked>
+                        <img src="{{ asset('member/website/assets/images/white-check.png') }}" alt="option1">
+                        <div class="text-center">
+                            <img src="{{ asset('member/website/assets/images/male.png') }}" alt="option 1">
+                            <h2 class="mt-2">Male</h2>
+                            <button class="select-btn mt-2">Select</button>
+                        </div>
+                    </label>
+                        <!-- <div class="text-right">
                             <input type="radio" name="gender" value="Male" >
                             <label for="Male"></label>
                         </div>
@@ -140,10 +151,19 @@
                                 <h2 class="mt-2">Male</h2>
                                 <button class="select-btn mt-2">Select</button>
                             </div>
-                        </label>
+                        </label> -->
                     </div>
                     <div class="col-md-4 text-center mt-2">
-                        <div class="text-right">
+                        <label>
+                              <input type="radio" name="test" value="big">
+                                <img src="{{ asset('member/website/assets/images/white-check.png') }}" alt="option1">
+                                <div class="text-center">
+                                    <img src="{{ asset('member/website/assets/images/female.png') }}" class="img-fluid" alt="">
+                                    <h2 class="mt-2">Female</h2>
+                                    <button class="select-btn mt-2">Select</button>
+                                </div>
+                        </label>
+                        <!-- <div class="text-right">
                             <input type="radio" name="gender"  value="Female">
                             <label for="Female"></label>
                         </div>
@@ -152,10 +172,20 @@
                                 <h2 class="mt-2">Female</h2>
                                 <button class="select-btn mt-2">Select</button>
                             </div>
-                        </label>
+                        </label> -->
                     </div>
                     <div class="col-md-4 text-center mt-2">
-                        <div class="text-right">
+                    <label>
+                        <input type="radio" name="test" value="big">
+                        <img src="{{ asset('member/website/assets/images/white-check.png') }}" alt="option1">
+                        <div class="text-center">
+                            <img src="{{ asset('member/website/assets/images/non-binary.png') }}" class="img-fluid" alt="">
+                            <h2 class="mt-2">Non Binary</h2>
+
+                            <button class="select-btn mt-2">Select</button>
+                        </div>
+                    </label>
+                        <!-- <div class="text-right">
                             <input type="radio" name="gender"  value="Non Binary">
                             <label for="Non Binary"></label>
                         </div>
@@ -165,7 +195,7 @@
                                 <h2 class="mt-2">Non Binary</h2>
                                 <button class="select-btn mt-2">Select</button>
                             </div>
-                        </label>
+                        </label> -->
                     </div>
                 </div>
             </div>
@@ -181,6 +211,7 @@
 
                 </div>
                 <div>
+                <div class="message" id="message_box"></div>
                     <div class="form-group input-city mt-2">
                         <select id="country_id" name="country_id" class="form-control icon">
                             <option value="">Select Country</option>
@@ -213,6 +244,7 @@
             </div>
         </div>
         <div class="container-fluid">
+        <div class="message" id="message_box"></div>
             <div class="row my-5">
                 <?php
                 foreach($brand_list as $brand){

@@ -1051,7 +1051,7 @@ input.search-top:-ms-input-placeholder {
   font-family: 'Silk Serif';
   font-style: normal;
   font-weight: 400;
-  font-size: 43.2px;
+  font-size: 12px;
   line-height: 65px;
   color: #8D8D8D;
 }
@@ -1071,7 +1071,7 @@ input.search-top:-ms-input-placeholder {
   font-family: 'Silk Serif';
   font-style: normal;
   font-weight: 400;
-  font-size: 43.2px;
+  font-size: 12px;
   line-height: 65px;
   color: #8D8D8D;
 }
@@ -1080,7 +1080,7 @@ input.search-top:-ms-input-placeholder {
   font-family: 'Silk Serif';
   font-style: normal;
   font-weight: 400;
-  font-size: 43.2px;
+  font-size: 12px;
   line-height: 65px;
   color: #8D8D8D;
 }
@@ -1476,11 +1476,11 @@ hr {
 
 #create-grid input {
   background-color: transparent;
-  border: none;
+  /* border: none; */
   font-family: 'Silk Serif';
   font-style: normal;
   font-weight: 400;
-  font-size: 43.2px;
+  /* font-size: 43.2px; */
   line-height: 65px;
   color: #8D8D8D;
 
@@ -1492,7 +1492,7 @@ hr {
   font-family: 'Silk Serif';
   font-style: normal;
   font-weight: 400;
-  font-size: 43.2px;
+  font-size: 12px;
   line-height: 65px;
   color: #8D8D8D;
 }
@@ -2272,7 +2272,7 @@ hr {
 }
 
 .modal {
-  top: 25% !important;
+  /* top: 25% !important; */
 }
 
 #exampleModal h1,
