@@ -1,10 +1,44 @@
 @font-face {
   font-family: 'Genos';
-  src: url(../fonts/font/genos/fonts/otf/Genos-Black.otf);
+  src: url(../fonts/font/genos/fonts/ttf/Genos-Regular.ttf);
 }
+
+@font-face {
+  font-family: 'Genos';
+  src: url(../fonts/font/genos/fonts/ttf/Genos-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Genos-Light';
+  src: url(../fonts/font/genos/fonts/ttf/Genos-Light.ttf);
+}
+
 @font-face {
   font-family: 'Silk Serif';
   src: url(../fonts/font/silk-serif/Silk\ Serif\ Light.otf);
+}
+
+@font-face {
+  font-family: 'Silk Serif Medium';
+  src: url(../fonts/font/silk-serif/Silk\ Serif\ Medium.otf);
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url(../font/Avenir/AvenirLTStd-Black.otf);
+
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(../font/Roboto/Roboto-Black.ttf);
+
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url(../font/Roboto/Roboto-Light.ttf);
+
 }
 html {
   font-size: 14px;
