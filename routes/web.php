@@ -18,19 +18,19 @@ use App\Http\Controllers\MemberWebsiteController as Website;
 //Route::get('/', function () {
   //  return view('welcome');
 //});
+  //Route::domain('stylist.com')->group(function () {
+  Route::get('/','App\Http\Controllers\CreateGridController@index');
+  Route::get('/loadgridview','App\Http\Controllers\CreateGridController@loadgridview');
+ // });
 
-Route::get('/member-registration', [Website::class, 'index']);
 Route::post('/add-member', [Website::class, 'addMember']);
 Route::post('/check-member-existance', [Website::class, 'checkMemberExistance']);
 Route::get('/member-login', [Website::class, 'memberLogin']);
 Route::post('/member-login-post', [Website::class, 'memberLoginPost']);
+Route::get('/member-logout', [Website::class, 'memberLogout']);
 
-// Route::domain('stylist.com')->group(function () {
- Route::get('/','App\Http\Controllers\CreateGridController@index');
- Route::get('/loadgridview','App\Http\Controllers\CreateGridController@loadgridview');
-// });
-Route::get('/', [Member::class, 'index']);
-Route::get('/sourcing', [Member::class, 'memberSourcing']);
+Route::get('/member-dashboard', [Member::class, 'memberDashboard']);
+Route::get('/member-sourcing', [Member::class, 'memberSourcing']);
 Route::get('/offer-received/{title}', [Member::class, 'memberOfferReceived']);
 Route::get('/member-offer-accepted', [Member::class, 'memberOfferAcceptedSuccessful']);
 Route::post('/member-accept-offer', [Member::class, 'memberAcceptOffer']);

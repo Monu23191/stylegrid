@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
 use Illuminate\Support\Str;
+use Session;
+
 /*
 @author-Sunil Kumar Mishra
 date:27-10-2022
@@ -11,10 +13,18 @@ class MemberWebsiteController extends Controller
 {
     public function index()
     {
-        $member=new Member();
-        $country_list=$member->getCountryList();
-        $brand_list=$member->getBrandList();
-        return view('member.website.member-registration',compact('country_list','brand_list'));
+        if(!Session::get('loggedin')){
+            $member=new Member();
+            $country_list=$member->getCountryList();
+            $brand_list=$member->getBrandList();
+            return view('member.website.member-registration',compact('country_list','brand_list'));
+        }
+        return redirect('/member-dashboard');
+    }
+    public function memberLogout(){
+        session_unset();
+        Session::flush();
+        return redirect("/member-login");
     }
     
     public function addMember(Request $request){
@@ -54,7 +64,7 @@ class MemberWebsiteController extends Controller
             $key=$request->key;
             $value=$request->value;
             $status=$member->checkMemberExistance(['m.'.$key=>$value]);
-            if(!count($status)){
+            if(!$status){
                 return json_encode(['status'=>1,'message'=>'Success']);
             }else{
                 return json_encode(['status'=>0,'message'=>$key .' already exists!']);
@@ -62,17 +72,26 @@ class MemberWebsiteController extends Controller
         }  
     }
     public function memberLogin(){
-        return view('member.website.member-login');
+        if(!Session::get('loggedin')){
+            return view('member.website.member-login');
+        }
+        return redirect('/member-dashboard');
+        
     }
 
     public function memberLoginPost(Request $request){
-        if($request->ajax()){
+        if($request->ajax() && !Session::get('loggedin')){
             $member=new Member();
             $email=$request->email;
             $password=sha1($request->password);
             $login_data=$member->checkMemberExistance(['m.email'=>$email,'m.password'=>$password]);
             if($login_data){
-                return json_encode(['status'=>1,'message'=>'Success']);
+                if($login_data->verified){
+                    Session::put('user_data', $login_data);
+                    Session::put('loggedin',TRUE);
+                    return json_encode(['status'=>1,'message'=>'you have successfully loggedin']);
+                }
+                return json_encode(['status'=>0,'message'=>'Account not verified']);
             }else{
                 return json_encode(['status'=>0,'message'=>'Email Id or Password not correct!']);
             }

@@ -172,7 +172,7 @@ $(function(){
                         var total_decline_class=$('.decline').length;
                         if(total_class==total_decline_class){
                           setTimeout(function(){
-                            window.location = "/sourcing";
+                            window.location = "/member-sourcing";
                         }, 500);
                         }
                         
