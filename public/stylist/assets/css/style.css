@@ -1486,9 +1486,9 @@ hr {
   color: #8D8D8D;
 
 }
-#prd_imgrow_1_gridmodal_1{
-  opacity: 0;
-}
+/* #prd_imgrow_1_gridmodal_1{ */
+  /* opacity: 0; */
+/* } */
 #create-grid input::placeholder {
   background-color: transparent;
   border: none;
@@ -2553,10 +2553,10 @@ margin-bottom: 23px; */
     height: 35px;
   }
 }
-#image_previewrow_1_gridmodal_1{
-  position: absolute;
-    left: 50%;
-}
+/* #image_previewrow_1_gridmodal_1{ */
+  /* position: absolute; */
+    /* left: 50%; */
+/* } */
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   .one-caroImg {

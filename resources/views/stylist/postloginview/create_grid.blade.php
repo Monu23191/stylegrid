@@ -1,6 +1,20 @@
 @include("stylist.postloginview.partials.header.header")
 @include("stylist.postloginview.partials.navigate.navigate")
  <!-- BEGIN: Content-->
+<style>
+.mjcheckinput {
+    opacity: 0;
+	margin-left: -50px;
+}
+
+.mjcheckatag {
+    position: absolute;
+    left: 45%;
+	 top: 31%;
+	
+}
+
+</style>
     <div class="app-content content bg-white">
         <div class="content-wrapper">
 
@@ -99,7 +113,7 @@
 function formvalidation(val){
 	
 	var clickedid =	$(val).attr('id');
-		alert(clickedid)
+		// alert(clickedid)
 	
     // $('.error').html('');
     // $('#submit-request-form input, select ').css('border', '1px solid #ccc');
@@ -113,19 +127,31 @@ function formvalidation(val){
     if(prd_name==''){
         $('#prd_name'+clickedid).css('border', '2px solid #cc0000');
         status=false;
-    }
+    }else{
+		$('#prd_name'+clickedid).css('border', '2px solid green');
+        status=true;
+	}
     if(brand_name==''){
         $('#brand_name'+clickedid).css('border', '2px solid #cc0000');
         status=false;
-    }
+    }else{
+		$('#brand_name'+clickedid).css('border', '2px solid green');
+        status=true;
+	}
     if(prd_type==''){
         $('#prd_type'+clickedid).css('border', '2px solid #cc0000');
         status=false;
-    }
+    }else{
+		$('#prd_type'+clickedid).css('border', '2px solid green');
+        status=true;
+	}
     if(prd_size==''){
         $('#prd_size'+clickedid).css('border', '2px solid #cc0000');
         status=false;
-    }
+    }else{
+		$('#prd_size'+clickedid).css('border', '2px solid green');
+        status=true;
+	}
    
     return status;
 }
@@ -145,8 +171,12 @@ function makeTrim(x) {
 		    // $("#firstcol"+clickedid).load(" #div > *");
         var mjval=$('#'+clickedid).val();
 		 // alert('mjval'+mjval)
-        $('#image_preview_remove'+clickedid).html('');
+        $('#image_preview_remove'+clickedid).hide();
+        $("#divImageMediaPreview"+clickedid).hide();
+		 $("#image_error"+clickedid).hide();
         $("#divImageMediaPreview"+clickedid).html('');
+       
+        $("#prd_img"+clickedid).val('');
 		 // $("#commonclick"+clickedid).html('');
         // $("#commonclick"+clickedid).remove();
        
@@ -156,10 +186,13 @@ function makeTrim(x) {
 		function mjtest1(val){
 		// var clickedid=	$(val).attr('id');
 		var clickedid=	$(val).attr('idattr');
-		alert(clickedid)
+		// alert(clickedid)
 		console.log(val)
+		console.log(typeof (FileReader))
         if (typeof (FileReader) != "undefined") {
-			
+			// alert("defined");
+			$("#divImageMediaPreview"+clickedid).css('display','block');
+			 $("#image_error"+clickedid).hide();
             var dvPreview = $("#divImageMediaPreview"+clickedid);
             dvPreview.html("");            
            
@@ -167,13 +200,15 @@ function makeTrim(x) {
                 var ext = $(val).val().split('.').pop().toLowerCase();
 				console.log(ext)
                 if ($.inArray(ext, ['gif','png','jpg','jpeg']) == -1){
+					 $("#image_error"+clickedid).css('display','block');
                     $('#image_error'+clickedid).html('Invalid Image Format! Image Format Must Be JPG, JPEG, PNG or GIF.');
                     $(val).val('');
                     return false;
                 }else{
                     var image_size = (val.files[0].size);
-					alert(image_size)
+					// alert(image_size)
                     if(image_size>1000000){
+						 $("#image_error"+clickedid).css('display','block');
                         $('#image_error'+clickedid).html('Maximum File Size Limit is 1MB');
                         $(val).val('');
                         return false;
@@ -183,7 +218,7 @@ function makeTrim(x) {
                             var img = $("<img />");
                             img.attr("style", "width: 150px; height:100px; padding: 10px");
                             img.attr("src", e.target.result);
-                            dvPreview.append(img);
+                            dvPreview.html(img);
                         }
                         $('#image_preview_remove'+clickedid).show();
                        reader.readAsDataURL(file[0]);
@@ -202,7 +237,7 @@ function makeTrim(x) {
 		var modal='<div class="modal" id="'+myArray[1]+'" class="mjmodal" tabindex="-1" role="dialog" aria-labelledby="acceptLabel" aria-hidden="true" style=""><div class="modal-dialog" role="document"><div class="modal-content pt-1"><div class="mr-2"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body py-2"><h1 class="text-center modal-submit-request">Submit Sourcing Request</h1><div id="browse-soursing" class="mt-2">';
 
 				    modal +=' <form id="submit-request" action="client-submit-request-complete.html" class=" ">';
-                   modal +='<div class="row align-items-center" id="fulfill-request"><div class="col-lg-6" ><div class="Neon Neon-theme-dragdropbox mt-3"><div class="Neon-input-dragDrop py-5 px-4"><div class="Neon-input-inner py-4"><div class="Neon-input-text "><h3>Upload an image of the product here</h3></div><a class="Neon-input-choose-btn blue"><img src="stylist/app-assets/images/icons/plus.png" alt="" id="image_preview'+myArray[1]+'"><input name="files[]"  multiple="multiple" name="prd_img" idattr="'+myArray[1]+'" id="prd_img'+myArray[1]+'" onchange="mjtest1(this)" type="file"></a>';
+                   modal +='<div class="row align-items-center" id="fulfill-request"><div class="col-lg-6" ><div class="Neon Neon-theme-dragdropbox mt-3"><div class="Neon-input-dragDrop py-5 px-4"><div class="Neon-input-inner py-4"><div class="Neon-input-text "><h3 class="mb-5 pb-5">Upload an image of the product here</h3></div><a class="Neon-input-choose-btn blue mjcheckatag"><img src="stylist/app-assets/images/icons/plus.png" class="mt-4" alt="" id="image_preview'+myArray[1]+'"><input name="files[]" class="mjcheckinput "  name="prd_img" idattr="'+myArray[1]+'" id="prd_img'+myArray[1]+'" onchange="mjtest1(this)" type="file"></a>';
 				    modal +=' <div id="image_error'+myArray[1]+'" class="error"></div><div id="commonclick'+myArray[1]+'"><div id="divImageMediaPreview'+myArray[1]+'"></div><a href="javascript:void(0)" style="display: none;" id="image_preview_remove'+myArray[1]+'" newatr='+myArray[1]+' onclick="image_preview_remove(this)">Remove</a></div>';
 					
 				      modal +='  </div></div></div></div>';
