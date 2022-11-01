@@ -32,7 +32,7 @@
                             <div class="form-group">
                                 
                                 <input type="text" name="email" id="email">
-                                <div id="email_error" class="error">email error</div>
+                                <div id="email_error" class="error"></div>
                                 <span>Email Address</span>
                             </div>
                         </div>
@@ -134,7 +134,7 @@
                 <div class="row mt-3">
                     <div class="col-md-4 text-center mt-2">
                     <label>
-                        <input type="radio" name="test" value="small" checked>
+                        <input type="radio" name="gender" value="Male" checked>
                         <img src="{{ asset('member/website/assets/images/white-check.png') }}" alt="option1">
                         <div class="text-center">
                             <img src="{{ asset('member/website/assets/images/male.png') }}" alt="option 1">
@@ -155,7 +155,7 @@
                     </div>
                     <div class="col-md-4 text-center mt-2">
                         <label>
-                              <input type="radio" name="test" value="big">
+                              <input type="radio" name="gender" value="Female">
                                 <img src="{{ asset('member/website/assets/images/white-check.png') }}" alt="option1">
                                 <div class="text-center">
                                     <img src="{{ asset('member/website/assets/images/female.png') }}" class="img-fluid" alt="">
@@ -176,7 +176,7 @@
                     </div>
                     <div class="col-md-4 text-center mt-2">
                     <label>
-                        <input type="radio" name="test" value="big">
+                        <input type="radio" name="gender" value="Non Binary">
                         <img src="{{ asset('member/website/assets/images/white-check.png') }}" alt="option1">
                         <div class="text-center">
                             <img src="{{ asset('member/website/assets/images/non-binary.png') }}" class="img-fluid" alt="">

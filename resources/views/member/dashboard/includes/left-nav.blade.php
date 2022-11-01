@@ -30,7 +30,7 @@
                         class="menu-title profession" data-i18n=""><img
                             src="app-assets/images/gallery/check-mark.png" alt=""></span></a> </li> -->
                 </li>
-                <li class=" nav-item mt-5"><a href="{{ url('/') }}"><i class="ft-home"></i><span class="menu-title"
+                <li class=" nav-item mt-5"><a href="{{ url('/member-dashboard') }}"><i class="ft-home"></i><span class="menu-title"
                             data-i18n="">Home</span></a>
                 </li>
                 <li class=" nav-item"><a href="#"><i class="ft-layers"></i><span class="menu-title"

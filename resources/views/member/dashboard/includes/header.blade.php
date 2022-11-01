@@ -20,8 +20,8 @@
     
                     </ul>
                     <ul class="style-logo mx-auto list-unstyled d-flex">
-                        <li><a href=""><img src="{{ asset('member/app-assets/images/icons/logo.png') }}" alt="" class="logo1"></a></li>
-                          <li><a href=""><img src="{{ asset('member/app-assets/images/icons/STYLEGRID-LOGO.png') }}" alt="" class="logo2 pl-1 d-lg-block d-none my-1"></a></li>
+                        <li><a href=""><img src="{{ asset('member/dashboard/app-assets/images/icons/logo.png') }}" alt="" class="logo1"></a></li>
+                          <li><a href=""><img src="{{ asset('member/dashboard/app-assets/images/icons/STYLEGRID-LOGO.png') }}" alt="" class="logo2 pl-1 d-lg-block d-none my-1"></a></li>
                     </ul>
                     <ul class="nav navbar-nav float-right">
                         <li>
@@ -29,7 +29,7 @@
                                 <form action="/action_page.php">
                                     <input type="text" placeholder="Search anything" name="search "
                                         class="px-2 search-top">
-                                    <button type="submit"><img src="{{ asset('member/app-assets/images/icons/Search-right.png') }}"
+                                    <button type="submit"><img src="{{ asset('member/dashboard/app-assets/images/icons/Search-right.png') }}"
                                             alt=""></button>
                                 </form>
                             </div>

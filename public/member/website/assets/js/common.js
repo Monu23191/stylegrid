@@ -158,6 +158,8 @@ function setpOneValidation(){
   }
   if(email==''){
     $('#email').css('border', '2px solid #cc0000');
+    $('#email_error').html('Please enter Email');
+
     status=false;
   }else {
     if (!validEmail(email)) {
