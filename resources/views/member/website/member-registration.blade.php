@@ -246,16 +246,17 @@
         <div class="container-fluid">
         <div class="message" id="message_box"></div>
             <div class="row my-5">
-                <?php
-                foreach($brand_list as $brand){
+                <?php 
+               
+                foreach($brand_list as $index => $brand){
                     ?>
                     <div class="col-md-3 text-center">
                         <div class="text-right">
-                            <input type="checkbox" name="brands[]"  class="brand_list_check" value="<?php echo $brand->id;?>">
-                            <label for="alex"></label>
+                            <input type="checkbox" name="" id="check-<?php  echo $index;  ?>" value="check-">
+                            <label for="check-<?php  echo $index;  ?>"></label>
                         </div>
-                        <label for="alex">
-                            <img src="{{ asset($brand->logo) }}" alt="">
+                        <label for="check-<?php  echo $index;  ?>">
+                            <img src="http://127.0.0.1:8000/member/website/assets/images/shop.png" alt="">
                         </label>
                     </div>
                     <?php
