@@ -40,7 +40,7 @@ class MemberController extends Controller
     public function memberSourcing()
     {
         $member=new Member();
-        $source_list=$member->getSourceList(['s.member_stylist_type'=>'0','s.member_stylist_id'=>1],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'>=','value'=>date('Y-m-d')]]);
+        $source_list=$member->getSourceList(['s.member_stylist_type'=>'0','s.member_stylist_id'=>Session::get("member_id")],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'>=','value'=>date('Y-m-d')]]);
         $source_list_data=[];
         foreach($source_list as $source){
             $data=array(
@@ -64,7 +64,7 @@ class MemberController extends Controller
             }
             $source_list_data[]=$data;
         }
-        $previous_source_list=$member->getSourceList(['s.member_stylist_type'=>'0','s.member_stylist_id'=>1],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'<','value'=>date('Y-m-d')]]);
+        $previous_source_list=$member->getSourceList(['s.member_stylist_type'=>'0','s.member_stylist_id'=>Session::get("member_id")],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'<','value'=>date('Y-m-d')]]);
         return view('member.dashboard.source-list',compact('source_list_data','previous_source_list'));
     }
 
@@ -130,7 +130,7 @@ class MemberController extends Controller
                 'p_country_deliver'=>$country,
                 'p_deliver_date'=>date('Y-m-d',strtotime($deliver_date)),
                 'member_stylist_type'=>0,
-                'member_stylist_id'=>1,
+                'member_stylist_id'=>Session::get("member_id"),
             );
             
             $response=$member->addUpdateData($add_update_data,'sg_sourcing');   

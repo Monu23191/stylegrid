@@ -5,8 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-md-6 dis-flex mt-5">
                 <div class="signin mt-5">
-                <h1>Sign in to your Stylist account</h1>
-                <p class="text-center">Please enter your email and password to log in to your StyleGrid stylist
+                <h1>Sign in to your Member account</h1>
+                <p class="text-center">Please enter your email and password to log in to your Member stylist
                     account.</p><br>
 
 
@@ -33,7 +33,7 @@
                         </a></div>
                         <div class="text-center"><a href="javascript:void(0);"><button type="button" class="sign-in px-2" id="member-login-btn">Sign In</button></a>
                         </div>
-                        <div class="mt-2"><h5>if you are a client,<a href="{{url('/member-registration')}}"> please click here to <br>sign in.</a></h5></div>
+                        <div class="mt-2"><h5>if you are a member,<a href="{{url('/member-registration')}}"> please click here to <br>sign in.</a></h5></div>
                     </form>
                 </div>
             </div>

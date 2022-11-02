@@ -97,8 +97,9 @@
 <!-- END: Theme JS-->
 <script>
     var constants = {
-        current_url:'{{str_replace(URL::to("/"),'',URL::current())}}',
         csrf_token: '{{ csrf_token() }}',
+        base_url: '{{ URL::to("/") }}',
+        current_url:'{{str_replace(URL::to("/"),'',URL::current())}}',
     };
     
   </script>

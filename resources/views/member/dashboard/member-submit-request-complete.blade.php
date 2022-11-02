@@ -41,7 +41,7 @@
                     <img src="app-assets/images/gallery/TickBox.png" class="img-fluid" alt="">
                 </div>
                 <div class="col-12 text-center mt-3">
-                    <a href="{{url('/')}}"><button class="back-dashboard px-2">Back to
+                    <a href="{{url('/member-sourcing')}}"><button class="back-dashboard px-2">Back to
                             dashboard</button></a>
                 </div>
             </div>

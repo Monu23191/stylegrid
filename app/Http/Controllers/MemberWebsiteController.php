@@ -87,7 +87,8 @@ class MemberWebsiteController extends Controller
             $login_data=$member->checkMemberExistance(['m.email'=>$email,'m.password'=>$password]);
             if($login_data){
                 if($login_data->verified){
-                    Session::put('user_data', $login_data);
+                    Session::put('member_data', $login_data);
+                    Session::put('member_id', $login_data->id);
                     Session::put('loggedin',TRUE);
                     return json_encode(['status'=>1,'message'=>'you have successfully loggedin']);
                 }
