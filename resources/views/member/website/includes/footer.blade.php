@@ -4,7 +4,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 <script>
     var constants = {
-        current_url:'{{str_replace(URL::to("/"),'',URL::current())}}',
+        current_url:"{{str_replace(URL::to('/'),'',URL::current())}}",
         csrf_token: '{{ csrf_token() }}',
     };
     

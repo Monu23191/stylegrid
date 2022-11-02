@@ -139,7 +139,6 @@ class MemberController extends Controller
             }
             return json_encode($response);
         }  
-        
     }
 
     public function memberSubmitRequestComplete(Request $request){       

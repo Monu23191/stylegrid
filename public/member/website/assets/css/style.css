@@ -497,3 +497,177 @@ button:hover {
   background-repeat: no-repeat;
  margin-left: 109%;
 }
+
+/* Icon when the collapsible content is shown */
+.navbar-toggle:after {
+  font-family: "Glyphicons Halflings";
+  content: "\2613";
+  float: right;
+  /* margin-left: 15px; */
+  font-weight: 900;
+}
+
+
+.navbar-toggle.collapsed:after {
+  content: "\2630";
+  font-weight: 900;
+}
+.search-input{
+  border: none !important;
+}
+
+/******header****/
+.flag-text {
+  margin-left: 10px;
+}
+
+.signup-btn {
+  font-family: 'Genos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  background: #172625;
+  color: #E5E5E5;
+}
+
+.navbar-nav>li>a {
+  font-family: 'Genos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: #000000;
+}
+
+.navbar-collapse.collapse {
+  margin-left: 15%;
+}
+
+.brand {
+  text-align: center;
+  margin-right: 226px;
+  margin-top: 20px;
+}
+
+.brand-mobile {
+  display: none;
+  text-align: center;
+  position: inherit;
+  margin-top: 4%;
+ }
+ .mobile-search{
+  position: absolute;
+  top: 31%;
+  left: 6%;
+  display: none;
+ }
+
+.search-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#language,
+.search-nav {
+  display: block;
+}
+
+.navbar-bg {
+  background-color: #fff;
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #000;
+  border-radius: 1px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+  #language,
+  .search-nav {
+      display: none;
+  }
+
+  .navbar-bg {
+      background-color: #f6f6f6;
+  }
+  .brand-mobile, .mobile-search {
+      display: block;
+  }
+  .brand{
+      display: none;
+  }
+  .navbar-collapse.collapse{
+      margin-left: 0;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+  #language,
+  .search-nav {
+      display: none;
+  }
+
+  .navbar-bg {
+      background-color: #f6f6f6;
+  }
+  .brand-mobile, .mobile-search {
+      display: block;
+  }
+  .brand{
+      display: none;
+  }
+  .navbar-collapse.collapse{
+      margin-left: 0;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+  #language,
+  .search-nav {
+      display: none;
+  }
+
+  .navbar-bg {
+      background-color: #fff;
+  }
+  .brand-mobile,.mobile-search {
+      display: none;
+  }
+  .brand{
+      display: block;
+  }
+  .navbar-collapse.collapse{
+      margin-left: 0%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+  #language,
+  .search-nav {
+      display: block;
+  }
+  .navbar-collapse.collapse{
+      margin-left: 15%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
