@@ -219,19 +219,13 @@
                     ?>
                     <div class="col-md-3 text-center">
                         <div class="text-right">
-<<<<<<< HEAD
-                            <input type="checkbox" name="" id="check-<?php  echo $index;  ?>" value="check-">
-                            <label for="check-<?php  echo $index;  ?>"></label>
-                        </div>
-                        <label for="check-<?php  echo $index;  ?>">
-                            <img src="http://127.0.0.1:8000/member/website/assets/images/shop.png" alt="">
-=======
+                        
                             <input type="checkbox" name="brands[]" class="brand_list_check" id="check-<?php  echo $index;  ?>" value="{{$brand->id}}">
                             <label for="check-<?php  echo $index;  ?>"></label>
                         </div>
                         <label for="check-<?php  echo $index;  ?>">
                             <img src="{{asset('member/website/assets/images/shop.png')}}" alt="">
->>>>>>> 0470cd609018ffe1dcf478da1c4bc39b6c003adf
+
                         </label>
                     </div>
                     <?php
