@@ -12,10 +12,10 @@
 <nav class="navbar navbar-bg">
         <div class="search-nav">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><img src="./assets/images/search.png" alt="">
-                        <input type="text" placeholder="Search" class="search-input"></a></li>
-                <li><a href=""> <img src="./assets/images/star.png" alt=""></a></li>
-                <li><a href=""> <img src="./assets/images/beg.png" alt=""></a></li>
+                <!--<li><a href="#"><img src="{{ asset('member/website/assets/images/search.png') }}" alt="">
+                        <input type="text" placeholder="Search" class="search-input"></a></li>-->
+                <li><a href=""> <img src="{{ asset('member/website/assets/images/star.png') }}" alt=""></a></li>
+                <li><a href=""> <img src="{{ asset('member/website/assets/images/beg.png') }}" alt=""></a></li>
             </ul>
         </div>
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -28,16 +28,13 @@
         <span class="icon-bar"></span> -->
 
             </button>
-            <div class="mobile-search"><img src="./assets/images/search.svg" alt=""></div>
+            <div class="mobile-search"><img src="{{ asset('member/website/assets/images/search.svg') }}" alt=""></div>
             <div class="brand-mobile">
-
-                <a href="#"><img src="./assets/images/STYLEGRID-LOGO.png" alt=""></a>
-
+                <a href="#"><img src="{{ asset('member/website/assets/images/STYLEGRID-LOGO.png') }}" alt=""></a>
             </div>
-
         </div>
         <div class="brand">
-            <a href="#"><img src="./assets/images/STYLEGRID-LOGO.png" alt=""></a>
+            <a href="#"><img src="{{ asset('member/website/assets/images/STYLEGRID-LOGO.png') }}" alt=""></a>
 
         </div>
 
@@ -54,7 +51,7 @@
             <li><a href="#">MEMBERSHIP</a></li>
             <li><a href="#">BRANDS</a></li>
             <li><a href="#">EDITORIAL</a></li>
-            <li><a href="#">SIGN IN</a></li>
-            <li><a href="#"><button class="signup-btn">Sign Up</button></a></li>
+            <li><a href="{{url('/member-login')}}">SIGN IN</a></li>
+            <li><a href="{{url('/member-registration')}}"><button class="signup-btn">Sign Up</button></a></li>
         </ul>
     </div><!-- /.navbar-collapse -->

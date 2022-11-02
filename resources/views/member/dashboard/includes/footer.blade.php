@@ -78,7 +78,6 @@
                             <div><a href=""><button class="back-btn ml-2" type="button" class="close" data-dismiss="modal" aria-label="Close">No</button></a></div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
