@@ -84,7 +84,7 @@ if(constants.current_url=='/member-registration'){
         }
 
         function validateForm() {
-          $('#member-registration-form input, select ').css('border', '1px solid #ccc');
+          $('#member-registration-form input').css('border', '1px solid #ccc');
           $('.error').html('');
           $('.message').html('');
           var x, y, i, valid = true;
@@ -245,7 +245,7 @@ function setpOneValidation(){
     }
   }
   if(!status){
-    $('#message_box').html('<div class="alert alert-danger">Please enter all the mandatory fields!</div>');
+    $('#first_step_message_box').html('<div class="alert alert-danger">Please enter all the mandatory fields!</div>');
   }
   return status;
 }
@@ -257,7 +257,7 @@ function setpTwoValidation(){
     status=false;
   }
   if(!status){
-    $('#message_box').html('<div class="alert alert-danger">Please select at least one!</div>');
+    $('#second_step_message_box').html('<div class="alert alert-danger">Please select at least one!</div>');
   }
   return status;
 }
@@ -265,7 +265,7 @@ function setpThreeValidation(){
   var status=true;
   if($("input[name='gender']:checked").val()==undefined){
     status=false;
-    $('#message_box').html('<div class="alert alert-danger">Please select your gender!</div>');
+    $('#third_step_message_box').html('<div class="alert alert-danger">Please select your gender!</div>');
   }
   return status;
 }
@@ -274,7 +274,7 @@ function setpFourValidation(){
   var status=true;
   if($("#country_id").val()==''){
     status=false;
-    $('#message_box').html('<div class="alert alert-danger">Please select your country!</div>');
+    $('#fourth_step_message_box').html('<div class="alert alert-danger">Please select your country!</div>');
   }
   return status;
 }
@@ -284,7 +284,7 @@ function setpFiveValidation(){
   var total_selected_brand=$('.brand_list_check').filter(':checked').length;
   if(total_selected_brand==0){
     status=false;
-    $('#message_box').html('<div class="alert alert-danger">Please select at least one brand!</div>');
+    $('#fifth_step_message_box').html('<div class="alert alert-danger">Please select at least one brand!</div>');
   }
   return status;
 }

@@ -420,14 +420,7 @@ input {
   font-family: Raleway;
   border: 1px solid #aaaaaa;
 }
-.error{
-  color: rgb(204, 0, 0);
-    font-size: 1rem;
-    /* margin-top: 18px; */
-    position: absolute;
-    top: 98%;
-    left: 3%;
-}
+
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
   background-color: #ffdddd;
@@ -475,25 +468,4 @@ button:hover {
 /* Mark the steps that are finished and valid: */
 .step.finish {
   background-color:#172625;
-}
-  /******************radio*************/
-/* HIDE RADIO */
-[type=radio] { 
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* IMAGE STYLES */
-[type=radio] + img {
-  cursor: pointer;
-}
-
-/* CHECKED STYLES */
-[type=radio]:checked+img {
-/* height: 36px; */
- background: url(../images/checkbox.png);
-  background-repeat: no-repeat;
- margin-left: 109%;
 }

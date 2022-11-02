@@ -3,6 +3,7 @@
 <form id="member-registration-form" action="">
     @csrf
     <!-- One "tab" for each step in the form: -->
+    <!-- <div class="message" id="message_box"></div> -->
     <div class="mt-2"><h5>if you are a client,<a href="{{url('/member-login')}}"> please click here to <br>sign Up.</a></h5></div>
 
     <div class="tab">
@@ -13,8 +14,8 @@
                     <p class="text-center">Create your account today and enjoy a 30 day free trial, with access to a
                         dedicated stylist and
                         exclusive luxury product.</p><br>
+
                 </div>
-                <div id="first_step_message_box" class="message"></div>
                 <div>
                     <h6>Let’s get started.</h6>
                 </div>
@@ -74,7 +75,7 @@
                         little more information about your tastes and style preferences.</p><br>
 
                 </div>
-                <div id="second_step_message_box" class="message"></div>
+                <div class="message" id="message_box"></div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="text-right">
@@ -129,7 +130,7 @@
                         brands that suit you best.</p><br>
 
                 </div>
-                <div id="third_step_message_box" class="message"></div>
+                <div class="message" id="message_box"></div>
                 <div class="row mt-3">
                     <div class="col-md-4 text-center mt-2">
                     <label>
@@ -141,6 +142,16 @@
                             <button class="select-btn mt-2">Select</button>
                         </div>
                     </label>
+                        <!-- <div class="text-right">
+                            <input type="radio" name="gender" value="Male" >
+                            <label for="Male"></label>
+                        </div>
+                        <label for="Male">
+                            <div class="text-center"><img src="{{ asset('member/website/assets/images/male.png') }}" class="img-fluid" alt="">
+                                <h2 class="mt-2">Male</h2>
+                                <button class="select-btn mt-2">Select</button>
+                            </div>
+                        </label> -->
                     </div>
                     <div class="col-md-4 text-center mt-2">
                         <label>
@@ -152,6 +163,16 @@
                                     <button class="select-btn mt-2">Select</button>
                                 </div>
                         </label>
+                        <!-- <div class="text-right">
+                            <input type="radio" name="gender"  value="Female">
+                            <label for="Female"></label>
+                        </div>
+                        <label for="Female">
+                            <div class="text-center"><img src="{{ asset('member/website/assets/images/female.png') }}" class="img-fluid" alt="">
+                                <h2 class="mt-2">Female</h2>
+                                <button class="select-btn mt-2">Select</button>
+                            </div>
+                        </label> -->
                     </div>
                     <div class="col-md-4 text-center mt-2">
                     <label>
@@ -164,6 +185,17 @@
                             <button class="select-btn mt-2">Select</button>
                         </div>
                     </label>
+                        <!-- <div class="text-right">
+                            <input type="radio" name="gender"  value="Non Binary">
+                            <label for="Non Binary"></label>
+                        </div>
+                        <label for="Non Binary">
+                            <div class="text-center"><img src="{{ asset('member/website/assets/images/non-binary.png') }}" class="img-fluid"
+                                    alt="">
+                                <h2 class="mt-2">Non Binary</h2>
+                                <button class="select-btn mt-2">Select</button>
+                            </div>
+                        </label> -->
                     </div>
                 </div>
             </div>
@@ -179,7 +211,7 @@
 
                 </div>
                 <div>
-                    <div id="fourth_step_message_box" class="message"></div>
+                <div class="message" id="message_box"></div>
                     <div class="form-group input-city mt-2">
                         <select id="country_id" name="country_id" class="form-control icon">
                             <option value="">Select Country</option>
@@ -207,23 +239,23 @@
                     <p class="text-center">We want to know what brands you are most passionate about. Select from
                         our featured list below, or
                         use the search bar to expand your choice.</p><br>
+
                 </div>
             </div>
         </div>
         <div class="container-fluid">
-            <div id="fifth_step_message_box" class="message"></div>
+        <div class="message" id="message_box"></div>
             <div class="row my-5">
-                <?php 
-               
-                foreach($brand_list as $index => $brand){
+                <?php
+                foreach($brand_list as $brand){
                     ?>
                     <div class="col-md-3 text-center">
                         <div class="text-right">
-                            <input type="checkbox" name="brands[]" class="brand_list_check" id="check-<?php  echo $index;  ?>" value="{{$brand->id}}">
-                            <label for="check-<?php  echo $index;  ?>"></label>
+                            <input type="checkbox" name="brands[]"  class="brand_list_check" value="<?php echo $brand->id;?>">
+                            <label for="alex"></label>
                         </div>
-                        <label for="check-<?php  echo $index;  ?>">
-                            <img src="{{asset('member/website/assets/images/shop.png')}}" alt="">
+                        <label for="alex">
+                            <img src="{{ asset($brand->logo) }}" alt="">
                         </label>
                     </div>
                     <?php
@@ -259,7 +291,7 @@
                             industry.
                         </p>
                         <div class="mt-2">
-                            <a href="{{url('/member-login')}}"><button type="submit" class="styling-btn px-3 ">Let’s get
+                            <a href="signup.html"><button type="submit" class="styling-btn px-3 ">Let’s get
                                     styling</button></a>
                         </div>
                     </div>
