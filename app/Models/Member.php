@@ -29,6 +29,7 @@ class Member extends Model
 			$this->db = DB::table('sg_member AS m');
 			$this->db->select([
 				"m.id",
+				"m.full_name as name",
 				"m.email",
             	"m.phone",
 				"m.verified"
