@@ -199,22 +199,34 @@ function sourceFormValidation(){
     var status=true;
     if(product_name==''){
         $('#product_name').css('border', '2px solid #cc0000');
+        $('#product_name_error').html('Please enter Product name!');
+
         status=false;
+    }else{
+        if(product_name.length<4){
+            $('#product_name').css('border', '2px solid #cc0000');
+            $('#product_name_error').html('Length of product name should be greater than 3!');
+            status=false;
+        }
     }
     if(brand==''){
         $('#brand').css('border', '2px solid #cc0000');
+        $('#brand_error').html('Please enter brand name!');
         status=false;
     }
     if(product_type==''){
         $('#product_type').css('border', '2px solid #cc0000');
+        $('#product_type_error').html('Please enter product type!');
         status=false;
     }
     if(country==''){
         $('#country').css('border', '2px solid #cc0000');
+        $('#country_error').html('Please select country name!');
         status=false;
     }
     if(deliver_date==''){
         $('#deliver_date').css('border', '2px solid #cc0000');
+        $('#deliver_date_error').html('Please select due date!');
         status=false;
     }
     return status;

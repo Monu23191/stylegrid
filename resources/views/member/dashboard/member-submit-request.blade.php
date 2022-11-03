@@ -28,7 +28,8 @@
         <!--------------------souring hub--------->
         <div id="browse-soursing" class="mt-lg-5 mt-2">
             <div id="message-box"></div>
-            <form id="submit-request-form" action="client-submit-request-complete.html" class=" ">
+            <form id="submit-request-form" action="" class=" ">
+            @csrf
             <div class="row align-items-center" id="fulfill-request">
                 <div class="col-lg-6 ">
                     <div class="Neon Neon-theme-dragdropbox mt-lg-5">
@@ -47,31 +48,29 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="p-3 lg-border-left ">
-                       
-                            @csrf
                             <div class="form-group">
                                 <label for="">Enter the name of the product here:</label>
                                 <input type="text" class="form-control submit-input" aria-describedby="emailHelp"
                                     placeholder="Enter product name..."  id="product_name" name="product_name">
-
+                                <div id="product_name_error" class="error"></div>
                             </div>
                             <div class="form-group">
                                 <label for="">Tell us the brand of the product:</label>
                                 <input type="text" class="form-control submit-input" aria-describedby="emailHelp"
                                     placeholder="Enter brand name..." id="brand" name="brand">
                                 <div id="autsuggestion_section"></div>
+                                <div id="brand_error" class="error"></div>
                             </div>
                             <div class="form-group">
                                 <label for="">What is the product type? (Bag, Dress, Heels etc)</label>
                                 <input type="text" class="form-control submit-input" aria-describedby="emailHelp"
                                     placeholder="Enter product type..." id="product_type" name="product_type">
-
+                                    <div id="product_type_error" class="error"></div>
                             </div>
                             <div class="form-group">
                                 <label for="">Does the product have a size? Leave blank if none.</label>
                                 <input type="text" class="form-control submit-input" aria-describedby="emailHelp"
                                     placeholder="Enter product size..." id="product_size" name="product_size">
-
                             </div>
                             <div class="form-group">
                                 <label for="">What region the product needs to be delivered to:</label>
@@ -85,13 +84,12 @@
                                     }
                                     ?>
                                 </select>
-                                <!--<input type="text" class="form-control submit-input" aria-describedby="emailHelp"
-                                    placeholder="Enter region...">-->
-
+                                <div id="country_error" class="error"></div>
                             </div>
                             <div class="form-group">
                                 <label for="">When do you require the product by?</label>
                                 <input type="text"  onpaste="return false;" onkeydown="return false;" class="form-control submit-input" id="deliver_date" name="deliver_date" placeholder="Enter due date...">
+                                <div id="deliver_date_error" class="error"></div>
                             </div>
                             <button type="button" class="submit-request px-3  mt-2" id="submit-request-btn">Submit request</button>
                     </div>
