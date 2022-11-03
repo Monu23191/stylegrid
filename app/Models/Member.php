@@ -26,7 +26,7 @@ class Member extends Model
 	}
 	function checkMemberExistance($where){
 		if(count($where)){
-			$this->db = DB::table('sg_member AS m');
+			$this->db = DB::table('sg_member as m');
 			$this->db->select([
 				"m.id",
 				"m.full_name as name",
