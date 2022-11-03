@@ -40,7 +40,9 @@
   src: url(../font/Roboto/Roboto-Light.ttf);
 
 }
-
+body{
+  overflow: hidden;
+}
 #signup h1,
 #signup-5 h1 {
   font-family: 'Silk Serif';
@@ -415,7 +417,7 @@ h1 {
 
 input {
   padding: 10px;
-  width: 100%;
+  /* width: 100%; */
   font-size: 17px;
   font-family: Raleway;
   border: 1px solid #aaaaaa;
@@ -502,15 +504,18 @@ button:hover {
 .navbar-toggle:after {
   font-family: "Glyphicons Halflings";
   content: "\2613";
+
   float: right;
-  /* margin-left: 15px; */
+  margin-left: 15px;
   font-weight: 900;
+  color: #000;
 }
 
 
 .navbar-toggle.collapsed:after {
   content: "\2630";
   font-weight: 900;
+  color: #000;
 }
 .search-input{
   border: none !important;
@@ -655,6 +660,9 @@ button:hover {
   .navbar-collapse.collapse{
       margin-left: 0%;
   }
+  .navbar-right{
+    margin-right: 15px;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -671,3 +679,7 @@ button:hover {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {}
+.navbar-header{
+  width: 100%;
+  position: unset !important;
+}
