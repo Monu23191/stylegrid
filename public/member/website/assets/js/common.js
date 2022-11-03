@@ -37,6 +37,7 @@ $(function(){
             }, 500);
             }else{
               $('#message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
+              $('#message_box').after("<a href='"+response['verification_url']+"' target='_blank'>Click here to verify your account!</a></p>");
             }
         }
     })
@@ -136,6 +137,8 @@ function addMember(){
           $('#next-previous').remove();
           $('#steps-next-previous').remove();
           $('.success_tab').show();
+        }else{
+            
         }
     }
 })

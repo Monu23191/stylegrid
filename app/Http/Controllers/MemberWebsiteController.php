@@ -29,6 +29,7 @@ class MemberWebsiteController extends Controller
     
     public function addMember(Request $request){
         if($request->ajax()){
+            //if($request->email)
             $member=new Member();
             $save_data=array(
                 'id'=>0,
@@ -40,6 +41,7 @@ class MemberWebsiteController extends Controller
                 'gender'=>$request->gender,
                 'country_id'=>$request->country_id,
                 'password'=>sha1($request->password),
+                'token'=>sha1(time().sha1($request->password.time())),
                 'shop'=>$request->shop?$request->shop:'',
                 'style'=>$request->style?$request->style:'',
                 'source'=>$request->source?$request->source:'',
@@ -53,6 +55,7 @@ class MemberWebsiteController extends Controller
                     }
                 }
                 $member->addUpdateData(['id'=>0,'member_id'=>$response['reference_id'],'start_date'=>date('Y-m-d'),'end_date'=>date('Y-m-d',strtotime ('30 day',strtotime(date('Y-m-d')))),'subscription'=>'Trail'],'sg_member_subscription');   
+               // $verification_url=URL::to("/").'/member-account-verification/'.$save_data['token'];
                 return json_encode(['status'=>1,'message'=>'Member Added Successfully!']);
             }
             return json_encode(['status'=>0,'message'=>'Something went wrong!']);
@@ -92,11 +95,33 @@ class MemberWebsiteController extends Controller
                     Session::put('loggedin',TRUE);
                     return json_encode(['status'=>1,'message'=>'you have successfully loggedin']);
                 }
-                return json_encode(['status'=>0,'message'=>'Account not verified']);
+                return json_encode(
+                    [
+                    'status'=>0,
+                    'message'=>'Account not verified',
+                    'verification_url'=>\URL::to("/").'/member-account-verification/'.$login_data->token
+
+                ]);
             }else{
                 return json_encode(['status'=>0,'message'=>'Email Id or Password not correct!']);
             }
         }  
+    }
+    public function memberAccountVerification($token){
+        if(!empty($token)){
+            $member=new Member();
+            $member_data=$member->checkMemberExistance(['m.token'=>$token]);
+            if($member_data){
+                if($member_data->verified){
+                    echo "Your Account is already verified";
+                }else{
+                    echo "You have successfully verified you account";
+                    $member->addUpdateData(['id'=>$member_data->id,'token'=>$token,'verified'=>1],'sg_member');
+                }
+            }
+        }else{
+            return redirect('/member-login');
+        }
     }
     
 

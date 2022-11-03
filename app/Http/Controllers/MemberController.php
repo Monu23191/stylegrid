@@ -40,6 +40,12 @@ class MemberController extends Controller
     public function memberSourcing()
     {
         $member=new Member();
+        $source_applicable=$member->sourceApplicable(['ms.member_id'=>Session::get("member_id")]);
+        if($source_applicable){
+            $day_left=$source_applicable->day_left;
+        }else{
+            $day_left=-1; 
+        }
         $source_list=$member->getSourceList(['s.member_stylist_type'=>'0','s.member_stylist_id'=>Session::get("member_id")],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'>=','value'=>date('Y-m-d')]]);
         $source_list_data=[];
         foreach($source_list as $source){
@@ -65,14 +71,21 @@ class MemberController extends Controller
             $source_list_data[]=$data;
         }
         $previous_source_list=$member->getSourceList(['s.member_stylist_type'=>'0','s.member_stylist_id'=>Session::get("member_id")],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'<','value'=>date('Y-m-d')]]);
-        return view('member.dashboard.source-list',compact('source_list_data','previous_source_list'));
+        return view('member.dashboard.source-list',compact('source_list_data','previous_source_list','day_left'));
     }
 
     public function memberSubmitRequest(Request $request){
         $member=new Member();
-        $country_list=$member->getCountryList();
-        $brand_list=$member->getBrandList();
-        return view('member.dashboard.member-submit-request',compact('country_list','brand_list'));
+        $source_applicable=$member->sourceApplicable(['ms.member_id'=>Session::get("member_id")]);
+        if($source_applicable){
+            $day_left=$source_applicable->day_left;
+            if($day_left<0){
+                return redirect("/member-sourcing");
+            }
+            $country_list=$member->getCountryList();
+            $brand_list=$member->getBrandList();
+            return view('member.dashboard.member-submit-request',compact('country_list','brand_list'));
+        }
     }
     
 

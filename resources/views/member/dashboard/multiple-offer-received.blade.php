@@ -81,7 +81,7 @@
                                 <div class="row">
                                 <div class="col-md-6">
                                     <div class="border-right my-3">
-                                        <img src="{{ asset('member/attachments/source/'.$offer->p_image) }}" class="img-fluid" alt="">
+                                        <img src="{{ asset('member/dashboard/attachments/source/'.$offer->p_image) }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">

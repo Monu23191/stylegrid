@@ -12,9 +12,15 @@
                 <div class="col-8">
                     <h1>Welcome to your product sourcing overview</h1>
                     <h3>Check the status on your existing sourcing requests or submit a new request.</h3>
+                    <?php
+                    if($day_left>-1){
+                    ?>
                     <div class="mt-3">
                         <a href="member-submit-request"><button class="make-request">Make New Request</button></a>
                     </div>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <div class="col-4 quick-link text-right">
                     <span class="mr-lg-5"><a hrf="">Quick Link</a></span>

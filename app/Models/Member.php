@@ -32,6 +32,7 @@ class Member extends Model
 				"m.full_name as name",
 				"m.email",
             	"m.phone",
+            	"m.token",
 				"m.verified"
 			]);
 			$this->db->where($where);
@@ -39,6 +40,23 @@ class Member extends Model
 			return $response_data;
 		}
 	}
+	function sourceApplicable($where){
+		if(count($where)){
+			$this->db = DB::table('sg_member_subscription as ms');
+			$this->db->select([
+				"ms.id",
+				"ms.start_date",
+				"ms.end_date",
+				"ms.subscription",
+				DB::raw("DATEDIFF(ms.end_date,'".date('Y-m-d')."') as day_left")
+			]);
+			$this->db->where($where);
+			$this->db->orderBy("ms.id","DESC");
+			$response_data=$this->db->get()->first();
+			return $response_data;
+		}
+	}
+	
 	
 	function getBrandList($where=[],$search=''){
 		$this->db = DB::table('sg_brand AS b');

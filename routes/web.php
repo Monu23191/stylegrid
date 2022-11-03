@@ -29,6 +29,8 @@ Route::get('/member-login', [Website::class, 'memberLogin']);
 Route::post('/member-login-post', [Website::class, 'memberLoginPost']);
 Route::get('/member-logout', [Website::class, 'memberLogout']);
 Route::get('/member-registration', [Website::class, 'index']);
+Route::get('/member-account-verification/{title}', [Website::class, 'memberAccountVerification']);
+//Route::get('/search-product/{title}','ProductController@searchProduct');
 
 Route::get('/member-dashboard', [Member::class, 'memberDashboard']);
 Route::get('/member-sourcing', [Member::class, 'memberSourcing']);
