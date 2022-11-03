@@ -8,12 +8,25 @@
     <link rel="stylesheet" href="{{ asset('member/website/assets/css/style.css') }}">
 </head>
 <body>
-
 <nav class="navbar navbar-bg">
+        <ul class="nav navbar-nav navbar-left" id="language">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">Country <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+        </ul>
         <div class="search-nav">
             <ul class="nav navbar-nav navbar-right">
-                <!--<li><a href="#"><img src="{{ asset('member/website/assets/images/search.png') }}" alt="">
-                        <input type="text" placeholder="Search" class="search-input"></a></li>-->
+                <li><a href="#"><img src="{{ asset('member/website/assets/images/search.png') }}" alt="">
+                        <input type="text" placeholder="Search" class="search-input"></a></li>
                 <li><a href=""> <img src="{{ asset('member/website/assets/images/star.png') }}" alt=""></a></li>
                 <li><a href=""> <img src="{{ asset('member/website/assets/images/beg.png') }}" alt=""></a></li>
             </ul>
@@ -28,10 +41,13 @@
         <span class="icon-bar"></span> -->
 
             </button>
-            <div class="mobile-search"><img src="{{ asset('member/website/assets/images/search.svg') }}" alt=""></div>
+            <div class="mobile-search"><img src="{{ asset('member/website/assets/images/search.png') }}" alt=""></div>
             <div class="brand-mobile">
+
                 <a href="#"><img src="{{ asset('member/website/assets/images/STYLEGRID-LOGO.png') }}" alt=""></a>
+
             </div>
+
         </div>
         <div class="brand">
             <a href="#"><img src="{{ asset('member/website/assets/images/STYLEGRID-LOGO.png') }}" alt=""></a>
@@ -51,7 +67,7 @@
             <li><a href="#">MEMBERSHIP</a></li>
             <li><a href="#">BRANDS</a></li>
             <li><a href="#">EDITORIAL</a></li>
-            <li><a href="{{url('/member-login')}}">SIGN IN</a></li>
-            <li><a href="{{url('/member-registration')}}"><button class="signup-btn">Sign Up</button></a></li>
+            <li><a href="#">SIGN IN</a></li>
+            <li><a href="#"><button class="signup-btn">Sign Up</button></a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
