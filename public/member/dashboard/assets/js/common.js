@@ -171,7 +171,7 @@ $(function(){
                     response = JSON.parse(ajaxresponse);
                     if (response['status']) {
                         $('#declineOffer').modal('hide');
-                        $('#declined_section'+decline_offer_id).html('<div class="ml-2"><div class="px-3 red-color"><b>Declined Offer</b></div></div>');
+                        $('#declined_section'+decline_offer_id).html('<div class="ml-2"><div class="px-3 red-color"><b> Offer Declined </b></div></div>');
                         var total_class=$('.offer_class').length;
                         var total_decline_class=$('.decline').length;
                         if(total_class==total_decline_class){
@@ -243,3 +243,10 @@ function closePopup(id) {
         $("#" + id).slideUp(5000);
     });
 }
+
+$(document).ready(function(){
+    // Event for pushed the video
+    $('.carousel').carousel({
+        interval: false,
+      });
+});
