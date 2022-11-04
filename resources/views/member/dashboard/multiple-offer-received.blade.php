@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="row" id="fulfill-request">
-                <div id="demo" class="carousel slide" data-ride="carousel">
+                <div id="demo" class="carousel slide"  data-touch="false" data-interval="false" >
 
                     <!-- Indicators -->
                     <ul class="carousel-indicators">
@@ -197,10 +197,10 @@
 
                     <!-- Left and right controls -->
                     <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
+                        <span class="carousel-control-prev-icon"><i class="bi bi-chevron-left"></i></span>
                     </a>
                     <a class="carousel-control-next" href="#demo" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
+                        <span class="carousel-control-next-icon"><i class="bi bi-chevron-right"></i></span>
                     </a>
                 </div>
              </div>

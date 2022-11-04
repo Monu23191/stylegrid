@@ -2278,7 +2278,34 @@ hr {
 .modal {
   top: 25% !important;
 }
+.modal-body h1{
+  font-family: 'Silk Serif';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 36px;
+text-align: center;
+color: #000000;
+}
+.modal-body p{
+  font-family: 'Silk Serif';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 128.3%;
+  text-align: center;
+   color: #000000;  
+}
+.modal-body h6{
+  font-family: 'Silk Serif';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 30px;
+text-align: center;
 
+color: #000000;
+}
 #exampleModal h1,
 #exampleModal-1 h1 {
   font-family: 'Silk Serif';

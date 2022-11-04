@@ -503,7 +503,7 @@ button:hover {
 /* Icon when the collapsible content is shown */
 .navbar-toggle:after {
   font-family: "Glyphicons Halflings";
-  content: "\2613";
+  /* content: "\2613"; */
 
   float: right;
   margin-left: 15px;
