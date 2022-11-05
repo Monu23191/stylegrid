@@ -13,7 +13,7 @@ class MemberWebsiteController extends Controller
 {
     public function index()
     {
-        if(!Session::get('loggedin')){
+        if(!Session::get('Memberloggedin')){
             $member=new Member();
             $country_list=$member->getCountryList();
             $brand_list=$member->getBrandList();
@@ -29,8 +29,13 @@ class MemberWebsiteController extends Controller
     
     public function addMember(Request $request){
         if($request->ajax()){
-            //if($request->email)
             $member=new Member();
+            if($member->checkMemberExistance(['m.email'=>$request->email])){
+                return json_encode(['status'=>0,'message'=>'Email already exists!']);
+            }
+            if($member->checkMemberExistance(['m.phone'=>$request->phone])){
+                return json_encode(['status'=>0,'message'=>'Phone already exists!']);
+            }
             $save_data=array(
                 'id'=>0,
                 'full_name'=>$request->full_name,
@@ -75,7 +80,7 @@ class MemberWebsiteController extends Controller
         }  
     }
     public function memberLogin(){
-        if(!Session::get('loggedin')){
+        if(!Session::get('Memberloggedin')){
             return view('member.website.member-login');
         }
         return redirect('/member-dashboard');
@@ -83,7 +88,7 @@ class MemberWebsiteController extends Controller
     }
 
     public function memberLoginPost(Request $request){
-        if($request->ajax() && !Session::get('loggedin')){
+        if($request->ajax() && !Session::get('Memberloggedin')){
             $member=new Member();
             $email=$request->email;
             $password=sha1($request->password);
@@ -92,7 +97,7 @@ class MemberWebsiteController extends Controller
                 if($login_data->verified){
                     Session::put('member_data', $login_data);
                     Session::put('member_id', $login_data->id);
-                    Session::put('loggedin',TRUE);
+                    Session::put('Memberloggedin',TRUE);
                     return json_encode(['status'=>1,'message'=>'you have successfully loggedin']);
                 }
                 return json_encode(

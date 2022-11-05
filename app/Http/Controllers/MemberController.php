@@ -13,7 +13,7 @@ class MemberController extends Controller
  
     public function __construct(){
             $this->middleware(function ($request, $next) {
-            if(!Session::get("loggedin")) {
+            if(!Session::get("Memberloggedin")) {
                 return redirect("/member-login");
             }
             return $next($request);

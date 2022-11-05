@@ -40,6 +40,21 @@ class Member extends Model
 			return $response_data;
 		}
 	}
+
+	function checkStylistExistance($where){
+		if(count($where)){
+			$this->db = DB::table('sg_stylist as s');
+			$this->db->select([
+				"s.id",
+				"s.full_name as name",
+				"s.email",
+            	"s.phone",
+			]);
+			$this->db->where($where);
+			$response_data=$this->db->get()->first();
+			return $response_data;
+		}
+	}
 	function sourceApplicable($where){
 		if(count($where)){
 			$this->db = DB::table('sg_member_subscription as ms');

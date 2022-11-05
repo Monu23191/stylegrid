@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController as Member;
 use App\Http\Controllers\MemberWebsiteController as Website;
+use App\Http\Controllers\StylistWebsiteController as StylistWebsite;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,13 @@ use App\Http\Controllers\MemberWebsiteController as Website;
   Route::get('/','App\Http\Controllers\CreateGridController@index');
   Route::get('/loadgridview','App\Http\Controllers\CreateGridController@loadgridview');
  // });
+ //stylist Section Start
+ Route::get('/stylist-registration', [StylistWebsite::class, 'stylistRegistration']);
+ Route::post('/check-stylist-existance', [StylistWebsite::class, 'checkStylistExistance']);
+ Route::post('/add-stylist', [StylistWebsite::class, 'addStylist']);
 
+ //stylist section End
+ ///member Section Start
 Route::post('/add-member', [Website::class, 'addMember']);
 Route::post('/check-member-existance', [Website::class, 'checkMemberExistance']);
 Route::get('/member-login', [Website::class, 'memberLogin']);
@@ -45,6 +52,8 @@ Route::get('/member-orders', [Member::class, 'memberOrders']);
 Route::get('/member-submit-request', [Member::class, 'memberSubmitRequest']);
 Route::post('/get-brands', [Member::class, 'getBrandList']);
 Route::post('/member-submit-request-post', [Member::class, 'memberSubmitRequestPost']);
+
+//member section End
 
 // Route::get('/loadgridview', function () {
 	// error_log("ROOT ROUTE");

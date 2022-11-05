@@ -144,7 +144,7 @@ function addMember(){
 })
 }
 function setpOneValidation(){
-  $('#member-registration-form input, select ').css('border', '1px solid #ccc');
+  $('#member-registration-form input').css('border', '1px solid #ccc');
   $('.error').html('');
   $('.message').html('');
   var full_name=makeTrim($('#full_name').val());
