@@ -20,10 +20,11 @@ use App\Http\Controllers\StylistWebsiteController as StylistWebsite;
   //  return view('welcome');
 //});
   //Route::domain('stylist.com')->group(function () {
-  Route::get('/','App\Http\Controllers\CreateGridController@index');
+  //Route::get('/','App\Http\Controllers\CreateGridController@index');
   Route::get('/loadgridview','App\Http\Controllers\CreateGridController@loadgridview');
  // });
  //stylist Section Start
+ Route::get('/', [StylistWebsite::class, 'index']);
  Route::get('/stylist-registration', [StylistWebsite::class, 'stylistRegistration']);
  Route::post('/check-stylist-existance', [StylistWebsite::class, 'checkStylistExistance']);
  Route::post('/add-stylist', [StylistWebsite::class, 'addStylist']);

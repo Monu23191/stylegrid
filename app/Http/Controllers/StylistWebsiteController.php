@@ -11,6 +11,9 @@ date:5-11-2022
 */
 class StylistWebsiteController extends Controller
 {
+    public function index(){
+        return view('stylist.website.website-home-page');
+    }
     public function stylistRegistration()
     {
         $member=new Member();
