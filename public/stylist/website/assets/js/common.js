@@ -35,7 +35,7 @@ function nextPrev(n) {
     // if you have reached the end of the form...
     if (currentTab >= x.length) {
         // ... the form gets submitted:
-        
+
         document.getElementById("regForm").submit();
         return false;
     }
@@ -108,8 +108,11 @@ function addStylist(){
           $('#next-previous').remove();
           $('#steps-next-previous').remove();
           $('.success_tab').show();
+         // $("#stylist-registration-success-url").prop("href", response['url']);
         }else{
-            
+          $('#fourth_step_message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
+          currentTab = currentTab - 1;
+          showTab(currentTab);
         }
     }
 })

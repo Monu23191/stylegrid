@@ -100,20 +100,15 @@
                             </div>
                             <div class="inputbox-1 mt-5">
                                 <div class="form-group text-center">
-                                   
                                     <div class="d-flex justify-content-center">
                                         <input type="text" name="" id="" class="form-control"
                                         placeholder="Add your preferred style type/s here">
                                     </div>
                                 </div>
                             </div>
-                           
                         </form>
-
                     </div>
-                    
                 </div>
-
             </div>
         </div>
     </div>
@@ -148,8 +143,6 @@
         <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
-
-
     </div>
 </form>
 @stop

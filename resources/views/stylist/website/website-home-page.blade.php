@@ -28,12 +28,9 @@
                 <h2>Are you a stylist?<br> Sign up here.</h2>
                 <!-- <p>Create your account today and enjoy a 30 day free trial, with access to a dedicated stylist
                     and exclusive luxury product.</p> -->
-                <div class="mt-5 pt-4">
-                    <a href="{{url('/stylist-registration')}}" class="mt-5"> <button class="signup-btn-1 px-4 py-1h">Sign
+                <div class="mt-5 pt-4"><a href="{{url('/stylist-registration')}}"> <button class="signup-btn-1 px-4 py-1">Sign
                             Up</button></a>
-                 </div>
-                
-
+                </div>
             </div>
         </div>
     </div>

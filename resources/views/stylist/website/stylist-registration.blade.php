@@ -231,7 +231,7 @@
                         give you access to the StyleGrid platform, where you’ll be able to service and grow your
                         styling business all in one place.</p>
                     <br>
-                    <a href="{{url('/stylist-registration')}}" class="mt-5"><button class="back-to px-5">Return to Home</button></a>
+                    <a href="{{url('/stylist-registration')}}" class="mt-5" id="stylist-registration-success-url"><button class="back-to px-5" type="button">Return to Home</button></a>
                 </div>
 
             </div>

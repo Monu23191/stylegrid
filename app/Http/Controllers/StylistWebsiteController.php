@@ -47,10 +47,10 @@ class StylistWebsiteController extends Controller
         if($request->ajax()){
             $member=new Member();
             if($member->checkStylistExistance(['s.email'=>$request->email])){
-                return json_encode(['status'=>0,'message'=>'Email already exists!']);
+                return json_encode(['status'=>0,'message'=>'Email already exists!','url'=>'']);
             }
             if($member->checkStylistExistance(['s.phone'=>$request->phone])){
-                return json_encode(['status'=>0,'message'=>'Phone already exists!']);
+                return json_encode(['status'=>0,'message'=>'Phone already exists!','url'=>'']);
             }
             $save_data=array(
                 'id'=>0,
@@ -67,12 +67,30 @@ class StylistWebsiteController extends Controller
             $response=$member->addUpdateData($save_data,'sg_stylist'); 
             if($response['reference_id']){
                 $member->addUpdateData(['id'=>$response['reference_id'],'slug'=>$save_data['slug'].'-'.$response['reference_id']],'sg_stylist');   
-               // $verification_url=URL::to("/").'/stylist-account-confirmation/'.$save_data['token'];
-                return json_encode(['status'=>1,'message'=>'Stylist Added Successfully!']);
+                return json_encode(['status'=>1,'message'=>'Stylist Added Successfully!','url'=>\URL::to("/").'/stylist-account-confirmation/'.$save_data['token']]);
             }
-            return json_encode(['status'=>0,'message'=>'Something went wrong!']);
+            return json_encode(['status'=>0,'message'=>'Something went wrong!','url'=>'']);
         }  
     }
+
+    public function stylistAccountConfirmation($token){
+        if(!empty($token)){
+            $member=new Member();
+            $stylist_data=$member->checkStylistExistance(['s.token'=>$token]);
+            if($stylist_data){
+                if($stylist_data->verified){
+                    return view('stylist.website.stylist-registration-final-step');
+                }else{
+                    return view('stylist.website.stylist-registration-final-step-without-verification');
+                }
+            }else{
+                return redirect('/stylist-login');
+            }
+        }else{
+            return redirect('/stylist-login');
+        }
+    }
+    
     
     
 }

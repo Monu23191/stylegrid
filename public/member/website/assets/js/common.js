@@ -138,7 +138,9 @@ function addMember(){
           $('#steps-next-previous').remove();
           $('.success_tab').show();
         }else{
-            
+          $('#fifth_step_message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
+          currentTab = currentTab - 1;
+          showTab(currentTab);
         }
     }
 })

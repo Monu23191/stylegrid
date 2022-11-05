@@ -49,6 +49,7 @@ class Member extends Model
 				"s.full_name as name",
 				"s.email",
             	"s.phone",
+				"s.verified"
 			]);
 			$this->db->where($where);
 			$response_data=$this->db->get()->first();
