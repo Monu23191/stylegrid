@@ -21,7 +21,7 @@
                                 <span>Email Address</span>
                             </div>
                         </div>
-                        <div class="inputbox">
+                        <div class="inputbox mb-0">
                             <div class="form-group">
                                 <input type="password" name="password" id="password">
                                 <div id="password_error" class="error"></div>
@@ -31,7 +31,7 @@
                         <div><a href="" class="forgot-pass">
                             <h3>Forgot password?</h3>
                         </a></div>
-                        <div class="text-center"><a href="javascript:void(0);"><button type="button" class="sign-in px-2" id="member-login-btn">Sign In</button></a>
+                        <div class="text-center mt-5"><a href="javascript:void(0);"><button type="button" class="sign-in px-2" id="member-login-btn">Sign In</button></a>
                         </div>
                         <div class="mt-2"><h5>if you are a member,<a href="{{url('/member-registration')}}"> please click here to <br>sign in.</a></h5></div>
                     </form>
