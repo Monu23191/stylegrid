@@ -29,6 +29,9 @@ use App\Http\Controllers\StylistWebsiteController as StylistWebsite;
  Route::post('/check-stylist-existance', [StylistWebsite::class, 'checkStylistExistance']);
  Route::post('/add-stylist', [StylistWebsite::class, 'addStylist']);
  Route::get('/stylist-account-confirmation/{title}', [StylistWebsite::class, 'stylistAccountConfirmation']);
+ Route::post('/add-stylist-second-process', [StylistWebsite::class, 'addStylistSecondProcess']);
+ Route::get('/stylist-login', [StylistWebsite::class, 'stylistLogin']);
+
 
  //stylist section End
  ///member Section Start

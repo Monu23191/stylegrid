@@ -1,14 +1,51 @@
-
-if(constants.current_url=='/stylist-registration'){
+$(function(){
+  $('#image_preview_remove').click(function(){
+    $("#filer_input2").val('');
+    $('#image_preview_remove').hide();
+    $("#divImageMediaPreview").html('');
+})
+  $("#filer_input2").change(function () {
+    $('.error').html('');
+    if (typeof (FileReader) != "undefined") {
+        var dvPreview = $("#divImageMediaPreview");
+        dvPreview.html("");            
+       // $($(this)[0].files).each(function () {
+            var file = $(this)[0].files;//$(this); 
+            var ext = $('#filer_input2').val().split('.').pop().toLowerCase();
+            if ($.inArray(ext, ['gif','png','jpg','jpeg']) == -1){
+                $('#image_error').html('Invalid Image Format! Image Format Must Be JPG, JPEG, PNG or GIF.');
+                $("#filer_input2").val('');
+                return false;
+            }else{
+                var image_size = (this.files[0].size);
+                if(image_size>1000000){
+                    $('#image_error').html('Maximum File Size Limit is 1 MB');
+                    $("#filer_input2").val('');
+                    return false;
+                }else{
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var img = $("<img />");
+                        img.attr("style", "width: 150px; height:100px; padding: 10px");
+                        img.attr("src", e.target.result);
+                        dvPreview.append(img);
+                    }
+                    $('#image_preview_remove').show();
+                   reader.readAsDataURL(file[0]);
+                }
+            }
+       // });
+    }
+});
+})
+if(constants.current_url=='/stylist-registration' || constants.current_url.search('/stylist-account-confirmation')!=-1){
   var currentTab = 0;
   showTab(currentTab);
 }
 
 function showTab(n) {
-    // This function will display the specified tab of the form...
     var x = document.getElementsByClassName("tab");
     x[n].style.display = "block";
-    //... and fix the Previous/Next buttons:
     if (n == 0) {
         document.getElementById("prevBtn").style.display = "none";
     } else {
@@ -19,7 +56,6 @@ function showTab(n) {
     } else {
         document.getElementById("nextBtn").innerHTML = "Next";
     }
-    //... and run a function that will display the correct step indicator:
     fixStepIndicator(n)
 }
 
@@ -56,7 +92,7 @@ function showTab(n) {
           x[currentTab].style.display = "none";
           currentTab = currentTab + n;
           if (currentTab >= x.length) {
-            addStylist();
+            addStylistSecondProcess();
             return false;
           }
           showTab(currentTab);
@@ -64,25 +100,17 @@ function showTab(n) {
 
       
       function stylistValidateForm() {
-        $('#stylist-registration-form input').css('border', '1px solid #ccc');
+        $('#stylist-registration-final-step-form input').css('border', '1px solid #ccc');
         $('.error').html('');
         $('.message').html('');
         var x, y, i, valid = true;
         if(currentTab==0){
           valid = false
-          return  setpOneValidation();
+          return  stylistSetpOneValidation();
         }
         if(currentTab==1){
           valid = false
-          return  setpTwoValidation();
-        }
-        if(currentTab==2){
-          valid = false
-          return  setpThreeValidation();
-        }
-        if(currentTab==3){
-          valid = false
-          return  setpFourValidation();
+          return  stylistSetpTwoValidation();
         }      
         if (valid) {
           document.getElementsByClassName("step")[currentTab].className += " finish";
@@ -116,12 +144,15 @@ function showTab(n) {
         return valid; 
         }
 
-function addStylist(){
+function addStylistSecondProcess(){
     $.ajax({
-      url : '/add-stylist',
-      method : "POST",
-      async: false,
-      data : $('#stylist-registration-form').serialize(),
+      type: 'POST',
+      url : '/add-stylist-second-process',
+      data: new FormData($("#stylist-registration-final-step-form")[0]),
+      async : false,
+      cache : false,
+      contentType : false,
+      processData : false,
       success : function (ajaxresponse){
           response = JSON.parse(ajaxresponse);
           if(response['status']){
@@ -130,7 +161,7 @@ function addStylist(){
             $('.success_tab').show();
           // $("#stylist-registration-success-url").prop("href", response['url']);
           }else{
-            $('#fourth_step_message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
+            $('#second_step_message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
             currentTab = currentTab - 1;
             showTab(currentTab);
           }
@@ -138,6 +169,106 @@ function addStylist(){
   })
 }
 
+function addStylist(){
+  $.ajax({
+    url : '/add-stylist',
+    method : "POST",
+    async: false,
+    data : $('#stylist-registration-form').serialize(),
+    success : function (ajaxresponse){
+        response = JSON.parse(ajaxresponse);
+        if(response['status']){
+          $('#next-previous').remove();
+          $('#steps-next-previous').remove();
+          $('.success_tab').show();
+        // $("#stylist-registration-success-url").prop("href", response['url']);
+        }else{
+          $('#fourth_step_message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
+          currentTab = currentTab - 1;
+          showTab(currentTab);
+        }
+    }
+})
+}
+function stylistSetpOneValidation(){
+  
+  $('#stylist-registration-final-step-form input ').css('border', '1px solid #ccc');
+  $('.error').html('');
+  $('.message').html('');
+  var user_name=makeTrim($('#user_name').val());
+  var password=makeTrim($('#password').val());
+  var confirm_password=makeTrim($('#confirm_password').val());
+  var status=true;
+  if(user_name==''){
+    $('#user_name').css('border', '2px solid #cc0000');
+    $('#user_name_error').html('Please enter username');
+    status=false;
+  }
+  
+  if(password==''){
+    $('#password').css('border', '2px solid #cc0000');
+    $('#password_error').html('Please enter Password');
+    status=false;
+  }else{
+    if (password.length < 8) {
+        $('#password').css('border', '2px solid #cc0000');
+        $('#password_error').html('Your password must be at least 8 characters.');
+        status = false;
+    }
+    else if (password.search(/[a-z]/i) < 0) {
+        $('#password').css('border', '2px solid #cc0000');
+        $('#password_error').html('Your password must contain at least one letter.');
+        status = false;
+    }else if(password.search(/[0-9]/) < 0){
+        $('#password').css('border', '2px solid #cc0000');
+        $('#password_error').html('Your password must contain at least one digit.');
+        status = false;
+    }
+  }
+  if (confirm_password == '') {
+    $('#confirm_password').css('border', '2px solid #cc0000');
+    $('#confirm_password_error').html('Required*');
+    status = false;
+  }
+  if (password != '') {
+    if (confirm_password != password) {
+      $('#confirm_password').css('border', '2px solid #cc0000');
+      $('#confirm_password_error').html('Password and Confirm Password do not match.');
+      status = false;
+    }
+  }
+  if(!status){
+    $('#first_step_message_box').html('<div class="alert alert-danger">Please enter all the mandatory fields!</div>');
+  }
+  return status;
+
+}
+function stylistSetpTwoValidation(){
+  var status=true;
+  var short_bio=makeTrim($('#short_bio').val());
+  var favourite_brands=makeTrim($('#favourite_brands').val());
+  var preferred_style=makeTrim($('#preferred_style').val());
+  if(short_bio==''){
+    $('#short_bio').css('border', '2px solid #cc0000');
+    $('#short_bio_error').html('This field is required');
+    status=false;
+  }
+  if(favourite_brands==''){
+    $('#favourite_brands').css('border', '2px solid #cc0000');
+    $('#favourite_brands_error').html('This field is required');
+    status=false;
+  }
+  if(preferred_style==''){
+    $('#preferred_style').css('border', '2px solid #cc0000');
+    $('#preferred_style_error').html('This field is required');
+    status=false;
+  }
+  if(!status){
+    $('#third_step_message_box').html('<div class="alert alert-danger">Please enter all the mandatory fields!</div>');
+  }
+  return status;
+
+}
 function setpOneValidation(){
   $('#stylist-registration-form input ').css('border', '1px solid #ccc');
   $('.error').html('');
@@ -155,7 +286,6 @@ function setpOneValidation(){
   if(email==''){
     $('#email').css('border', '2px solid #cc0000');
     $('#email_error').html('Please enter Email');
-
     status=false;
   }else {
     if (!validEmail(email)) {

@@ -3,6 +3,7 @@
 <div class="container-fluid">
 </div>
 <form id="stylist-registration-final-step-form" action="">
+    @csrf
     <!-- One "tab" for each step in the form: -->
     <div class="tab">
         <div class="container">
@@ -21,32 +22,34 @@
                      
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="text" name="user_name" placeholder="Create username...">
+                                <input type="text" name="user_name" id="user_name" placeholder="Create username...">
                                 <div id="user_name_error" class="error"></div>
                             </div>
+                            
                         </div>
+                        
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="text" name="email_address" placeholder="Email Address...">
+                                <input type="text" name="email_address" placeholder="Email Address..." readonly value="{{$stylist_data->email}}">
                                 <div id="email_address_error" class="error"></div>
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="text" name="phone_number" placeholder="Phone Number...">
+                                <input type="text" name="phone_number" placeholder="Phone Number..." readonly  value="{{$stylist_data->phone}}">
                                 <div id="phone_number_error" class="error"></div>
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="text" id="password" name="password" placeholder="Create Password..." >
+                                <input type="password" id="password" name="password" placeholder="Create Password..." >
                                 <div id="password_error" class="error"></div>
                             </div>
                         </div>
 
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="text" id="confirm_password" name="confirm_password"  placeholder="Create confirm Password..." >
+                                <input type="password" id="confirm_password" name="confirm_password"  placeholder="Create confirm Password..." >
                                 <div id="confirm_password_error" class="error"></div>
                             </div>
                         </div>
@@ -66,41 +69,49 @@
                     <div id="second_step_message_box" class="message"></div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6"> <div class="Neon Neon-theme-dragdropbox mt-5">
-                        <input name="files[]" id="filer_input2" multiple="multiple" type="file">
-                        <div class="Neon-input-dragDrop py-5 px-4">
-                            <div class="Neon-input-inner py-4">
-                                <div class="Neon-input-text ">
-                                    <h3>Upload your profile picture here</h3>
-                                </div><a class="Neon-input-choose-btn blue"><img
-                                        src="{{asset('/app-assets/images/icons/plus.png')}}" alt=""></a>
+                    <div class="col-lg-6 ">
+                        <div class="Neon Neon-theme-dragdropbox mt-lg-5">
+                            <input name="profile_image" id="filer_input2" multiple="multiple"  type="file">
+                            <div class="Neon-input-dragDrop py-5 px-4">
+                                <div class="Neon-input-inner py-4">
+                                    <div class="Neon-input-text ">
+                                        <h3>Upload an image of the product here</h3>
+                                    </div><a class="Neon-input-choose-btn blue"><img  src="{{ asset('/stylist/website/assets/images/plus.png') }}" alt="" id="image_preview"></a>
+                                    <div id="image_error" class="error"></div>
+                                    <div id="divImageMediaPreview"></div>
+                                    <a href="javascript:void(0)" style="display: none;" id="image_preview_remove">Remove</a>
+                                </div>
                             </div>
                         </div>
-                    </div></div>
+                    </div>
+
+
                     <div class="col-lg-6">
                        
                             <div class="inputbox-1 mt-5">
                                 <div class="form-group text-center">
-                                  
                                     <div class="d-flex justify-content-center">
-                                        <textarea name="" id="" class="form-control"
+                                        <textarea name="short_bio" id="short_bio" class="form-control"
                                             placeholder="Type your short bio here"></textarea>
+                                        <div id="short_bio_error" class="error"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="inputbox-1 mt-5">
                                 <div class="form-group text-center">
                                     <div class="d-flex justify-content-center">
-                                        <input type="text" name="" id="" class="form-control"
+                                        <input type="text" name="favourite_brands" id="favourite_brands" class="form-control"
                                             placeholder="Add your favourite brands here">
+                                            <div id="favourite_brands_error" class="error"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="inputbox-1 mt-5">
                                 <div class="form-group text-center">
                                     <div class="d-flex justify-content-center">
-                                        <input type="text" name="" id="" class="form-control"
+                                        <input type="text" name="preferred_style" id="preferred_style" class="form-control"
                                         placeholder="Add your preferred style type/s here">
+                                        <div id="preferred_style_error" class="error"></div>
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +122,7 @@
         </div>
     </div>
 
-    <div class="tab">
+    <div class="success_tab" style="display:none;">
         <div class="container my-lg-5 py-lg-5">
             <div id="signup-1">
                 <div class="row justify-content-center">
@@ -136,7 +147,6 @@
     </div>
     <!-- Circles which indicates the steps of the form: -->
     <div style="text-align:center;margin-top:40px;" id="steps-next-previous">
-        <span class="step"></span>
         <span class="step"></span>
         <span class="step"></span>
     </div>

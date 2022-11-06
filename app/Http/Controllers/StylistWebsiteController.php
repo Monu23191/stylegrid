@@ -72,14 +72,49 @@ class StylistWebsiteController extends Controller
             return json_encode(['status'=>0,'message'=>'Something went wrong!','url'=>'']);
         }  
     }
+    public function addStylistSecondProcess(Request $request){
+        if($request->ajax()){
+            if(Session::get('processed_stylist_id')>0){
+                $member=new Member();
+                $member_data=$member->checkStylistExistance(['s.id'=>Session::get('processed_stylist_id')]);
+                if($member_data){
+                    if($member_data->verified){
+                        $profile_image_name='';
+                        $profile_image= $request->file('profile_image');
+                        if(!empty($profile_image)){
+                            $new_name = rand() . '.' . $profile_image->getClientOriginalExtension();
+                            $profile_image->move(public_path('stylist/attachments/profileImage'), $new_name);
+                            $profile_image_name=$new_name;
+                        }
+                        $save_data=array(
+                            'id'=>Session::get('processed_stylist_id'),
+                            'user_name'=>$request->user_name,
+                            'profile_image'=>$profile_image_name,
+                            'password'=>sha1($request->password),
+                            'short_bio'=>$request->short_bio,
+                            'favourite_brands'=>$request->favourite_brands,
+                            'preferred_style'=>$request->preferred_style,
+                            'token'=>'',
+                            );
+                        $response=$member->addUpdateData($save_data,'sg_stylist'); 
+                        if($response['reference_id']){
+                            return json_encode(['status'=>1,'message'=>'Stylist Added Successfully!']);
+                        }
+                    }
+                }
+            }
+            return json_encode(['status'=>0,'message'=>'Something went wrong!']);
+        }  
+    }
 
     public function stylistAccountConfirmation($token){
         if(!empty($token)){
             $member=new Member();
             $stylist_data=$member->checkStylistExistance(['s.token'=>$token]);
             if($stylist_data){
-                if($stylist_data->verified || 1==1){
-                    return view('stylist.website.stylist-registration-final-step');
+                if($stylist_data->verified){
+                    Session::put('processed_stylist_id', $stylist_data->id);
+                    return view('stylist.website.stylist-registration-final-step',compact('stylist_data'));
                 }else{
                     return view('stylist.website.stylist-registration-final-step-without-verification');
                 }
@@ -89,6 +124,9 @@ class StylistWebsiteController extends Controller
         }else{
             return redirect('/stylist-login');
         }
+    }
+    function stylistLogin(Request $request){
+        echo "dddd";die;
     }
     
     
