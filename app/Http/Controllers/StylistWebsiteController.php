@@ -78,7 +78,7 @@ class StylistWebsiteController extends Controller
             $member=new Member();
             $stylist_data=$member->checkStylistExistance(['s.token'=>$token]);
             if($stylist_data){
-                if($stylist_data->verified){
+                if($stylist_data->verified || 1==1){
                     return view('stylist.website.stylist-registration-final-step');
                 }else{
                     return view('stylist.website.stylist-registration-final-step-without-verification');

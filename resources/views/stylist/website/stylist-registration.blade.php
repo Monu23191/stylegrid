@@ -52,12 +52,7 @@
                             <span>Phone Number</span>
                         </div>
                     </div>
-
-                     
-
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -70,7 +65,6 @@
                         business with clients in your region, while also tailoring your StyleGrid experience.
                     </p>
                     <br>
-
                 </div>
                 <div>
                     <div id="second_step_message_box" class="message"></div>

@@ -84,7 +84,6 @@ class MemberWebsiteController extends Controller
             return view('member.website.member-login');
         }
         return redirect('/member-dashboard');
-        
     }
 
     public function memberLoginPost(Request $request){

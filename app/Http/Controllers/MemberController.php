@@ -161,7 +161,7 @@ class MemberController extends Controller
         $member=new Member();
         $offer_list=$member->memberOfferDetails(['s.p_slug'=>$id]);
         if(!count($offer_list)){
-            return redirect('/sourcing');
+            return redirect('/member-sourcing');
         }
         return view('member.dashboard.multiple-offer-received',compact('offer_list'));
     }

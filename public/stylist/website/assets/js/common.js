@@ -23,36 +23,16 @@ function showTab(n) {
     fixStepIndicator(n)
 }
 
-function nextPrev(n) {
-    // This function will figure out which tab to display
-    var x = document.getElementsByClassName("tab");
-    // Exit the function if any field in the current tab is invalid:
-    if (n == 1 && !validateForm()) return false;
-    // Hide the current tab:
-    x[currentTab].style.display = "none";
-    // Increase or decrease the current tab by 1:
-    currentTab = currentTab + n;
-    // if you have reached the end of the form...
-    if (currentTab >= x.length) {
-        // ... the form gets submitted:
 
-        document.getElementById("regForm").submit();
-        return false;
-    }
-    // Otherwise, display the correct tab:
-    showTab(currentTab);
-}
-
-
-function fixStepIndicator(n) {
-    // This function removes the "active" class of all steps...
-    var i, x = document.getElementsByClassName("step");
-    for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" active", "");
-    }
-    //... and adds the "active" class on the current step:
-    x[n].className += " active";
-}
+  function fixStepIndicator(n) {
+      // This function removes the "active" class of all steps...
+      var i, x = document.getElementsByClassName("step");
+      for (i = 0; i < x.length; i++) {
+          x[i].className = x[i].className.replace(" active", "");
+      }
+      //... and adds the "active" class on the current step:
+      x[n].className += " active";
+  }
 
 
         function nextPrev(n) {
@@ -68,7 +48,47 @@ function fixStepIndicator(n) {
             }
             showTab(currentTab);
         }
+        function nextPrevStep(n) {
+          var x = document.getElementsByClassName("tab");
+          if (n == 1 && !stylistValidateForm()) {
+            return false;
+          }
+          x[currentTab].style.display = "none";
+          currentTab = currentTab + n;
+          if (currentTab >= x.length) {
+            addStylist();
+            return false;
+          }
+          showTab(currentTab);
+      }
 
+      
+      function stylistValidateForm() {
+        $('#stylist-registration-form input').css('border', '1px solid #ccc');
+        $('.error').html('');
+        $('.message').html('');
+        var x, y, i, valid = true;
+        if(currentTab==0){
+          valid = false
+          return  setpOneValidation();
+        }
+        if(currentTab==1){
+          valid = false
+          return  setpTwoValidation();
+        }
+        if(currentTab==2){
+          valid = false
+          return  setpThreeValidation();
+        }
+        if(currentTab==3){
+          valid = false
+          return  setpFourValidation();
+        }      
+        if (valid) {
+          document.getElementsByClassName("step")[currentTab].className += " finish";
+      }
+      return valid; 
+      }
         function validateForm() {
           $('#stylist-registration-form input').css('border', '1px solid #ccc');
           $('.error').html('');
@@ -97,26 +117,27 @@ function fixStepIndicator(n) {
         }
 
 function addStylist(){
-  $.ajax({
-    url : '/add-stylist',
-    method : "POST",
-    async: false,
-    data : $('#stylist-registration-form').serialize(),
-    success : function (ajaxresponse){
-        response = JSON.parse(ajaxresponse);
-        if(response['status']){
-          $('#next-previous').remove();
-          $('#steps-next-previous').remove();
-          $('.success_tab').show();
-         // $("#stylist-registration-success-url").prop("href", response['url']);
-        }else{
-          $('#fourth_step_message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
-          currentTab = currentTab - 1;
-          showTab(currentTab);
-        }
-    }
-})
+    $.ajax({
+      url : '/add-stylist',
+      method : "POST",
+      async: false,
+      data : $('#stylist-registration-form').serialize(),
+      success : function (ajaxresponse){
+          response = JSON.parse(ajaxresponse);
+          if(response['status']){
+            $('#next-previous').remove();
+            $('#steps-next-previous').remove();
+            $('.success_tab').show();
+          // $("#stylist-registration-success-url").prop("href", response['url']);
+          }else{
+            $('#fourth_step_message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
+            currentTab = currentTab - 1;
+            showTab(currentTab);
+          }
+      }
+  })
 }
+
 function setpOneValidation(){
   $('#stylist-registration-form input ').css('border', '1px solid #ccc');
   $('.error').html('');
@@ -167,24 +188,24 @@ function setpOneValidation(){
     $('#phone_error').html('Please enter Phone');
     status=false;
   }else{
-    $.ajax({
-      url : '/check-stylist-existance',
-      method : "POST",
-      async: false,
-      data : {
-        'key':'phone',
-        'value':phone,
-        '_token': constants.csrf_token
-      },
-      success : function (ajaxresponse){
-          response = JSON.parse(ajaxresponse);
-          if (!response['status']) {
-            $('#phone').css('border', '2px solid #cc0000');
-            $('#phone_error').html('Phone Number already exists!');
-            status = false; 
-          }
-      }
-  })
+      $.ajax({
+        url : '/check-stylist-existance',
+        method : "POST",
+        async: false,
+        data : {
+          'key':'phone',
+          'value':phone,
+          '_token': constants.csrf_token
+        },
+        success : function (ajaxresponse){
+            response = JSON.parse(ajaxresponse);
+            if (!response['status']) {
+              $('#phone').css('border', '2px solid #cc0000');
+              $('#phone_error').html('Phone Number already exists!');
+              status = false; 
+            }
+        }
+    })
   }
   if(!status){
     $('#first_step_message_box').html('<div class="alert alert-danger">Please enter all the mandatory fields!</div>');
