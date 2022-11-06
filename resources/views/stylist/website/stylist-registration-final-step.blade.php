@@ -71,7 +71,7 @@
                 <div class="row">
                     <div class="col-lg-6 ">
                         <div class="Neon Neon-theme-dragdropbox mt-lg-5">
-                            <input name="profile_image" id="filer_input2" multiple="multiple"  type="file">
+                            <input name="profile_image" id="frame-image" multiple="multiple"  type="file">
                             <div class="Neon-input-dragDrop py-5 px-4">
                                 <div class="Neon-input-inner py-4">
                                     <div class="Neon-input-text ">
@@ -87,7 +87,6 @@
 
 
                     <div class="col-lg-6">
-                       
                             <div class="inputbox-1 mt-5">
                                 <div class="form-group text-center">
                                     <div class="d-flex justify-content-center">

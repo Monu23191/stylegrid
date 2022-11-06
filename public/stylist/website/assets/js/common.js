@@ -1,26 +1,26 @@
 $(function(){
   $('#image_preview_remove').click(function(){
-    $("#filer_input2").val('');
+    $("#frame-image").val('');
     $('#image_preview_remove').hide();
     $("#divImageMediaPreview").html('');
 })
-  $("#filer_input2").change(function () {
+  $("#frame-image").change(function () {
     $('.error').html('');
     if (typeof (FileReader) != "undefined") {
         var dvPreview = $("#divImageMediaPreview");
         dvPreview.html("");            
        // $($(this)[0].files).each(function () {
             var file = $(this)[0].files;//$(this); 
-            var ext = $('#filer_input2').val().split('.').pop().toLowerCase();
+            var ext = $('#frame-image').val().split('.').pop().toLowerCase();
             if ($.inArray(ext, ['gif','png','jpg','jpeg']) == -1){
                 $('#image_error').html('Invalid Image Format! Image Format Must Be JPG, JPEG, PNG or GIF.');
-                $("#filer_input2").val('');
+                $("#frame-image").val('');
                 return false;
             }else{
                 var image_size = (this.files[0].size);
                 if(image_size>1000000){
                     $('#image_error').html('Maximum File Size Limit is 1 MB');
-                    $("#filer_input2").val('');
+                    $("#frame-image").val('');
                     return false;
                 }else{
                     var reader = new FileReader();
@@ -203,6 +203,25 @@ function stylistSetpOneValidation(){
     $('#user_name').css('border', '2px solid #cc0000');
     $('#user_name_error').html('Please enter username');
     status=false;
+  }else{
+    $.ajax({
+      url : '/check-stylist-existance',
+      method : "POST",
+      async: false,
+      data : {
+        'key':'user_name',
+        'value':user_name,
+        '_token': constants.csrf_token
+      },
+      success : function (ajaxresponse){
+          response = JSON.parse(ajaxresponse);
+          if (!response['status']) {
+            $('#user_name').css('border', '2px solid #cc0000');
+            $('#user_name_error').html('User name already exists!');
+            status = false; 
+          }
+      }
+  })
   }
   
   if(password==''){
