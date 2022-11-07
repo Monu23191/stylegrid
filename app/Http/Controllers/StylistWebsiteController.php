@@ -126,8 +126,9 @@ class StylistWebsiteController extends Controller
         }
     }
     function stylistLogin(Request $request){
-        echo "dddd";die;
+        return view('stylist.website.stylist-login');
     }
+    
     
     
     

@@ -28,7 +28,7 @@
                                 <span>Password</span>
                             </div>
                         </div>
-                        <div><a href="" class="forgot-pass">
+                        <div><a href="/member-forgot-password" class="forgot-pass">
                             <h3>Forgot password?</h3>
                         </a></div>
                         <div class="text-center mt-5"><a href="javascript:void(0);"><button type="button" class="sign-in px-2" id="member-login-btn">Sign In</button></a>
