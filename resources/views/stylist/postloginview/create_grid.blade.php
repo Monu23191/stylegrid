@@ -1,5 +1,6 @@
 @include("stylist.postloginview.partials.header.header")
 @include("stylist.postloginview.partials.navigate.navigate")
+<meta name="csrf-token" content="{{ csrf_token() }}">
  <!-- BEGIN: Content-->
 <style>
 .mjcheckinput {
@@ -88,9 +89,9 @@
                         </div>
                     </div>
                     <div class="appendrowhere">
-					
-					</div>
 					<div class="showmodal"></div>
+					</div>
+					
 					  
                 </div>
             </div>
@@ -120,6 +121,7 @@ function formvalidation(val){
     var prd_name=makeTrim($('#prd_name'+clickedid).val());
     var brand_name=makeTrim($('#brand_name'+clickedid).val());
     var prd_type=makeTrim($('#prd_type'+clickedid).val());
+    var prd_price=makeTrim($('#prd_price'+clickedid).val());
     var prd_size=makeTrim($('#prd_size'+clickedid).val());
     // 
     
@@ -138,6 +140,13 @@ function formvalidation(val){
 		$('#brand_name'+clickedid).css('border', '2px solid green');
         status=true;
 	}
+    if(prd_price==''){
+        $('#prd_price'+clickedid).css('border', '2px solid #cc0000');
+        status=false;
+    }else{
+		$('#prd_price'+clickedid).css('border', '2px solid green');
+        status=true;
+	}
     if(prd_type==''){
         $('#prd_type'+clickedid).css('border', '2px solid #cc0000');
         status=false;
@@ -153,7 +162,29 @@ function formvalidation(val){
         status=true;
 	}
    
-    return status;
+    // return status;
+	if(status)
+	{
+		  
+			$.ajax({
+		type: "POST",
+		headers: 
+				{ 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+		url: "/add-grid",
+		data: new FormData($("#submitrequest")[0]),
+		cache: true,
+		contentType: false,
+		processData: false,
+		async:false,
+        processData: false,
+		success: function(ajaxresponse){
+			var data = JSON.parse(ajaxresponse);
+		
+			
+		
+		}
+	});	
+	}
 }
 function makeTrim(x) {
     if (x) {
@@ -229,48 +260,69 @@ function makeTrim(x) {
         }
     }
 	
-		$('.appendrowhere').on('click',  '.mjrowtrack_inner', function(e,f){
-		var mj=$(this).attr('data-target');
-		const myArray = mj.split('#');
-		console.log(myArray[1])
-		
-		var modal='<div class="modal" id="'+myArray[1]+'" class="mjmodal" tabindex="-1" role="dialog" aria-labelledby="acceptLabel" aria-hidden="true" style=""><div class="modal-dialog" role="document"><div class="modal-content pt-1"><div class="mr-2"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body py-2"><h1 class="text-center modal-submit-request">Submit Sourcing Request</h1><div id="browse-soursing" class="mt-2">';
+	function modaladd(modalappendcount,rowid,count){
+		// alert(modalappendcount)
+		// alert(rowid)
+		// alert(count)
+		// $('.appendrowhere').on('click',  '.mjrowtrack_inner', function(e,f){
+		// var mj=$(this).attr('data-target');
+		// var grid=$(this).attr('grid');
+		// alert(grid)
+		// const myArray = mj.split('#');
+		// const myArray = val;
+		console.log(myArray)
+		// var countmodallength=0;
+		// $('.showmodal').find('div #'+myArray[1]).each(function()
+		// {
+		// countmodallength++;
+		// });
+		// if(countmodallength>0)
+		// {
+		// $('#'+myArray[1]).modal('show');	
+		// }else{
+	var	myArray ='row_'+rowid+'_gridmodal_'+count+'';
+		var modal='<div class="modal grid_modal"  id="'+myArray+'" class="mjmodal" tabindex="-1" role="dialog" aria-labelledby="acceptLabel" aria-hidden="true" style=""><div class="modal-dialog" role="document"><div class="modal-content pt-1"><div class="mr-2"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body py-2"><h1 class="text-center modal-submit-request">Submit Sourcing Request</h1><div id="browse-soursing" class="mt-2">';
 
-				    modal +=' <form id="submit-request" action="client-submit-request-complete.html" class=" ">';
-                   modal +='<div class="row align-items-center" id="fulfill-request"><div class="col-lg-6" ><div class="Neon Neon-theme-dragdropbox mt-3"><div class="Neon-input-dragDrop py-5 px-4"><div class="Neon-input-inner py-4"><div class="Neon-input-text "><h3 class="mb-5 pb-5">Upload an image of the product here</h3></div><a class="Neon-input-choose-btn blue mjcheckatag"><img src="stylist/app-assets/images/icons/plus.png" class="mt-4" alt="" id="image_preview'+myArray[1]+'"><input name="files[]" class="mjcheckinput "  name="prd_img" idattr="'+myArray[1]+'" id="prd_img'+myArray[1]+'" onchange="mjtest1(this)" type="file"></a>';
-				    modal +=' <div id="image_error'+myArray[1]+'" class="error"></div><div id="commonclick'+myArray[1]+'"><div id="divImageMediaPreview'+myArray[1]+'"></div><a href="javascript:void(0)" style="display: none;" id="image_preview_remove'+myArray[1]+'" newatr='+myArray[1]+' onclick="image_preview_remove(this)">Remove</a></div>';
+				    modal +=' <form id="submitrequest" action="client-submit-request-complete.html" class=" ">';
+                   modal +='<div class="row align-items-center" id="fulfill-request"><div class="col-lg-6" ><div class="Neon Neon-theme-dragdropbox mt-3"><div class="Neon-input-dragDrop py-5 px-4"><div class="Neon-input-inner py-4"><div class="Neon-input-text "><h3 class="mb-5 pb-5">Upload an image of the product here</h3></div><a class="Neon-input-choose-btn blue mjcheckatag"><img src="stylist/app-assets/images/icons/plus.png" class="mt-4" alt="" id="image_preview'+myArray+'"><input  class="mjcheckinput "  name="prdimg" idattr="'+myArray+'" id="prd_img'+myArray+'" onchange="mjtest1(this)" type="file" multiple="multiple"></a>';
+				    modal +=' <div id="image_error'+myArray+'" class="error"></div><div id="commonclick'+myArray+'"><div id="divImageMediaPreview'+myArray+'"></div><a href="javascript:void(0)" style="display: none;" id="image_preview_remove'+myArray+'" newatr='+myArray+' onclick="image_preview_remove(this)">Remove</a></div>';
 					
 				      modal +='  </div></div></div></div>';
                       modal +='<div class="col-lg-6"><div class="p-3 lg-border-left ">';
 					 
 					  modal +='<div class="form-group">';
 					  modal +='<label for="">Enter the name of the product here:</label>';
-					  modal +='<input type="text" class="form-control submit-input"aria-describedby="emailHelp" name="prd_name" id="prd_name'+myArray[1]+'" placeholder="Enter product name..." required></div>';
+					  modal +='<input type="text" class="form-control submit-input"aria-describedby="emailHelp" name="prdname_'+myArray+'" id="prd_name'+myArray+'" placeholder="Enter product name..." required><input type="hidden" name="grid_block" value="'+myArray+'"></div>';
 					  modal +='<div class="form-group">';
 					  modal +='<label for="">Tell us the brand of the product:</label>';
-					  modal +='<input type="text" class="form-control submit-input"aria-describedby="emailHelp" name="brand_name" id="brand_name'+myArray[1]+'" placeholder="Enter brand name..."></div>';
+					  modal +='<input type="text" class="form-control submit-input"aria-describedby="emailHelp" name="brand_name" id="brand_name'+myArray+'" placeholder="Enter brand name..."></div>';
+					  modal +='<div class="form-group">';
+					  modal +='<label for="">What is the Price? </label>';
+					  modal +='<input type="text" class="form-control submit-input"aria-describedby="emailHelp" name="prd_price" id="prd_price'+myArray+'" placeholder="Enter product Price..."></div>';
 					  modal +='<div class="form-group">';
 					  modal +='<label for="">What is the product type? (Bag, Dress, Heels etc)</label>';
-					  modal +='<input type="text" class="form-control submit-input"aria-describedby="emailHelp" name="prd_type" id="prd_type'+myArray[1]+'" placeholder="Enter product type..."></div>';
+					  modal +='<input type="text" class="form-control submit-input"aria-describedby="emailHelp" name="prd_type" id="prd_type'+myArray+'" placeholder="Enter product type..."></div>';
 					  modal +='<div class="form-group">';
 					  modal +='<label for="">Does the product have a size? Leave blank if none.</label>';
-					  modal +='<input type="text" class="form-control submit-input"aria-describedby="emailHelp" name="prd_size" id="prd_size'+myArray[1]+'" placeholder="Enter product size..."></div>';
-					  modal +='</div></div></div><div class="row justify-content-center"><button type="button" class="submit-request px-3  mjmodalsubmit" id="'+myArray[1]+'" onclick="formvalidation(this)">Submit request</button><div><button class="back-btn ml-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Go Back</button></div></div></form>';
-					  modal +='</div></div></div></div></div>';
+					  modal +='<input type="text" class="form-control submit-input"aria-describedby="emailHelp" name="prd_size" id="prd_size'+myArray+'" placeholder="Enter product size..."></div>';
+					  modal +='</div></div></div><div class="row justify-content-center"><button type="button" class="submit-request px-3  mjmodalsubmit" id="'+myArray+'" onclick="formvalidation(this)">Submit request</button><div><button class="back-btn ml-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Go Back</button></div></div></form>';
+					  modal +='</div></div></div></div></div></div>';
 		
 		// $('.modal').attr("id", myArray[1]);
 		// $('#'+myArray[1]).modal('show');
-		$('.showmodal').append(modal);
-		 $('#'+myArray[1]).modal('show');
+		// $('.showmodal').append(modal);
+		$('.showblock_'+modalappendcount).append(modal);
+		 // $('#'+myArray[1]).modal('show');
 		 
 		 // mjtest1(myArray[1])
 		
-		
-	});
+		// }
+	// });
 	// $('.mjmodalsubmit').on('click', function(){
 		
 		
 	// });
+	}
 	
 	function addgrid()
 	{
@@ -343,19 +395,21 @@ function makeTrim(x) {
 		// alert("createnextinnerblock");
 		// alert(rowid);
 		
-	var mjblock='<div class="mjrowtrack_inner col-6" id="row_'+rowid+'_block_1"  data-target="#row_'+rowid+'_gridmodal_1"><div class="Neon Neon-theme-dragdropbox "><div class="Neon-input-dragDrop "><div class="Neon-input-inner py-3"><div class="Neon-input-text"><h3>Add an item here</h3></div><a class="Neon-input-choose-btn blue"><imgsrc="stylist/app-assets/images/icons/plus.png" alt=""></a></div></div></div><img src="stylist/app-assets/images/icons/Empty-Trash.png" class="img-fluid deletegrid" value="'+rowid+'" onclick="removeblock(this)" alt="" style="position: absolute;top: 0;">';
+	var mjblock='<div class="mjrowtrack_inner col-6" grid="'+rowid+'" id="row_'+rowid+'_block_1" data-toggle="modal"  data-target="#row_'+rowid+'_gridmodal_1"><div class="Neon Neon-theme-dragdropbox "><div class="Neon-input-dragDrop "><div class="Neon-input-inner py-3"><div class="Neon-input-text"><h3>Add an item here</h3></div><a class="Neon-input-choose-btn blue"><imgsrc="stylist/app-assets/images/icons/plus.png" alt=""></a></div></div></div><img src="stylist/app-assets/images/icons/Empty-Trash.png" class="img-fluid deletegrid" value="'+rowid+'" onclick="removeblock(this)" alt="" style="position: absolute;top: 0;">';
 		
-		 mjblock +='</div>';
+		 // mjblock +='</div>';
 		
 		$('.showblock_'+rowid+'').append(mjblock);
+		modaladd(rowid,rowid,'1');
+
 		checkanother_block(rowid)	
 	}
 	
 	$('document').ready(function(){
-		var mjblock='<div class="mjrowtrack_inner col-6" id="row_1_block_1"   data-target="#row_1_gridmodal_1"><div class="Neon Neon-theme-dragdropbox "><div class="Neon-input-dragDrop "><div class="Neon-input-inner py-3"><div class="Neon-input-text"><h3>Add an item here</h3></div><a class="Neon-input-choose-btn blue"><imgsrc="stylist/app-assets/images/icons/plus.png" alt=""></a></div></div></div><img src="stylist/app-assets/images/icons/Empty-Trash.png" class="img-fluid deletegrid" value="1" onclick="removeblock(this)" alt="" style="position: absolute;top: 0;">';
+		var mjblock='<div class="mjrowtrack_inner col-6" grid="1" id="row_1_block_1" data-toggle="modal"   data-target="#row_1_gridmodal_1"><div class="Neon Neon-theme-dragdropbox "><div class="Neon-input-dragDrop "><div class="Neon-input-inner py-3"><div class="Neon-input-text"><h3>Add an item here</h3></div><a class="Neon-input-choose-btn blue"><imgsrc="stylist/app-assets/images/icons/plus.png" alt=""></a></div></div></div><img src="stylist/app-assets/images/icons/Empty-Trash.png" class="img-fluid deletegrid" value="1" onclick="removeblock(this)" alt="" style="position: absolute;top: 0;">';
 		
-		mjblock +='</div>';
 		
+		// mjblock +='</div>';
 		 // mjblock +='<div class="modal fade" id="row_1_gridmodal_1" tabindex="-1" role="dialog" aria-labelledby="acceptLabel"aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content pt-1"><div class="mr-2"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
 		
          // mjblock +='<div class="modal-body py-2"><h1 class="text-center modal-submit-request">Submit Sourcing Request</h1><div id="browse-soursing" class="mt-2"><div class="row align-items-center" id="fulfill-request"><div class="col-lg-6 "><div class="Neon Neon-theme-dragdropbox mt-3"><input name="files[]" id="filer_input2" multiple="multiple" type="file"><div class="Neon-input-dragDrop py-5 px-4"><div class="Neon-input-inner py-4"><div class="Neon-input-text "><h3>Upload an image of the product here</h3></div><a class="Neon-input-choose-btn blue"><img src="app-assets/images/icons/plus.png" alt=""></a></div></div></div></div>';
@@ -366,6 +420,8 @@ function makeTrim(x) {
           // mjblock +='<div class="row justify-content-center"><a href=""><button type="submit" class="submit-request px-3  ">Submitrequest</button></a><div><a href=""><button class="back-btn ml-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Go Back</button></a></div></div></div></div></div></div></div></div>';
 		
 		$('.showblock_1').append(mjblock);
+		modaladd('1','1','1');
+	  
 		checkanother_block('1')
 		
 	});
@@ -376,14 +432,14 @@ function makeTrim(x) {
 			var count1=1;
 		$(".showblock_"+rowid).each(function() {
 		// $(this) = single ul element
-		$(this).children('div').each(function(idx, el){
+		$(this).children('div .mjrowtrack_inner').each(function(idx, el){
 		count1++;
 		// alert('addblock'+count1)
 		});
 		});
 		
 		if(count1<7){
-		var mjblock='<div class="mjrowtrack_inner col-6" id="row_'+rowid+'_block_'+count1+'"  data-target="#row_'+rowid+'_gridmodal_'+count1+'"><div class="Neon Neon-theme-dragdropbox "><div class="Neon-input-dragDrop "><div class="Neon-input-inner py-3"><div class="Neon-input-text"><h3>Add an item here</h3></div><a class="Neon-input-choose-btn blue"><imgsrc="stylist/app-assets/images/icons/plus.png" alt=""></a></div></div></div><img src="stylist/app-assets/images/icons/Empty-Trash.png" class="img-fluid deletegrid" value="'+rowid+'" onclick="removeblock(this)" alt="" style="position: absolute;top: 0;">';
+		var mjblock='<div class="mjrowtrack_inner col-6" grid="'+rowid+'" data-toggle="modal" id="row_'+rowid+'_block_'+count1+'"  data-target="#row_'+rowid+'_gridmodal_'+count1+'"><div class="Neon Neon-theme-dragdropbox "><div class="Neon-input-dragDrop "><div class="Neon-input-inner py-3"><div class="Neon-input-text"><h3>Add an item here</h3></div><a class="Neon-input-choose-btn blue"><imgsrc="stylist/app-assets/images/icons/plus.png" alt=""></a></div></div></div><img src="stylist/app-assets/images/icons/Empty-Trash.png" class="img-fluid deletegrid" value="'+rowid+'" onclick="removeblock(this)" alt="" style="position: absolute;top: 0;">';
 		
 		 // mjblock +='<div class="modal fade" id="row_'+rowid+'_gridmodal_'+count1+'" tabindex="-1" role="dialog" aria-labelledby="acceptLabel"aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content pt-1"><div class="mr-2"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
 		
@@ -394,9 +450,11 @@ function makeTrim(x) {
 		 
           // mjblock +='<div class="row justify-content-center"><a href=""><button type="submit" class="submit-request px-3  ">Submitrequest</button></a><div><a href=""><button class="back-btn ml-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Go Back</button></a></div></div></div></div></div></div></div>
 		  
-		  mjblock +='</div>';
+		  // mjblock +='</div>';
 		
 		$('.showblock_'+rowid+'').append(mjblock);
+		modaladd(rowid,rowid,count1);
+	
 		if(count1==6){
 			// alert("count is 6 now: ->"+count1)
 			// alert($('#addanother'+rowid));
@@ -463,10 +521,19 @@ function makeTrim(x) {
 	}
 	function removegrid(value)
 	{ 
-	
+	// console.log(value)
 	$(value).closest('.mjrowtrack').remove();
-	
+	// $(value).closest('.showmodal').remove();
+	// var row =$(value).attr("id");
+	 // var row =$(value).closest('.mjrowtrack').attr("id");
+	// alert(row)
 	var newcounter=1;
+	// const myArray = row.split('row_');
+	// $(".grid_modal_"+myArray[1]).each(function(e,f){
+		// (this).remove();
+		// console.log(e)
+		// console.log(f)
+	// });
 	$(".mjrowtrack").each(function(e,f){
 		console.log(e)
 		console.log(f)
@@ -480,13 +547,20 @@ function makeTrim(x) {
 	
 	$(".showblock_"+newcounter).each(function() {
 	// $(this) = single ul element
-	$(this).children('div').each(function(idx, el){
+	$(this).children('div .mjrowtrack_inner').each(function(idx, el){
 		// alert(idx)
 		idx++;
 		// alert(idx)
 	$(this).attr("id","row_"+newcounter+"_block_"+idx);
 	$(this).attr("data-target","row_"+newcounter+"_gridmodal_"+idx);
-	$(this).closest('div').find('.fade').attr("id","row_"+newcounter+"_gridmodal_"+idx)
+	// alert(countstart)
+	});
+	$(this).children('div .grid_modal').each(function(idx, el){
+		// alert(idx)
+		idx++;
+		// alert(idx)
+	
+	$(this).attr("id","row_"+newcounter+"_gridmodal_"+idx)
 	// alert(countstart)
 	});
 	});
@@ -502,21 +576,35 @@ function makeTrim(x) {
 	}
 	function removeblock(value)
 	{ 
-	// console.log(value)
+	console.log(value)
 	// alert(value)
 	$(value).closest('.mjrowtrack_inner').remove();
+	// $(value).closest('.grid_modal').remove();
+	var attribute=$(value).closest('.mjrowtrack_inner').attr('data-target');
+	 const myArray = attribute.split('#');
+	// alert(myArray[1])
+	// $('#'+myArray[1]).remove();
+	// $('#row_1_gridmodal_2').find('.grid_modal').remove();
+	// $(value).next().find('.grid_modal').remove();
 	var rowid=$(value).attr('value');
 	
 	
 	$(".showblock_"+rowid).each(function() {
 	// $(this) = single ul element
-	$(this).children('div').each(function(idx, el){
+	$(this).children('div .mjrowtrack_inner').each(function(idx, el){
 		// alert(idx)
 		idx++;
 		// alert(idx)
 	$(this).attr("id","row_"+rowid+"_block_"+idx);
 	$(this).attr("data-target","row_"+rowid+"_gridmodal_"+idx);
-	$(this).closest('div').find('.fade').attr("id","row_"+rowid+"_gridmodal_"+idx)
+	
+	});
+	$(this).children('div .grid_modal').each(function(idx, el){
+		// alert(idx)
+		idx++;
+		// alert(idx)
+	
+	$(this).attr("id","row_"+rowid+"_gridmodal_"+idx)
 	// alert(countstart)
 	});
 	});

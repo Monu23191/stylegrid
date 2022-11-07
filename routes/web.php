@@ -22,6 +22,7 @@ use App\Http\Controllers\StylistWebsiteController as StylistWebsite;
   //Route::domain('stylist.com')->group(function () {
   //Route::get('/','App\Http\Controllers\CreateGridController@index');
   Route::get('/loadgridview','App\Http\Controllers\CreateGridController@loadgridview');
+    Route::post('/add-grid','App\Http\Controllers\CreateGridController@add_grid');
  // });
  //stylist Section Start
  Route::get('/', [StylistWebsite::class, 'index']);
