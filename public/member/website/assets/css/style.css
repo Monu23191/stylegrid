@@ -995,3 +995,10 @@ a:hover{
   color: #E5E5E5;
   text-decoration: none;
 }
+.error{
+  color: red;
+    position: absolute;
+    top: 101%;
+    font-size: 0.7rem;
+    left: 3%;
+}
