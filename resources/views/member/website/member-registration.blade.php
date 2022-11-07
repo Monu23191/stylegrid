@@ -125,7 +125,7 @@
             <div id="signup">
                 <div class="row justify-content-center">
                     <h1>What is your gender?</h1>
-                    <p class="text-center">Understanding how you identify will help us match you with stylists and
+                    <p class="text-center">Understanding how you identify willhelp us match you with stylists and
                         brands that suit you best.</p><br>
 
                 </div>

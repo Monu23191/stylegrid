@@ -396,6 +396,17 @@
     height: 50px;
   }
   
+  #full_name::placeholder,#email::placeholder,#phone::placeholder{
+    font-family: 'Silk Serif';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 30px;
+text-align: center;
+letter-spacing: 0.04em;
+
+color: #7A7A7A;
+  }
   .next-btn {
     font-family: 'Silk Serif';
     font-style: normal;
@@ -441,6 +452,7 @@
     text-align: center;
     letter-spacing: 0.04em;
     border: 0px;
+    text-decoration: none;
     background: #172625;
     color: #E5E5E5;
     padding: 7px 70px;
@@ -574,6 +586,19 @@
     .mt-5 {
         margin-top: 50px;
     }
+    .navbar-dark{
+      background-color: #f8f9fa!important;
+    }
+    #styling_experience_error{
+      top: 76% !important;
+      left: 30%;
+    }
+    #fashion_beauty_brands_error{
+      top: 212% !important;
+    }
+    #stronger_experience_error{
+      top: 258% !important;
+    }
   }
   
   /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -590,6 +615,19 @@
   
     .mt-5 {
         margin-top: 50px;
+    }
+    .navbar-dark{
+      background-color: #f8f9fa!important;
+    }
+    #styling_experience_error{
+      top: 76% !important;
+      left: 30% ;
+    }
+    #fashion_beauty_brands_error{
+      top: 212% !important ;
+    }
+    #stronger_experience_error{
+      top: 258% !important;
     }
   }
   
@@ -608,6 +646,19 @@
     .mt-lg-5 {
         margin-top: 100px;
     }
+    .navbar-dark{
+      background-color: #f8f9fa!important;
+    }
+    #styling_experience_error{
+      top: 78% !important;
+      left: 30%;
+    }
+    #fashion_beauty_brands_error{
+      top: 205% !important;
+    }
+    #stronger_experience_error{
+      top: 247% !important;
+    }
   }
   
   /* Large devices (laptops/desktops, 992px and up) */
@@ -615,12 +666,33 @@
     .text-lg-left {
         text-align: left;
     }
+    .navbar-dark{
+      background-color: transparent!important;
+    }
+#fashion_beauty_brands_error{
+     
+      top: 182% !important;
+     
+      left: 30%;
+    }
+    #styling_experience_error{
+      top: 70% !important ;
+      left: 30%;
+    }
+    #stronger_experience_error{
+      top: 220% !important;
+      left: 30% ;
+    }
+
   }
   
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
     .text-lg-left {
         text-align: left;
+    }
+    .navbar-dark{
+      background-color: transparent!important;
     }
   }
   
@@ -1019,16 +1091,16 @@
   #stronger_experience_error,#fashion_beauty_brands_error,#styling_experience_error{
     color: red;
     position: absolute;
-    top: 161%;
+    top: 182% !important;
     /* bottom: -77px; */
     font-size: 0.7rem;
-    left: 30%;
-  }
-  #styling_experience_error{
-    top: 66% !important;
     left: 30% !important;
   }
+  #styling_experience_error{
+    top: 70% !important;
+    left: 30% !important ;
+  }
   #stronger_experience_error{
-    top: 192% !important;
+    top: 220% !important;
     left: 30% !important;
   }
