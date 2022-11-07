@@ -53,7 +53,7 @@
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">BRANDS</a></li>
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">EDITORIAL</a></li>
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">SIGN IN</a></li>
-                <li class="px-3 nav-item py-2"><a href="#" class="nav-link"><button class="signup-btn">Sign
+                <li class="px-3 nav-item py-2"><a href="#" class="nav-link"><button class="signup-btn py-1 px-2">Sign
                             Up</button></a></li>
             </ul>
         </div>
