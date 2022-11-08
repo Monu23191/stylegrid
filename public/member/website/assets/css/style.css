@@ -471,7 +471,7 @@ input[type=checkbox]:checked {
   background: url("../images/upload.png") no-repeat right;
   background-size: 20px;
   position: relative;
-  right: 6px;
+  right: 13px;
 }
 
 .input-city {
@@ -524,6 +524,7 @@ input[type=checkbox]:checked {
   text-align: center;
   letter-spacing: 0.04em;
   border: 0;
+  text-decoration: none;
   color: #E5E5E5;
   padding: 7px;
 }
@@ -576,6 +577,9 @@ input[type=checkbox]:checked+label {
   .mt-5 {
     margin-top: 50px;
   }
+  .navbar-dark{
+    background-color: #f8f9fa!important;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -593,6 +597,9 @@ input[type=checkbox]:checked+label {
   .mt-5 {
     margin-top: 50px;
   }
+  .navbar-dark{
+    background-color: #f8f9fa!important;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -604,11 +611,14 @@ input[type=checkbox]:checked+label {
   #signup h1,
   #signup-5 h1 {
     font-size: 48px;
-    line-height: 73px;
+    line-height: 60px;
   }
 
   .mt-lg-5 {
     margin-top: 100px;
+  }
+  .navbar-dark{
+    background-color: #f8f9fa!important;
   }
 }
 
@@ -624,13 +634,16 @@ input[type=checkbox]:checked+label {
   .text-lg-left {
     text-align: left;
   }
+  .navbar-dark{
+    background-color: transparent!important;
+  }
 }
 
 
 
 #signup .inputbox {
   position: relative;
-  width: 300px;
+  width: 318px;
   height: 50px;
   margin-bottom: 50px;
 }
@@ -992,7 +1005,8 @@ a:hover {
   font-weight: 400;
   font-size: 10px;
   line-height: 15px;
-  text-align: left;
+  text-align: right;
+  /* text-decoration: underline; */
   letter-spacing: 0.04em;
   /* margin-top: 58px; */
   color: #000000;
@@ -1009,6 +1023,8 @@ a:hover {
   background: #172625;
   color: #E5E5E5;
   text-decoration: none;
+  width: 130px;
+    height: 34px;
 }
 
 .error {
@@ -1037,4 +1053,13 @@ a:hover {
 
 [type=radio]+img {
   cursor: pointer;
+}
+select{
+  appearance: none;
+}
+/* .click-to-signin a{
+  text-decoration: underline;
+} */
+u{
+  text-decoration: 2px solid #8d9499 underline;
 }

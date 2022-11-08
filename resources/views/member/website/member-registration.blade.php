@@ -11,49 +11,49 @@
                 <div class="row justify-content-center">
                     <h1>Sign up to StyleGrid</h1>
                     <p class="text-center">Create your account today and enjoy a 30 day free trial, with access to a
-                        dedicated stylist and
+                        dedicated stylist and<br>
                         exclusive luxury product.</p><br>
                 </div>
                 <div id="first_step_message_box" class="message"></div>
                 <div>
-                    <h6>Let’s get started.</h6>
+                    <h6 class="mt-5">Let’s get started.</h6>
                 </div>
-                <div class="dis-flex mt-2">
+                <div class="dis-flex mt-5">
                      
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="text" name="full_name" id="full_name">
-                                <span>Full Name</span>
+                                <input type="text" name="full_name" id="full_name" placeholder="Full Name...">
+                                <!-- <span>Full Name</span> -->
                             </div>
                             <div id="full_name_error" class="error"></div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
                                 
-                                <input type="text" name="email" id="email">
+                                <input type="text" name="email" id="email" placeholder="Email Address....">
                                 <div id="email_error" class="error"></div>
-                                <span>Email Address</span>
+                                <!-- <span>Email Address</span> -->
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="text" id="phone" name="phone">
+                                <input type="text" id="phone" name="phone" placeholder="Phone Number...">
                                 <div id="phone_error" class="error"></div>
-                                <span>Phone Number</span>
+                                <!-- <span>Phone Number</span> -->
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="password" id="password" name="password">
+                                <input type="password" id="password" name="password"placeholder="Create Password..." >
                                 <div id="password_error" class="error"></div>
-                                <span>Create Password</span>
+                                <!-- <span>Create Password</span> -->
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="password" id="confirm_password" name="confirm_password">
+                                <input type="password" id="confirm_password" name="confirm_password" placeholder="Create Confirm Password...">
                                 <div id="confirm_password_error" class="error"></div>
-                                <span>Create Confirm Password</span>
+                                <!-- <span>Create Confirm Password</span> -->
                             </div>
                         </div>
                      
@@ -70,13 +70,13 @@
                 <div class="row justify-content-center">
                     <h1>Welcome to StyleGrid</h1>
                     <p class="text-center">It’s time to get styling. For us to be able to find your perfect stylist,
-                        we will need to find out a
+                        we will need to find out a<br>
                         little more information about your tastes and style preferences.</p><br>
 
                 </div>
                 <div id="second_step_message_box" class="message"></div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-center">
                         <div class="text-right">
                             <input type="checkbox" name="shop" id="shop" value="shop" checked="true">
                             <label for="shop"></label>
@@ -84,13 +84,13 @@
                         <label for="shop">
                             <div class="text-center"><img src="{{ asset('member/website/assets/images/shop.png') }}" class="img-fluid" alt="">
                                 <h2 class="mt-2">Shop</h2>
-                                <h5>Browse luxury product that you can access through your StyleGrid membership.
+                                <h5>Browse luxury product that you can<br> access through your StyleGrid<br> membership.
                                 </h5>
                                 <button class="select-btn mt-2 ">Select</button>
                             </div>
                         </label>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-center">
                         <div class="text-right">
                             <input type="checkbox" name="style" id="style" value="style">
                             <label for="style"></label>
@@ -98,12 +98,12 @@
                         <label for="style">
                             <div class="text-center"><img src="{{ asset('member/website/assets/images/style.png') }}" class="img-fluid" alt="">
                                 <h2 class="mt-2">Style</h2>
-                                <h5>Receive personalised luxury fashion, beauty and homeware all in one place.</h5>
+                                <h5>Receive personalised luxury fashion,<br> beauty and homeware all in one<br> place.</h5>
                                 <button class="select-btn mt-2">Select</button>
                             </div>
                         </label>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-center">
                         <div class="text-right">
                             <input type="checkbox" name="source" id="source" value="source">
                             <label for="source"></label>
@@ -111,7 +111,7 @@
                         <label for="source">
                             <div class="text-center"><img src="{{ asset('member/website/assets/images/source.png') }}" class="img-fluid" alt="">
                                 <h2 class="mt-2">Source</h2>
-                                <h5>Source any item from around the globe using our expansive shopper network.</h5>
+                                <h5>Source any item from around the<br> globe using our expansive shopper<br> network.</h5>
                                 <button class="select-btn mt-2">Select</button>
                             </div>
                         </label>
@@ -123,9 +123,9 @@
     <div class="tab">
         <div class="container">
             <div id="signup">
-                <div class="row justify-content-center">
+                <div class=" justify-content-center">
                     <h1>What is your gender?</h1>
-                    <p class="text-center">Understanding how you identify willhelp us match you with stylists and
+                    <p class="text-center">Understanding how you identify willhelp us match you with stylists and<br>
                         brands that suit you best.</p><br>
 
                 </div>
@@ -172,17 +172,17 @@
     <div class="tab">
         <div class="container">
             <div id="signup">
-                <div class="row justify-content-center">
+                <div class="justify-content-center">
                     <h1>Where are you based?</h1>
                     <p class="text-center">Style and taste is often influenced by your environment. Let us know
-                        where you are based to help us understand more about you.</p><br>
+                        where<br> you are based to help us understand more about you.</p><br>
 
                 </div>
                 <div>
                     <div id="fourth_step_message_box" class="message"></div>
                     <div class="form-group input-city mt-2">
                         <select id="country_id" name="country_id" class="form-control icon">
-                            <option value="">Select Country</option>
+                            <option value="">Enter your city and country here...</option>
                             <?php
                             foreach($country_list as $country){
                                 ?>
@@ -204,7 +204,7 @@
             <div id="signup">
                 <div class="row justify-content-center">
                     <h1>What are your favourite brands?</h1>
-                    <p class="text-center">We want to know what brands you are most passionate about. Select from
+                    <p class="text-center">We want to know what brands you are most passionate about. Select from<br>
                         our featured list below, or
                         use the search bar to expand your choice.</p><br>
                 </div>
@@ -240,11 +240,11 @@
                 <div class="row justify-content-center" style="margin:0px ;">
                     <h1>Thank you. It’s time to meet your stylist.</h1>
                     <p class="text-center">Welcome to StyleGrid. Using your information,
-                        we have matched you with one of our stylists. You will be able to request product, shop
-                        luxury brands and receive unlimited styling through your dedicated style dashboard.</p><br>
+                        we have matched you with<br> one of our stylists. You will be able to request product, shop
+                        luxury brands<br> and receive unlimited styling through your dedicated style dashboard.</p><br>
 
                 </div>
-                <div class="row">
+                <div class="row my-4">
                     <div class="col-md-5 text-lg-left text-center">
                         <img src="{{ asset('member/website/assets/images/IMG_0104 1.png') }}" alt="">
                     </div>

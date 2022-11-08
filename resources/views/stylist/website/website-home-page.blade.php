@@ -5,10 +5,10 @@
 <div class="container">
     <div id="step1">
         <h1>Sign up to StyleGrid</h1>
-        <p class="mx-md-5 px-md-5">When you become a StyleGrid member, you’ll enjoy all the benefits of our
+        <p class="mx-md-5 px-md-5 py-3">When you become a StyleGrid member, you’ll enjoy all the benefits of our
             platform
-            from your very own
-            personal stylist to shopping luxury product on-demand. Enjoy a 30 day free trial for a limited time
+            from your<br> very own
+            personal stylist to shopping luxury product on-demand. Enjoy a 30 day free trial for a<br> limited time
             only.</p>
     </div>
     <div class="row my-3 pt-3">
