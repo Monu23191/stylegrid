@@ -13,16 +13,20 @@
                 <p class="text-center">Please enter your email and password to log in to your StyleGrid stylist
                     account.</p><br>
                 <div class="dis-flex ">
-                    <form id="stylist-login">
+                    <div id="message_box" class="message"></div>
+                    <form id="stylist-login-form">
+                        @csrf
                         <div class="inputbox">
                             <div class="form-group">
                                 <input type="text" id="email" name="email">
+                                <div id="email_error" class="error"></div>
                                 <span>Email Address</span>
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
                                 <input type="password" name="password" id="password">
+                                <div id="password_error" class="error"></div>
                                 <span>Create Password</span>
                             </div>
                         </div>

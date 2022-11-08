@@ -128,6 +128,33 @@ class StylistWebsiteController extends Controller
     function stylistLogin(Request $request){
         return view('stylist.website.stylist-login');
     }
+
+    public function stylistLoginPost(Request $request){
+        if($request->ajax() && !Session::get('Stylistloggedin')){
+            $member=new Member();
+            $email=$request->email;
+            $password=sha1($request->password);
+            $login_data=$member->checkMemberExistance(['m.email'=>$email,'m.password'=>$password]);
+            if($login_data){
+                if($login_data->verified){
+                    Session::put('stylist_data', $login_data);
+                    Session::put('stylist_id', $login_data->id);
+                    Session::put('Stylistloggedin',TRUE);
+                    return json_encode(['status'=>1,'message'=>'you have successfully loggedin']);
+                }
+                return json_encode(
+                    [
+                    'status'=>0,
+                    'message'=>'Account not verified',
+                    'verification_url'=>\URL::to("/").'/member-account-verification/'.$login_data->token
+
+                ]);
+            }else{
+                return json_encode(['status'=>0,'message'=>'Email Id or Password not correct!']);
+            }
+        }  
+    }
+    
     
     
     
