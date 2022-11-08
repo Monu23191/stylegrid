@@ -16,13 +16,13 @@
                     <form id="stylist-login">
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="text" id="email" name="email">
-                                <span>Email Address</span>
+                                <input type="text" id="email" name="email" placeholder="Email Address...">
+                                <!-- <span>Email Address</span> -->
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="password" name="password" id="password">
+                                <input type="password" name="password" id="password" placeholder="Create Password...">
                                 <span>Create Password</span>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                         </a></div>
                         <div class="text-center"><a href="javascript:void(0)"><button class="sign-in px-2" type="button" id="stylist-login-btn">Sign In</button></a>
                         </div>
-                        <div class="mt-2"><h5>if you are a client,<a> please click here to <br>sign in.</a></h5></div>
+                        <div class="mt-2"><h5>if you are a client,<a class="text-dark" href=""><u> please click here to <br>sign in.</u></a></h5></div>
                     </form>
                 </div>
             </div>
