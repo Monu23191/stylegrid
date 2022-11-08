@@ -35,7 +35,9 @@ use App\Http\Controllers\CreateGridController as CreateGridController;
  Route::get('/stylist-login', [StylistWebsite::class, 'stylistLogin']);
  Route::post('/stylist-login-post', [StylistWebsite::class, 'stylistLoginPost']);
  Route::get('/stylist-dashboard', [CreateGridController::class, 'index']);
+ Route::get('/stylist-logout', [StylistWebsite::class, 'stylistLogout']);
 
+ 
  //stylist section End
  ///member Section Start
 Route::post('/add-member', [Website::class, 'addMember']);

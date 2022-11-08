@@ -131,6 +131,11 @@ class StylistWebsiteController extends Controller
         }
         return redirect('/stylist-dashboard');
     }
+    public function stylistLogout(){
+        session_unset();
+        Session::flush();
+        return redirect("/stylist-login");
+    }
 
     public function stylistLoginPost(Request $request){
         if($request->ajax() && !Session::get('Stylistloggedin')){

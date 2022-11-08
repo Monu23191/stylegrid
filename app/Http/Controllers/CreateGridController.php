@@ -20,6 +20,14 @@ use Storage;
 class CreateGridController extends BaseController
 {
     // use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function __construct(){
+        $this->middleware(function ($request, $next) {
+        if(!Session::get("Stylistloggedin")) {
+            return redirect("/stylist-login");
+        }
+        return $next($request);
+    });
+}
 	  public function index()
     {
       
