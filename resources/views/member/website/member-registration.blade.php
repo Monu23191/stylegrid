@@ -3,10 +3,10 @@
 <form id="member-registration-form" action="">
     @csrf
     <!-- One "tab" for each step in the form: -->
-    <div class="mt-2"><h5>if you are a client,<a href="{{url('/member-login')}}"> please click here to <br>sign Up.</a></h5></div>
+    <!-- <div class="mt-2"><h5>if you are a client,<a href="{{url('/member-login')}}"> Please click here to <br>Sign Up.</a></h5></div> -->
 
     <div class="tab">
-        <div class="container">
+        <div class="container mt-lg-5 mt-3">
             <div id="signup">
                 <div class="row justify-content-center">
                     <h1>Sign up to StyleGrid</h1>
@@ -65,7 +65,7 @@
         </div>
     </div>
     <div class="tab">
-        <div class="container">
+        <div class="container mt-lg-5 mt-3">
             <div id="signup">
                 <div class="row justify-content-center">
                     <h1>Welcome to StyleGrid</h1>
@@ -84,9 +84,9 @@
                         <label for="shop">
                             <div class="text-center"><img src="{{ asset('member/website/assets/images/shop.png') }}" class="img-fluid" alt="">
                                 <h2 class="mt-2">Shop</h2>
-                                <h5>Browse luxury product that you can<br> access through your StyleGrid<br> membership.
+                                <h5 class="mb-4">Browse luxury product that you can<br> access through your StyleGrid<br> membership.
                                 </h5>
-                                <button class="select-btn mt-2 ">Select</button>
+                                <a class="select-btn mt-2 ">Select</a>
                             </div>
                         </label>
                     </div>
@@ -98,8 +98,8 @@
                         <label for="style">
                             <div class="text-center"><img src="{{ asset('member/website/assets/images/style.png') }}" class="img-fluid" alt="">
                                 <h2 class="mt-2">Style</h2>
-                                <h5>Receive personalised luxury fashion,<br> beauty and homeware all in one<br> place.</h5>
-                                <button class="select-btn mt-2">Select</button>
+                                <h5 class="mb-4">Receive personalised luxury fashion,<br> beauty and homeware all in one<br> place.</h5>
+                                <a class="select-btn mt-2">Select</a>
                             </div>
                         </label>
                     </div>
@@ -111,8 +111,8 @@
                         <label for="source">
                             <div class="text-center"><img src="{{ asset('member/website/assets/images/source.png') }}" class="img-fluid" alt="">
                                 <h2 class="mt-2">Source</h2>
-                                <h5>Source any item from around the<br> globe using our expansive shopper<br> network.</h5>
-                                <button class="select-btn mt-2">Select</button>
+                                <h5 class="mb-4">Source any item from around the<br> globe using our expansive shopper<br> network.</h5>
+                                <a class="select-btn mt-2">Select</a>
                             </div>
                         </label>
                     </div>
@@ -121,7 +121,7 @@
         </div>
     </div>
     <div class="tab">
-        <div class="container">
+        <div class="container mt-lg-5 mt-3">
             <div id="signup">
                 <div class=" justify-content-center">
                     <h1>What is your gender?</h1>
@@ -137,8 +137,8 @@
                         <img src="{{ asset('member/website/assets/images/white-check.png') }}" alt="option1">
                         <div class="text-center">
                             <img src="{{ asset('member/website/assets/images/male.png') }}" alt="option 1">
-                            <h2 class="mt-2">Male</h2>
-                            <button class="select-btn mt-2">Select</button>
+                            <h2 class="mt-2 mb-4">Male</h2>
+                            <a class="select-btn mt-2">Select</a>
                         </div>
                     </label>
                     </div>
@@ -148,8 +148,8 @@
                                 <img src="{{ asset('member/website/assets/images/white-check.png') }}" alt="option1">
                                 <div class="text-center">
                                     <img src="{{ asset('member/website/assets/images/female.png') }}" class="img-fluid" alt="">
-                                    <h2 class="mt-2">Female</h2>
-                                    <button class="select-btn mt-2">Select</button>
+                                    <h2 class="mt-2 mb-4">Female</h2>
+                                    <a class="select-btn mt-2">Select</a>
                                 </div>
                         </label>
                     </div>
@@ -159,9 +159,9 @@
                         <img src="{{ asset('member/website/assets/images/white-check.png') }}" alt="option1">
                         <div class="text-center">
                             <img src="{{ asset('member/website/assets/images/non-binary.png') }}" class="img-fluid" alt="">
-                            <h2 class="mt-2">Non Binary</h2>
+                            <h2 class="mt-2 mb-4">Non Binary</h2>
 
-                            <button class="select-btn mt-2">Select</button>
+                            <a class="select-btn mt-2">Select</a>
                         </div>
                     </label>
                     </div>
@@ -170,7 +170,7 @@
         </div>
     </div>
     <div class="tab">
-        <div class="container">
+        <div class="container mt-lg-5 mt-3">
             <div id="signup">
                 <div class="justify-content-center">
                     <h1>Where are you based?</h1>
@@ -180,7 +180,7 @@
                 </div>
                 <div>
                     <div id="fourth_step_message_box" class="message"></div>
-                    <div class="form-group input-city mt-2">
+                    <div class="form-group input-city mt-2 pl-2">
                         <select id="country_id" name="country_id" class="form-control icon">
                             <option value="">Enter your city and country here...</option>
                             <?php
@@ -200,7 +200,7 @@
         </div>
     </div>
     <div class="tab">
-        <div class="container">
+        <div class="container mt-lg-5 mt-3">
             <div id="signup">
                 <div class="row justify-content-center">
                     <h1>What are your favourite brands?</h1>
@@ -260,8 +260,8 @@
                             individual style, which we can often easily get lost in this fast paced fashion
                             industry.
                         </p>
-                        <div class="mt-2">
-                            <a href="{{url('/member-login')}}"><button type="submit" class="styling-btn px-3 ">Let’s get
+                        <div class="mt-5">
+                            <a href="{{url('/member-login')}}"><button type="submit" class="styling-btn px-5 ">Let’s get
                                     styling</button></a>
                         </div>
                     </div>

@@ -82,6 +82,19 @@
     border: 0;
     color: #E5E5E5;
   }
+  .signup-btn:hover{
+    background: #172625;
+    font-family: 'Genos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 0;
+    color: #E5E5E5;
+  }
   
   /*****************multistep form css***********/
   * {
@@ -321,7 +334,7 @@
   
   #signup h1,
   #signup-5 h1 {
-    font-family: 'Silk Serif Medium';
+    font-family: 'Silk Serif';
     font-style: normal;
     font-weight: 400;
     font-size: 48px;
@@ -419,6 +432,17 @@ letter-spacing: 0.04em;
 
 color: #7A7A7A;
   }
+  #signup .inputbox input::placeholder{
+    font-family: 'Silk Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    
+    color: #7A7A7A;
+  }
   .next-btn {
     font-family: 'Silk Serif';
     font-style: normal;
@@ -469,7 +493,20 @@ color: #7A7A7A;
     color: #E5E5E5;
     padding: 7px 70px;
   }
-  
+  .select-btn:hover {
+    font-family: 'Genos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    border: 0px;
+    text-decoration: none;
+    background: #172625;
+    color: #E5E5E5;
+    padding: 7px 70px;
+  }
   .img-fluid {
     height: 156px;
   }
@@ -501,13 +538,13 @@ color: #7A7A7A;
     background: #FFFFFF;
     border: 1px solid #000000;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-    height: 50px;
+    /* height: 50px; */
   }
   
   .input-city .form-control {
     border: 0px;
     /* height: 50px; */
-    box-shadow: inset 0 0px 0px !important;
+    /* box-shadow: inset 0 0px 0px !important; */
   }
   
   #signup-5 h4 {
@@ -947,7 +984,7 @@ color: #7A7A7A;
   [data-toggle="collapse"]:not(.collapsed) .if-collapsed {
     display: none;
   }
-  a{
+  /* a{
     color: #000;
     font-size: 20px;
     text-decoration: none;
@@ -956,7 +993,7 @@ color: #7A7A7A;
     color: #000;
     font-size: 20px;
     text-decoration: none;
-  }
+  } */
   .Neon {
     font-family: sans-serif;
     font-size: 14px;
@@ -1060,7 +1097,7 @@ color: #7A7A7A;
     font-family: 'Silk Serif';
     font-style: normal;
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 15px;
     text-align:left;
     letter-spacing: 0.04em;
@@ -1078,13 +1115,16 @@ color: #7A7A7A;
     background: #172625;
     color: #E5E5E5;
     text-decoration: none;
+    width: 130px;
+    height: 34px;
   }
   .error{
     color: red;
     position: absolute;
-    top: 101%;
-    font-size: 0.7rem;
-    left: 3%;
+    top: 103%;
+    font-size: 1rem;
+    left: 1%;
+    font-family: "Genos";
   }
   #frame-image{
     position: absolute;
@@ -1126,4 +1166,10 @@ color: #7A7A7A;
   #next-previous{
     /* padding-top: 171px; */
     padding-right: 50px;
+  }
+  #steps-next-previous{
+    opacity: 0;
+  }
+  u{
+    text-decoration: 2px solid #8d9499 underline;
   }

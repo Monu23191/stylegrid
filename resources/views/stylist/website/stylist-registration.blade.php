@@ -9,7 +9,7 @@
     <!-- One "tab" for each step in the form: -->
     
     <div class="tab">
-        <div class="container mt-4">
+        <div class="container mt-lg-5 mt-3">
             <div id="signup">
                 <div class="row justify-content-center">
                     <h1>Join our stylist network.</h1>
@@ -57,9 +57,9 @@
         </div>
     </div>
     <div class="tab">
-        <div class="container mt-lg-5 pt-lg-5 mt-4">
+        <div class="container mt-lg-5  mt-3">
             <div id="signup">
-                <div class="row justify-content-center">
+                <div class="justify-content-center">
                     <h1>Where are you based?</h1>
                     <p class="text-center px-3">Understanding where you are predominantly based helps us build your
                         business<br> with clients in your region, while also tailoring your StyleGrid experience.
@@ -68,7 +68,7 @@
                 </div>
                 <div>
                     <div id="second_step_message_box" class="message"></div>
-                    <div class="form-group input-city mt-2">
+                    <div class="form-group input-city mt-2 pl-2">
                         <select id="country_id" name="country_id" class="form-control icon" style="appearance:none !important;">
                             <option value="">Enter your city and country here...</option>
                             <?php
@@ -86,7 +86,7 @@
         </div>
     </div>
     <div class="tab">
-        <div class="container mt-4">
+        <div class="container mt-lg-5 mt-3">
             <div id="signup">
                 <div class=" justify-content-center">
                     <h1>Tell us about you.</h1>
@@ -160,9 +160,9 @@
         </div>
     </div>
     <div class="tab">
-        <div class="container mt-4">
+        <div class="container mt-lg-5 mt-3">
             <div id="signup">
-                <div class="row justify-content-center">
+                <div class=" justify-content-center">
                     <h1>Which elements of our platform would you use?</h1>
                     <p class="text-center px-3">It’s time to get styling. For us to be able to match you with our
                         members, we will need to<br> find out a little more information about your tastes and style
@@ -180,7 +180,7 @@
                                 <h2 class="mt-2">Shop</h2>
                                 <h5>Sell luxury product that you can to StyleGrid members around the world, including your own clients,
                                 </h5>
-                                <button class="select-btn mt-2 " type="button">Select</button>
+                                <a class="select-btn mt-2 " type="button">Select</a>
                             </div>
                         </label>
                     </div>
@@ -194,7 +194,7 @@
                                 <h2 class="mt-2">Style</h2>
                                 <h5>Deliver personalised luxury fashion,<br> beauty and homeware style advice<br> all in one place.
                                 </h5>
-                                <button class="select-btn mt-2 " type="button">Select</button>
+                                <a class="select-btn mt-2 " type="button">Select</a>
                             </div>
                         </label>
                     </div>
@@ -207,7 +207,7 @@
                             <div class="text-center"><img src="{{asset('stylist/website/assets/images/source.png')}}" class="img-fluid" alt="">
                                 <h2 class="mt-2">Source</h2>
                                 <h5>Source any item from around the<br> globe using our expansive shopper<br> network.</h5>
-                                <button class="select-btn mt-2 " type="button">Select</button>
+                                <a class="select-btn mt-2 " type="button">Select</a>
                             </div>
                         </label>
                     </div>
@@ -216,7 +216,7 @@
         </div>
     </div>
     <div class="success_tab" style="display:none;">
-        <div class="container mt-5">
+        <div class="container mt-lg-5 mt-3">
             <div id="signup-1">
                 <div class="justify-content-center">
                     <h1>Thank you. Your application is<br> now in review.</h1>

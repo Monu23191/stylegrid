@@ -16,24 +16,24 @@
                         @csrf
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="text" name="email" id="email">
-                                <div id="email_error" class="error"></div>
-                                <span>Email Address</span>
+                                <input type="text" name="email" id="email" placeholder="Email Address...">
+                                <div id="email_error" class="error" ></div>
+                                <!-- <span>Email Address</span> -->
                             </div>
                         </div>
                         <div class="inputbox mb-0">
                             <div class="form-group">
-                                <input type="password" name="password" id="password">
+                                <input type="password" name="password" id="password" placeholder="Password...">
                                 <div id="password_error" class="error"></div>
-                                <span>Password</span>
+                                <!-- <span>Password</span> -->
                             </div>
                         </div>
                         <div><a href="/member-forgot-password" class="forgot-pass">
-                            <h3 class=" mt-2 mr-4">Forgot password?</h3>
+                            <h3 class=" mt-2">Forgot password?</h3>
                         </a></div>
-                        <div class="text-center mt-4"><a href="javascript:void(0);"><button type="button" class="sign-in px-3 py-1" id="member-login-btn">Sign In</button></a>
+                        <div class="text-center mt-4"><a href="javascript:void(0);"><button type="button" class="sign-in px-3" id="member-login-btn">Sign In</button></a>
                         </div>
-                        <div class="mt-4"><h5 class="click-to-signin">if you are a member,<a href="{{url('/member-registration')}}"><u> please click here to <br>sign in.</u></a></h5></div>
+                        <div class="mt-4"><h5 class="click-to-signin">if you are a member,<a href="{{url('/member-registration')}}" class="text-dark"><u> please click here to <br>sign in.</u></a></h5></div>
                     </form>
                 </div>
             </div>

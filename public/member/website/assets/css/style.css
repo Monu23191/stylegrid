@@ -389,7 +389,17 @@ button:hover {
   letter-spacing: 0.04em;
   color: #7A7A7A;
 }
-
+#signup .inputbox input::placeholder{
+  font-family: 'Silk Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  
+  color: #7A7A7A;
+}
 #signup form .form-control {
   border: 1px solid #000;
   border-radius: 0px;
@@ -446,7 +456,20 @@ h5 {
   color: #E5E5E5;
   padding: 7px 70px;
 }
-
+.select-btn:hover {
+  font-family: 'Genos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  border: 0px;
+  text-decoration: none;
+  background: #172625;
+  color: #E5E5E5;
+  padding: 7px 70px;
+}
 .img-fluid {
   height: 156px;
 }
@@ -485,7 +508,7 @@ input[type=checkbox]:checked {
   border: 0px;
   height: 47px;
   margin-left: 6px;
-  box-shadow: inset 0 0px 0px !important;
+  /* box-shadow: inset 0 0px 0px !important; */
 }
 
 #signup-5 h4 {
@@ -667,6 +690,7 @@ input[type=checkbox]:checked+label {
 }
 
 #signup .inputbox input {
+  font-family: 'Silk Serif';
   position: absolute;
   top: 0;
   left: 0;
@@ -885,7 +909,7 @@ textarea.form-control {
   display: none;
 }
 
-a {
+/* a {
   color: #000;
   font-size: 20px;
   text-decoration: none;
@@ -895,7 +919,7 @@ a:hover {
   color: #000;
   font-size: 20px;
   text-decoration: none;
-}
+} */
 
 .Neon {
   font-family: sans-serif;
@@ -1003,7 +1027,7 @@ a:hover {
   font-family: 'Silk Serif';
   font-style: normal;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 15px;
   text-align: right;
   /* text-decoration: underline; */
@@ -1029,10 +1053,11 @@ a:hover {
 
 .error {
   color: red;
-  position: absolute;
-  top: 101%;
-  font-size: 0.7rem;
-  left: 3%;
+    position: absolute;
+    top: 103%;
+    font-size: 1rem;
+    left: 1%;
+    font-family: "Genos";
 }
 
 /******************radio*************/
@@ -1062,4 +1087,7 @@ select{
 } */
 u{
   text-decoration: 2px solid #8d9499 underline;
+}
+#steps-next-previous{
+  opacity: 0;
 }
