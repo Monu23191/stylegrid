@@ -389,7 +389,17 @@ button:hover {
   letter-spacing: 0.04em;
   color: #7A7A7A;
 }
-
+#signup .inputbox input::placeholder{
+  font-family: 'Silk Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  
+  color: #7A7A7A;
+}
 #signup form .form-control {
   border: 1px solid #000;
   border-radius: 0px;
@@ -446,7 +456,20 @@ h5 {
   color: #E5E5E5;
   padding: 7px 70px;
 }
-
+.select-btn:hover {
+  font-family: 'Genos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  border: 0px;
+  text-decoration: none;
+  background: #172625;
+  color: #E5E5E5;
+  padding: 7px 70px;
+}
 .img-fluid {
   height: 156px;
 }
@@ -471,7 +494,7 @@ input[type=checkbox]:checked {
   background: url("../images/upload.png") no-repeat right;
   background-size: 20px;
   position: relative;
-  right: 6px;
+  right: 13px;
 }
 
 .input-city {
@@ -485,7 +508,7 @@ input[type=checkbox]:checked {
   border: 0px;
   height: 47px;
   margin-left: 6px;
-  box-shadow: inset 0 0px 0px !important;
+  /* box-shadow: inset 0 0px 0px !important; */
 }
 
 #signup-5 h4 {
@@ -524,6 +547,7 @@ input[type=checkbox]:checked {
   text-align: center;
   letter-spacing: 0.04em;
   border: 0;
+  text-decoration: none;
   color: #E5E5E5;
   padding: 7px;
 }
@@ -576,6 +600,9 @@ input[type=checkbox]:checked+label {
   .mt-5 {
     margin-top: 50px;
   }
+  .navbar-dark{
+    background-color: #f8f9fa!important;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -593,6 +620,9 @@ input[type=checkbox]:checked+label {
   .mt-5 {
     margin-top: 50px;
   }
+  .navbar-dark{
+    background-color: #f8f9fa!important;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -604,11 +634,14 @@ input[type=checkbox]:checked+label {
   #signup h1,
   #signup-5 h1 {
     font-size: 48px;
-    line-height: 73px;
+    line-height: 60px;
   }
 
   .mt-lg-5 {
     margin-top: 100px;
+  }
+  .navbar-dark{
+    background-color: #f8f9fa!important;
   }
 }
 
@@ -624,13 +657,16 @@ input[type=checkbox]:checked+label {
   .text-lg-left {
     text-align: left;
   }
+  .navbar-dark{
+    background-color: transparent!important;
+  }
 }
 
 
 
 #signup .inputbox {
   position: relative;
-  width: 300px;
+  width: 318px;
   height: 50px;
   margin-bottom: 50px;
 }
@@ -654,6 +690,7 @@ input[type=checkbox]:checked+label {
 }
 
 #signup .inputbox input {
+  font-family: 'Silk Serif';
   position: absolute;
   top: 0;
   left: 0;
@@ -872,7 +909,7 @@ textarea.form-control {
   display: none;
 }
 
-a {
+/* a {
   color: #000;
   font-size: 20px;
   text-decoration: none;
@@ -882,7 +919,7 @@ a:hover {
   color: #000;
   font-size: 20px;
   text-decoration: none;
-}
+} */
 
 .Neon {
   font-family: sans-serif;
@@ -990,9 +1027,10 @@ a:hover {
   font-family: 'Silk Serif';
   font-style: normal;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 15px;
-  text-align: left;
+  text-align: right;
+  /* text-decoration: underline; */
   letter-spacing: 0.04em;
   /* margin-top: 58px; */
   color: #000000;
@@ -1009,14 +1047,17 @@ a:hover {
   background: #172625;
   color: #E5E5E5;
   text-decoration: none;
+  width: 130px;
+    height: 34px;
 }
 
 .error {
   color: red;
-  position: absolute;
-  top: 101%;
-  font-size: 0.7rem;
-  left: 3%;
+    position: absolute;
+    top: 103%;
+    font-size: 1rem;
+    left: 1%;
+    font-family: "Genos";
 }
 
 /******************radio*************/
@@ -1037,4 +1078,16 @@ a:hover {
 
 [type=radio]+img {
   cursor: pointer;
+}
+select{
+  appearance: none;
+}
+/* .click-to-signin a{
+  text-decoration: underline;
+} */
+u{
+  text-decoration: 2px solid #8d9499 underline;
+}
+#steps-next-previous{
+  opacity: 0;
 }

@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="{{ asset('member/website/assets/css/style.css') }}">
 </head>
 <body>
-<!-- Navbar -->
-    <!--First navbar-->
     <nav class="navbar navbar-expand-lg
      navbar-dark" style="display:flex ; justify-content: center;">
         <!--select class="browser-default custom-select d-lg-block d-none col-1" >
@@ -36,6 +34,7 @@
             </span>
         </a-->
 	</nav>
+
     <!--Second navbar-->
     <nav class="navbar navbar-expand-lg">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -51,7 +50,7 @@
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">BRANDS</a></li>
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">EDITORIAL</a></li>
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">SIGN IN</a></li>
-                <li class="px-3 nav-item py-2"><a href="#" class="nav-link"><button class="signup-btn">Sign
+                <li class="px-3 nav-item py-2"><a href="#" class="nav-link"><button class="signup-btn py-1">Sign
                             Up</button></a></li>
             </ul>
         </div>

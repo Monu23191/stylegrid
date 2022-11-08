@@ -22,6 +22,10 @@
     font-family: 'Silk Serif Medium';
     src: url(../font/silk-serif/Silk\ Serif\ Medium.otf);
   }
+  @font-face {
+    font-family: 'Silk Serif Black';
+    src: url(../font/silk-serif/Silk\ Serif\ Black.otf);
+  }
   
   @font-face {
     font-family: 'Avenir';
@@ -66,6 +70,19 @@
   }
   
   .signup-btn {
+    background: #172625;
+    font-family: 'Genos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 0;
+    color: #E5E5E5;
+  }
+  .signup-btn:hover{
     background: #172625;
     font-family: 'Genos';
     font-style: normal;
@@ -353,12 +370,20 @@
   /* #signup form {
     width: 481px;
   } */
-  
+  textarea::placeholder{
+    text-align: left !important;
+    font-family: 'Silk Serif';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 119.5%;
+    color: #575757;
+  }
   #signup form input::placeholder {
     font-family: 'Silk Serif';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 20px;
     line-height: 30px;
     text-align: center;
     letter-spacing: 0.04em;
@@ -371,7 +396,7 @@
     font-family: 'Silk Serif';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 20px;
     line-height: 30px;
     text-align: center;
     letter-spacing: 0.04em;
@@ -383,7 +408,7 @@
     font-family: 'Silk Serif';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 20px;
     line-height: 30px;
     text-align: center;
     letter-spacing: 0.04em;
@@ -406,6 +431,17 @@ text-align: center;
 letter-spacing: 0.04em;
 
 color: #7A7A7A;
+  }
+  #signup .inputbox input::placeholder{
+    font-family: 'Silk Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    
+    color: #7A7A7A;
   }
   .next-btn {
     font-family: 'Silk Serif';
@@ -457,7 +493,20 @@ color: #7A7A7A;
     color: #E5E5E5;
     padding: 7px 70px;
   }
-  
+  .select-btn:hover {
+    font-family: 'Genos';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    border: 0px;
+    text-decoration: none;
+    background: #172625;
+    color: #E5E5E5;
+    padding: 7px 70px;
+  }
   .img-fluid {
     height: 156px;
   }
@@ -489,13 +538,13 @@ color: #7A7A7A;
     background: #FFFFFF;
     border: 1px solid #000000;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-    height: 50px;
+    /* height: 50px; */
   }
   
   .input-city .form-control {
     border: 0px;
-    height: 50px;
-    box-shadow: inset 0 0px 0px !important;
+    /* height: 50px; */
+    /* box-shadow: inset 0 0px 0px !important; */
   }
   
   #signup-5 h4 {
@@ -589,7 +638,7 @@ color: #7A7A7A;
     .navbar-dark{
       background-color: #f8f9fa!important;
     }
-    #styling_experience_error{
+    /* #styling_experience_error{
       top: 76% !important;
       left: 30%;
     }
@@ -598,7 +647,7 @@ color: #7A7A7A;
     }
     #stronger_experience_error{
       top: 258% !important;
-    }
+    } */
   }
   
   /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -619,7 +668,7 @@ color: #7A7A7A;
     .navbar-dark{
       background-color: #f8f9fa!important;
     }
-    #styling_experience_error{
+    /* #styling_experience_error{
       top: 76% !important;
       left: 30% ;
     }
@@ -628,7 +677,7 @@ color: #7A7A7A;
     }
     #stronger_experience_error{
       top: 258% !important;
-    }
+    } */
   }
   
   /* Medium devices (landscape tablets, 768px and up) */
@@ -649,7 +698,7 @@ color: #7A7A7A;
     .navbar-dark{
       background-color: #f8f9fa!important;
     }
-    #styling_experience_error{
+    /* #styling_experience_error{
       top: 78% !important;
       left: 30%;
     }
@@ -658,7 +707,7 @@ color: #7A7A7A;
     }
     #stronger_experience_error{
       top: 247% !important;
-    }
+    } */
   }
   
   /* Large devices (laptops/desktops, 992px and up) */
@@ -669,7 +718,7 @@ color: #7A7A7A;
     .navbar-dark{
       background-color: transparent!important;
     }
-#fashion_beauty_brands_error{
+/* #fashion_beauty_brands_error{
      
       top: 182% !important;
      
@@ -682,7 +731,7 @@ color: #7A7A7A;
     #stronger_experience_error{
       top: 220% !important;
       left: 30% ;
-    }
+    } */
 
   }
   
@@ -935,7 +984,7 @@ color: #7A7A7A;
   [data-toggle="collapse"]:not(.collapsed) .if-collapsed {
     display: none;
   }
-  a{
+  /* a{
     color: #000;
     font-size: 20px;
     text-decoration: none;
@@ -944,7 +993,7 @@ color: #7A7A7A;
     color: #000;
     font-size: 20px;
     text-decoration: none;
-  }
+  } */
   .Neon {
     font-family: sans-serif;
     font-size: 14px;
@@ -1048,7 +1097,7 @@ color: #7A7A7A;
     font-family: 'Silk Serif';
     font-style: normal;
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 15px;
     text-align:left;
     letter-spacing: 0.04em;
@@ -1066,13 +1115,16 @@ color: #7A7A7A;
     background: #172625;
     color: #E5E5E5;
     text-decoration: none;
+    width: 130px;
+    height: 34px;
   }
   .error{
     color: red;
     position: absolute;
-    top: 101%;
-    font-size: 0.7rem;
-    left: 3%;
+    top: 103%;
+    font-size: 1rem;
+    left: 1%;
+    font-family: "Genos";
   }
   #frame-image{
     position: absolute;
@@ -1088,11 +1140,11 @@ color: #7A7A7A;
     font-size: 0.7rem;
     left: 17%;
   }
-  #stronger_experience_error,#fashion_beauty_brands_error,#styling_experience_error{
+  /* #stronger_experience_error,#fashion_beauty_brands_error,#styling_experience_error{
     color: red;
     position: absolute;
     top: 182% !important;
-    /* bottom: -77px; */
+    
     font-size: 0.7rem;
     left: 30% !important;
   }
@@ -1103,4 +1155,21 @@ color: #7A7A7A;
   #stronger_experience_error{
     top: 220% !important;
     left: 30% !important;
+  } */
+
+  select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none !important;
+    background-image: none;
+  } 
+  #next-previous{
+    /* padding-top: 171px; */
+    padding-right: 50px;
+  }
+  #steps-next-previous{
+    opacity: 0;
+  }
+  u{
+    text-decoration: 2px solid #8d9499 underline;
   }

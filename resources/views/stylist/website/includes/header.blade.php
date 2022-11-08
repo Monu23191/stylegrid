@@ -5,35 +5,32 @@
     <link rel="stylesheet" href="{{asset('stylist/website/assets/css/style.css')}}">
 </head>
 <body>
-   <!-- Navbar -->
-    <!--First navbar-->
     <nav class="navbar navbar-expand-lg
-    navbar-dark" style="display:flex ; justify-content: center;">
-       <!--select class="browser-default custom-select d-lg-block d-none col-1" >
-           <option selected>English</option>
-           <option value="1">Spanish</option>
-       </select-->
-       <a class="navbar-brand " href="#"><img src="{{ asset('member/website/assets/images/STYLEGRID-LOGO.png')}}" alt=""></a>
-       <!--div class="d-lg-flex d-none">
-           <div class="form-group has-search">
-               <img src="{{ asset('member/website/assets/images/search.png')}}" alt="" class="px-2">
-               <input type="text" class="form-control" placeholder="Search">
-           </div>
-           <div>
-               <img src="{{ asset('member/website/assets/images/beg.png')}}" alt="" class="h-25 mx-2">
-           </div>
-           <div>
-               <img src="{{ asset('member/website/assets/images/star.png')}}" alt="" class="h-25 mx-2">
-           </div>
-       </div>
-       <a class="d-lg-none d-block collapsed" data-toggle="collapse" href="#navbarSupportedContent">
-           <span class="if-collapsed"><span>&#9776;</span></span>
-           <span class="if-not-collapsed">
-               <span>&#9747;</span>
-           </span>
-       </a-->
-   </nav>
-
+     navbar-dark" style="display:flex ; justify-content: center;">
+        <!--select class="browser-default custom-select d-lg-block d-none col-1" >
+            <option selected>English</option>
+            <option value="1">Spanish</option>
+        </select-->
+        <a class="navbar-brand " href="#"><img src="{{ asset('member/website/assets/images/STYLEGRID-LOGO.png')}}" alt=""></a>
+        <!--div class="d-lg-flex d-none">
+            <div class="form-group has-search">
+                <img src="{{ asset('member/website/assets/images/search.png')}}" alt="" class="px-2">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <div>
+                <img src="{{ asset('member/website/assets/images/beg.png')}}" alt="" class="h-25 mx-2">
+            </div>
+            <div>
+                <img src="{{ asset('member/website/assets/images/star.png')}}" alt="" class="h-25 mx-2">
+            </div>
+        </div>
+        <a class="d-lg-none d-block collapsed" data-toggle="collapse" href="#navbarSupportedContent">
+            <span class="if-collapsed"><span>&#9776;</span></span>
+            <span class="if-not-collapsed">
+                <span>&#9747;</span>
+            </span>
+        </a-->
+	</nav>
     <!--Second navbar-->
     <nav class="navbar navbar-expand-lg">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
