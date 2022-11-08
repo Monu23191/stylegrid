@@ -19,13 +19,15 @@
                         <div class="inputbox">
                             <div class="form-group">
                                 <input type="text" id="email" name="email" placeholder="Email Address...">
+                                <div id="email_error" class="error"></div>
                                 <!-- <span>Email Address</span> -->
                             </div>
                         </div>
                         <div class="inputbox">
                             <div class="form-group">
                                 <input type="password" name="password" id="password" placeholder="Create Password...">
-                                <span>Create Password</span>
+                                <div id="password_error" class="error"></div>
+                                <!--<span>Create Password</span>-->
                             </div>
                         </div>
                         <div><a href="/stylist-forgot-password" class="forgot-pass">

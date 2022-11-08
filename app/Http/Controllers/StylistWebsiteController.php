@@ -126,7 +126,10 @@ class StylistWebsiteController extends Controller
         }
     }
     function stylistLogin(Request $request){
-        return view('stylist.website.stylist-login');
+        if(!Session::get('Stylistloggedin')){
+            return view('stylist.website.stylist-login');
+        }
+        return redirect('/stylist-dashboard');
     }
 
     public function stylistLoginPost(Request $request){
@@ -134,7 +137,7 @@ class StylistWebsiteController extends Controller
             $member=new Member();
             $email=$request->email;
             $password=sha1($request->password);
-            $login_data=$member->checkMemberExistance(['m.email'=>$email,'m.password'=>$password]);
+            $login_data=$member->checkStylistExistance(['s.email'=>$email,'s.password'=>$password]);
             if($login_data){
                 if($login_data->verified){
                     Session::put('stylist_data', $login_data);
@@ -146,8 +149,7 @@ class StylistWebsiteController extends Controller
                     [
                     'status'=>0,
                     'message'=>'Account not verified',
-                    'verification_url'=>\URL::to("/").'/member-account-verification/'.$login_data->token
-
+                    //'verification_url'=>\URL::to("/").'/member-account-verification/'.$login_data->token
                 ]);
             }else{
                 return json_encode(['status'=>0,'message'=>'Email Id or Password not correct!']);

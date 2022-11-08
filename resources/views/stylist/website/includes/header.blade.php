@@ -11,7 +11,7 @@
             <option selected>English</option>
             <option value="1">Spanish</option>
         </select-->
-        <a class="navbar-brand " href="#"><img src="{{ asset('member/website/assets/images/STYLEGRID-LOGO.png')}}" alt=""></a>
+        <a class="navbar-brand " href="{{url('/')}}"><img src="{{ asset('member/website/assets/images/STYLEGRID-LOGO.png')}}" alt=""></a>
         <!--div class="d-lg-flex d-none">
             <div class="form-group has-search">
                 <img src="{{ asset('member/website/assets/images/search.png')}}" alt="" class="px-2">
@@ -45,8 +45,8 @@
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">MEMBERSHIP</a></li>
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">BRANDS</a></li>
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">EDITORIAL</a></li>
-                <li class="px-3 nav-item py-2"><a href="#" class="nav-link">SIGN IN</a></li>
-                <li class="px-3 nav-item py-2"><a href="#" class="nav-link"><button class="signup-btn py-1 px-2">Sign
+                <li class="px-3 nav-item py-2"><a href="{{url('stylist-login')}}" class="nav-link">SIGN IN</a></li>
+                <li class="px-3 nav-item py-2"><a href="{{url('stylist-registration')}}" class="nav-link"><button class="signup-btn py-1 px-2">Sign
                             Up</button></a></li>
             </ul>
         </div>

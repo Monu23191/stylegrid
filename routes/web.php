@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController as Member;
 use App\Http\Controllers\MemberWebsiteController as Website;
 use App\Http\Controllers\StylistWebsiteController as StylistWebsite;
+use App\Http\Controllers\CreateGridController as CreateGridController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,8 @@ use App\Http\Controllers\StylistWebsiteController as StylistWebsite;
   //  return view('welcome');
 //});
   //Route::domain('stylist.com')->group(function () {
-  //Route::get('/','App\Http\Controllers\CreateGridController@index');
-  Route::get('/loadgridview','App\Http\Controllers\CreateGridController@loadgridview');
-    Route::post('/add-grid','App\Http\Controllers\CreateGridController@add_grid');
+  Route::get('/loadgridview',[CreateGridController::class,'loadgridview']);
+  Route::post('/add-grid',[CreateGridController::class,'add_grid']);
  // });
  //stylist Section Start
  Route::get('/', [StylistWebsite::class, 'index']);
@@ -33,6 +34,7 @@ use App\Http\Controllers\StylistWebsiteController as StylistWebsite;
  Route::post('/add-stylist-second-process', [StylistWebsite::class, 'addStylistSecondProcess']);
  Route::get('/stylist-login', [StylistWebsite::class, 'stylistLogin']);
  Route::post('/stylist-login-post', [StylistWebsite::class, 'stylistLoginPost']);
+ Route::get('/stylist-dashboard', [CreateGridController::class, 'index']);
 
  //stylist section End
  ///member Section Start
