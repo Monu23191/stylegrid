@@ -207,7 +207,7 @@ function addStylistSecondProcess(){
             $('#next-previous').remove();
             $('#steps-next-previous').remove();
             $('.success_tab').show();
-          // $("#stylist-registration-success-url").prop("href", response['url']);
+           $("#stylist-registration-success-url").prop("href", response['url']);
           }else{
             $('#second_step_message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
             currentTab = currentTab - 1;
@@ -229,7 +229,7 @@ function addStylist(){
           $('#next-previous').remove();
           $('#steps-next-previous').remove();
           $('.success_tab').show();
-        // $("#stylist-registration-success-url").prop("href", response['url']);
+         $("#stylist-registration-success-url").prop("href", response['url']);
         }else{
           $('#fourth_step_message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
           currentTab = currentTab - 1;

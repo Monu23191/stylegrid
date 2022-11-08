@@ -63,6 +63,7 @@ class StylistWebsiteController extends Controller
                 'shop'=>$request->shop?$request->shop:'',
                 'style'=>$request->style?$request->style:'',
                 'source'=>$request->source?$request->source:'',
+                'verified'=>1
             );
             $response=$member->addUpdateData($save_data,'sg_stylist'); 
             if($response['reference_id']){
