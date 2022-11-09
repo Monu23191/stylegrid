@@ -31,7 +31,7 @@
                 <div class="dis-flex mt-5">
                      
                     <div class="inputbox">
-                        <div class="form-group">
+                        <div class="form-group mb-0">
                             <input type="text" name="full_name" id="full_name" placeholder="Full Name...">
                             <!-- <span>Full Name</span> -->
                         </div>
@@ -99,30 +99,30 @@
                         <div class="inputbox-1">
                             <div class="form-group text-center">
                                 <label for="">Tell us about your styling experience.</label>
-                                <div class="d-flex justify-content-center">
-                                <textarea name="styling_experience" id="styling_experience" class="form-control"
+                                <div class="d-flex justify-content-center flex-column">
+                                <textarea name="styling_experience" id="styling_experience" class="form-control mx-auto"
                                     placeholder="Type your answer here..."></textarea>
-                                    <!-- <div class="error" id="styling_experience_error"></div> -->
+                                    <div class="error  mx-auto" id="styling_experience_error"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="inputbox-1 mt-5">
                             <div class="form-group text-center">
                                 <label>Have you worked for a fashion or styling company previously?</label>
-                                <div class="d-flex justify-content-center">
-                                <textarea name="fashion_styling_brief" id="fashion_styling_brief" class="form-control"
+                                <div class="d-flex justify-content-center flex-column">
+                                <textarea name="fashion_styling_brief" id="fashion_styling_brief" class="form-control mx-auto"
                                     placeholder="Type your answer here..."></textarea>
-                                    <div class="error" id="fashion_styling_brief_error"></div>
+                                    <div class="error  mx-auto" id="fashion_styling_brief_error"></div>
                             </div>
                             </div>
                         </div>
                         <div class="inputbox-1 mt-5">
                             <div class="form-group text-center">
                                 <label>How many clients, if any, will you service using StyleGrid?</label>
-                                <div class="d-flex justify-content-center">
-                                <textarea name="client_brief" id="client_brief" class="form-control"
+                                <div class="d-flex justify-content-center flex-column">
+                                <textarea name="client_brief" id="client_brief" class="form-control mx-auto"
                                     placeholder="Type your answer here..."></textarea>
-                                    <!-- <div class="error" id="client_brief_error"></div> -->
+                                    <div class="error  mx-auto" id="client_brief_error"></div>
                                     </div>
                             </div>
                         </div>
@@ -130,10 +130,10 @@
                             <div class="form-group text-center">
                                 <label for="">Please list some of your fashion and beauty favourite brands
                                     below.</label>
-                                    <div class="d-flex justify-content-center">
-                                <textarea name="fashion_beauty_brands" id="fashion_beauty_brands" class="form-control"
+                                    <div class="d-flex justify-content-center flex-column">
+                                <textarea name="fashion_beauty_brands" id="fashion_beauty_brands" class="form-control mx-auto"
                                     placeholder="Type your answer here..."></textarea>
-                                    <!-- <div class="error" id="fashion_beauty_brands_error"></div> -->
+                                    <div class="error  mx-auto" id="fashion_beauty_brands_error"></div>
                                     </div>
                             </div>
                         </div>
@@ -143,10 +143,10 @@
                                 <label for="">Is your experience in stronger in fashion, home or beauty? List
                                     all if
                                     applicable.</label>
-                                    <div class="d-flex justify-content-center">
-                                <textarea name="stronger_experience" id="stronger_experience" class="form-control"
+                                    <div class="d-flex justify-content-center flex-column">
+                                <textarea name="stronger_experience" id="stronger_experience" class="form-control mx-auto"
                                     placeholder="Type your answer here..."></textarea>
-                                    <!-- <div class="error" id="stronger_experience_error"></div> -->
+                                    <div class="error mx-auto" id="stronger_experience_error"></div>
                                     </div>
                             </div>
                         </div>

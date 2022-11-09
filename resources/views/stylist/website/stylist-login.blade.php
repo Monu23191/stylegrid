@@ -9,8 +9,8 @@
         <div class="row justify-content-center">
             <div class="col-md-6 dis-flex mt-5">
                 <div class="signin mt-5">
-                <h1>Sign in to your Stylist account</h1>
-                <p class="text-center">Please enter your email and password to log in to your StyleGrid stylist
+                <h1>Sign in to your<br> Stylist account</h1>
+                <p class="text-center">Please enter your email and password to<br> log in to your StyleGrid stylist
                     account.</p><br>
                 <div class="dis-flex ">
                     <div id="message_box" class="message"></div>
@@ -23,7 +23,7 @@
                                 <!-- <span>Email Address</span> -->
                             </div>
                         </div>
-                        <div class="inputbox">
+                        <div class="inputbox mb-0">
                             <div class="form-group">
                                 <input type="password" name="password" id="password" placeholder="Create Password...">
                                 <div id="password_error" class="error"></div>
@@ -33,9 +33,9 @@
                         <div><a href="/stylist-forgot-password" class="forgot-pass">
                             <h3>Forgot password?</h3>
                         </a></div>
-                        <div class="text-center"><a href="javascript:void(0)"><button class="sign-in px-2" type="button" id="stylist-login-btn">Sign In</button></a>
+                        <div class="text-center mt-5"><a href="javascript:void(0)"><button class="sign-in px-2" type="button" id="stylist-login-btn">Sign In</button></a>
                         </div>
-                        <div class="mt-2"><h5>if you are a client,<a class="text-dark" href=""><u> please click here to <br>sign in.</u></a></h5></div>
+                        <div class="mt-3"><h5>if you are a client,<a class="text-dark" href=""><u> please click here to <br>sign in.</u></a></h5></div>
                     </form>
                 </div>
             </div>

@@ -771,7 +771,7 @@ color: #7A7A7A;
     border: 1px solid #000;
   }
   #signup .inputbox input {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
@@ -1099,7 +1099,7 @@ color: #7A7A7A;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
-    text-align:left;
+    text-align:right;
     letter-spacing: 0.04em;
     /* margin-top: 58px; */
     color: #000000;
@@ -1120,12 +1120,17 @@ color: #7A7A7A;
   }
   .error{
     color: red;
-    position: absolute;
-    top: 103%;
+    /* position: absolute; */
+    /* top: 103%; */
     font-size: 1rem;
-    left: 1%;
+    /* left: 1%; */
+    text-align: initial;
     font-family: "Genos";
   }
+  .flex-column {
+    -ms-flex-direction: column!important;
+    flex-direction: column!important;
+}
   #frame-image{
     position: absolute;
     width: 50%;
@@ -1133,13 +1138,13 @@ color: #7A7A7A;
     height: 100%;
     opacity: 0;
   }
-  #preferred_style_error{
+  /* #preferred_style_error{
     color: red;
     position: absolute;
     top: 101%;
     font-size: 0.7rem;
     left: 17%;
-  }
+  } */
   /* #stronger_experience_error,#fashion_beauty_brands_error,#styling_experience_error{
     color: red;
     position: absolute;
@@ -1172,4 +1177,15 @@ color: #7A7A7A;
   }
   u{
     text-decoration: 2px solid #8d9499 underline;
+  }
+  #short_bio::placeholder{
+    font-family: 'Silk Serif';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+text-align: center;
+letter-spacing: 0.04em;
+
+color: #7A7A7A;
   }
