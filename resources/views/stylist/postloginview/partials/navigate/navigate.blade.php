@@ -85,7 +85,7 @@
                             data-i18n="">Clients</span></a>
 
                 </li>
-                <li class=" nav-item"><a href="sourcing.html"><i class="ft-aperture"></i><span class="menu-title" data-i18n="">Sourcing</span></a>
+                <li class=" nav-item"><a href="{{url('/stylist-sourcing')}}"><i class="ft-aperture"></i><span class="menu-title" data-i18n="">Sourcing</span></a>
 
                 </li>
                 <li class=" nav-item"><a href="#"><i class="ft-box"></i><span class="menu-title"

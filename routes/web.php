@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController as Member;
+use App\Http\Controllers\StylistController as Stylist;
 use App\Http\Controllers\MemberWebsiteController as Website;
 use App\Http\Controllers\StylistWebsiteController as StylistWebsite;
 use App\Http\Controllers\CreateGridController as CreateGridController;
@@ -34,8 +35,9 @@ use App\Http\Controllers\CreateGridController as CreateGridController;
  Route::post('/add-stylist-second-process', [StylistWebsite::class, 'addStylistSecondProcess']);
  Route::get('/stylist-login', [StylistWebsite::class, 'stylistLogin']);
  Route::post('/stylist-login-post', [StylistWebsite::class, 'stylistLoginPost']);
- Route::get('/stylist-dashboard', [CreateGridController::class, 'index']);
+ Route::get('/stylist-dashboard', [Stylist::class, 'stylistDashboard']);
  Route::get('/stylist-logout', [StylistWebsite::class, 'stylistLogout']);
+ Route::get('/stylist-sourcing', [Stylist::class, 'stylistSourcing']);
 
  
  //stylist section End
