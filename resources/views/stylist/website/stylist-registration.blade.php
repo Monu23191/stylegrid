@@ -25,7 +25,7 @@
 
                 </div>
                 <div id="first_step_message_box" class="message"></div>
-                <div class="mt-4">
+                <div class="mt-lg-4">
                     <h6>Let’s get started.</h6>
                 </div>
                 <div class="dis-flex mt-5">
