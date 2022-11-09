@@ -10,13 +10,13 @@
             <div id="signup">
                 <div class="row justify-content-center">
                     <h1>Sign up to StyleGrid</h1>
-                    <p class="text-center">Create your account today and enjoy a 30 day free trial, with access to a
+                    <p class="text-center px-3">Create your account today and enjoy a 30 day free trial, with access to a
                         dedicated stylist and<br>
                         exclusive luxury product.</p><br>
                 </div>
                 <div id="first_step_message_box" class="message"></div>
                 <div>
-                    <h6 class="mt-5">Let’s get started.</h6>
+                    <h6 class="mt-lg-5">Let’s get started.</h6>
                 </div>
                 <div class="dis-flex mt-5">
                      
@@ -270,7 +270,7 @@
         </div>
     </div>
     <div style="overflow:auto;" id="next-previous">
-        <div style="float:right;">
+        <div style="float:right;" class="mt-5">
             <button type="button" id="prevBtn" class="next-btn" onclick="nextPrev(-1)">Previous</button>
             <button type="button" id="nextBtn" class="next-btn" onclick="nextPrev(1)">Next</button>
         </div>
