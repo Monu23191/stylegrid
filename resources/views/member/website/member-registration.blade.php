@@ -235,7 +235,7 @@
         </div>
     </div>
     <div class="success_tab" style="display:none;">
-        <div class="container">
+        <div class="container mt-5">
             <div id="signup-5">
                 <div class="row justify-content-center" style="margin:0px ;">
                     <h1>Thank you. It’s time to meet your stylist.</h1>
