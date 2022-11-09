@@ -16,19 +16,13 @@ class StylistWebsiteController extends Controller
     }
     public function stylistRegistration()
     {
-        $member=new Member();
-        $country_list=$member->getCountryList();
-        //$brand_list=$member->getBrandList();
-        return view('stylist.website.stylist-registration',compact('country_list'));
-       // echo "hello";
-        //die;
-        //if(!Session::get('Stylistloggedin')){
-        //    $member=new Member();
-       //     $country_list=$member->getCountryList();
-       //     $brand_list=$member->getBrandList();
-       //     return view('member.website.member-registration',compact('country_list','brand_list'));
-       // }
-        //return redirect('/stylist-dashboard');
+        if(!Session::get('Stylistloggedin')){
+            $member=new Member();
+            $country_list=$member->getCountryList();
+            return view('stylist.website.stylist-registration',compact('country_list'));
+        }
+        return redirect('/stylist-dashboard');
+        
     }  
     public function checkStylistExistance(Request $request){
         if($request->ajax()){

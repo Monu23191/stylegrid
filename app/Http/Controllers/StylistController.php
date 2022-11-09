@@ -26,15 +26,12 @@ class StylistController extends Controller
 
     public function stylistSourcing()
     {
-        echo "hello";die;
+        return view('stylist.postloginview.stylist-sourcing');
         $member=new Member();
-        $source_applicable=$member->sourceApplicable(['ms.member_id'=>Session::get("member_id")]);
-        if($source_applicable){
-            $day_left=$source_applicable->day_left;
-        }else{
-            $day_left=-1; 
-        }
-        $source_list=$member->getSourceList(['s.member_stylist_type'=>'0','s.member_stylist_id'=>Session::get("member_id")],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'>=','value'=>date('Y-m-d')]]);
+        $source_list=$member->getSourceList(['s.member_stylist_type'=>1,'s.member_stylist_id'=>Session::get("stylist_id")],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'>=','value'=>date('Y-m-d')]]);
+        echo '<pre>';
+        print_r($source_list);
+       die;
         $source_list_data=[];
         foreach($source_list as $source){
             $data=array(

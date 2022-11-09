@@ -2,7 +2,7 @@
 @include("stylist.postloginview.partials.navigate.navigate")
  <!-- BEGIN: Content-->
   <div class="app-content content bg-white">
-        <div class="content-wrapper">
+    <div class="content-wrapper">
 
             <div class="content-header row">
             </div>
