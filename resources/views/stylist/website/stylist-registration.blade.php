@@ -15,8 +15,8 @@
                     <h1>Join our stylist network.</h1>
                     <p class="text-center px-3">When you join our platform as a stylist, you’ll join our network of
                         hundreds of other stylists<br> around the world building their fashion, home and beauty
-                        businesses using StyleGrid. Get access<br> to our industry-leading platform allowing you to
-                        service your current clients while also receiving<br> new clients through our platform every
+                        businesses using StyleGrid. Get access<br class="d-lg-block d-none"> to our industry-leading platform allowing you to
+                        service your current clients while also receiving<br class="d-lg-block d-none">  new clients through our platform every
                         month.
 
                     </p>
@@ -150,13 +150,8 @@
                                     </div>
                             </div>
                         </div>
-
-                     
-
+                    </div>
                 </div>
-
-
-            </div>
         </div>
     </div>
     <div class="tab">
