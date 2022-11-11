@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Member;
+use App\Models\Stylist;
 use Illuminate\Support\Str;
 use Session;
 /*
@@ -26,106 +27,54 @@ class StylistController extends Controller
 
     public function stylistSourcing()
     {
-        return view('stylist.postloginview.stylist-sourcing');
-        $member=new Member();
-        $source_list=$member->getSourceList(['s.member_stylist_type'=>1,'s.member_stylist_id'=>Session::get("stylist_id")],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'>=','value'=>date('Y-m-d')]]);
-        echo '<pre>';
-        print_r($source_list);
-       die;
-        $source_list_data=[];
-        foreach($source_list as $source){
-            $data=array(
-                'p_name'=>$source->p_name,
-                'p_size'=>$source->p_size,
-                'p_type'=>$source->p_type,
-                'p_slug'=>$source->p_slug,
-                'name'=>$source->name,
-                'country_name'=>$source->country_name,
-                'p_deliver_date'=>$source->p_deliver_date,
-                'total_offer'=>$source->total_offer,
-                'p_status'=>$source->p_status,
-                'pending_offer'=>$source->total_offer,
-                'accepted_offer'=>0,
-                'decline_offer'=>0,
-            );
-            if($source->total_offer>0){
-                $data['pending_offer'] =count($member->getOfferData(['so.sourcing_id'=>$source->id,'so.status'=>'0']));
-                $data['accepted_offer'] =count($member->getOfferData(['so.sourcing_id'=>$source->id,'so.status'=>'1']));
-                $data['decline_offer'] =count($member->getOfferData(['so.sourcing_id'=>$source->id,'so.status'=>'2']));
-            }
-            $source_list_data[]=$data;
+        $stylist=new Stylist();
+        $source_list=$stylist->getSourceList([]);
+        return view('stylist.postloginview.stylist-sourcing',compact('source_list'));
+    }
+    public function stylistFulfillSourceRequest($id){
+        $stylist=new Stylist();
+        $source=$stylist->getSourceList(['s.p_slug'=>$id]);
+        if(!count($source)){
+            return redirect('/stylist-sourcing');
+        }else{
+            $source_data=$source[0];  
         }
-        $previous_source_list=$member->getSourceList(['s.member_stylist_type'=>'0','s.member_stylist_id'=>Session::get("member_id")],['whereDate'=>['key'=>'s.p_deliver_date','condition'=>'<','value'=>date('Y-m-d')]]);
-        return view('member.dashboard.source-list',compact('source_list_data','previous_source_list','day_left'));
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function memberGrid()
-    {
-        return view('member.dashboard.member-grid');
-    }
-    public function memberGridDetails()
-    {
-        return view('member.dashboard.member-grid-details');
-    }
-
-    public function memberOrders()
-    {
-        return view('member.dashboard.member-orders');
+        return view('stylist.postloginview.stylist-fulfill-source-request',compact('source_data'));
     }
     
-
-    public function memberSubmitRequest(Request $request){
-        $member=new Member();
-        $source_applicable=$member->sourceApplicable(['ms.member_id'=>Session::get("member_id")]);
-        if($source_applicable){
-            $day_left=$source_applicable->day_left;
-            if($day_left<0){
-                return redirect("/member-sourcing");
-            }
-            $country_list=$member->getCountryList();
-            $brand_list=$member->getBrandList();
-            return view('member.dashboard.member-submit-request',compact('country_list','brand_list'));
-        }
-    }
-    
-
-    public function getBrandList(Request $request){
+    public function stylistFulfillSourceRequestPost(Request $request){
         if($request->ajax()){
             $member=new Member();
-            $search_brand=$request->brand_search;
-            if(!empty($search_brand)){
-                $brand_list=$member->getBrandList([],$search_brand);
-                if(count($brand_list)){
-                    $response['status']=1;
-                }else{
-                    $response['status']=0;
-                }
-                $response['data']=$brand_list;
+            $response=$member->addUpdateData(array(
+                'id'=>0,
+                'sourcing_id'=>$request->source_id,
+                'stylelist_id'=>Session::get("stylist_id"),
+                'price'=>$request->source_price,
+                'offer_date'=>now()
+            ),'sg_sourcing_offer');
+            if($response['reference_id']>0){
+                $response['status']=1;
+                $response['message']="Source request sent Successfully!";
             }else{
                 $response['status']=0;
+                $response['message']="something went wrong!";
             }
             return json_encode($response);
         }  
     }
 
-    public function memberSubmitRequestPost(Request $request){
+    public function stylistSourceRequestSubmit()
+    {
+        return view('stylist.postloginview.stylist-source-request-submit');
+    }
+
+    public function stylistCreateSourceRequest(Request $request){
+        $member=new Member();
+        $country_list=$member->getCountryList();
+        return view('stylist.postloginview.stylist-create-source-request',compact('country_list'));
+    }
+
+    public function stylistSubmitRequestPost(Request $request){
         if($request->ajax()){
             $source_image_name='';
             $source_image= $request->file('source_image');
@@ -159,8 +108,8 @@ class StylistController extends Controller
                 'p_status'=>'Pending',
                 'p_country_deliver'=>$country,
                 'p_deliver_date'=>date('Y-m-d',strtotime($deliver_date)),
-                'member_stylist_type'=>0,
-                'member_stylist_id'=>Session::get("member_id"),
+                'member_stylist_type'=>1,
+                'member_stylist_id'=>Session::get("stylist_id"),
             );
             
             $response=$member->addUpdateData($add_update_data,'sg_sourcing');   
@@ -170,6 +119,59 @@ class StylistController extends Controller
             return json_encode($response);
         }  
     }
+    public function stylistSubmitRequestComplete(Request $request){
+        return view('stylist.postloginview.stylist-source-request-submit');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function memberSubmitRequest(Request $request){
+        $member=new Member();
+        $source_applicable=$member->sourceApplicable(['ms.member_id'=>Session::get("member_id")]);
+        if($source_applicable){
+            $day_left=$source_applicable->day_left;
+            if($day_left<0){
+                return redirect("/member-sourcing");
+            }
+            $country_list=$member->getCountryList();
+            $brand_list=$member->getBrandList();
+            return view('member.dashboard.member-submit-request',compact('country_list','brand_list'));
+        }
+    }
+    
+
+    public function getStylistBrandList(Request $request){
+        if($request->ajax()){
+            $member=new Member();
+            $search_brand=$request->brand_search;
+            if(!empty($search_brand)){
+                $brand_list=$member->getBrandList([],$search_brand);
+                if(count($brand_list)){
+                    $response['status']=1;
+                }else{
+                    $response['status']=0;
+                }
+                $response['data']=$brand_list;
+            }else{
+                $response['status']=0;
+            }
+            return json_encode($response);
+        }  
+    }
+
+    
 
     public function memberSubmitRequestComplete(Request $request){       
         return view('member.dashboard.member-submit-request-complete');

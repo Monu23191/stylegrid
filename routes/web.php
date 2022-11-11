@@ -38,7 +38,15 @@ use App\Http\Controllers\CreateGridController as CreateGridController;
  Route::get('/stylist-dashboard', [Stylist::class, 'stylistDashboard']);
  Route::get('/stylist-logout', [StylistWebsite::class, 'stylistLogout']);
  Route::get('/stylist-sourcing', [Stylist::class, 'stylistSourcing']);
+ Route::get('/stylist-fulfill-source-request/{title}', [Stylist::class, 'stylistFulfillSourceRequest']);
+ Route::post('/stylist-fulfill-source-request-post', [Stylist::class, 'stylistFulfillSourceRequestPost']);
+ Route::get('/stylist-source-request-submit', [Stylist::class, 'stylistSourceRequestSubmit']);
+ Route::get('/stylist-create-source-request', [Stylist::class, 'stylistCreateSourceRequest']);
+ Route::post('/get-stylist-brands', [Stylist::class, 'getStylistBrandList']);
+ Route::post('/stylist-submit-request-post', [Stylist::class, 'stylistSubmitRequestPost']);
+ Route::get('/stylist-submit-request-complete', [Stylist::class, 'stylistSubmitRequestComplete']);
 
+ 
  
  //stylist section End
  ///member Section Start

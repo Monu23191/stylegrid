@@ -16,9 +16,9 @@
                 <div class="col-md-4 quick-link text-right">
                     <span class="mr-5"><a hrf="">Quick Link</a></span>
                     <div class="row justify-content-end my-2">
-                        <a href="" class="mx-1"><img src="app-assets/images/icons/Chat.svg" alt=""></a>
-                        <a href="" class="mx-1"><img src="app-assets/images/icons/File Invoice.svg" alt=""></a>
-                        <a href="" class="mx-1"><img src="app-assets/images/icons/Gear.svg" alt=""></a>
+                        <a href="" class="mx-1"><img src="{{asset('stylist/app-assets/images/icons/Chat.svg')}}" alt=""></a>
+                        <a href="" class="mx-1"><img src="{{asset('stylist/app-assets/images/icons/File Invoice.svg')}}" alt=""></a>
+                        <a href="" class="mx-1"><img src="{{asset('stylist/app-assets/images/icons/Gear.svg')}}" alt=""></a>
 
                     </div>
 
@@ -31,7 +31,7 @@
                         <div class="row  text-aligns-center">
                             <h1 class="col-4">Live Tickets</h1>
                             <h2 class="px-2 mt-1 col-5">1,092 requests this week</h2>
-                            <a href="submit-sourcing-request.html" class=" col-3 mt-2"><button class="request-btn px-2">Make Request</button></a>
+                            <a href="{{url('/stylist-create-source-request')}}" class=" col-3 mt-2"><button class="request-btn px-2">Make Request</button></a>
                         </div>
                     </div>
                     <!-- Pills navs -->
@@ -80,17 +80,57 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="d-flex"><span class="dot"></span>Hermes Mini Kelly 22
-                                            </td>
-                                            <td>N/A</td>
-                                            <td>@Beg</td>
-                                            <td>Hermes</td>
-                                            <td>UAE</td>
-                                            <td>31/09/22</td>
-                                            <td class="green-color">Open</td>
-                                            <td><a href="fullfil-sourcing-request.html"><button class="px-2">Fufill</button></a></td>
-                                        </tr>
+                                        <?php
+                                        if(count($source_list)){
+                                            foreach($source_list as $source){
+                                                ?>
+                                                <tr>
+                                                    <td class="d-flex"><span class="dot"></span><?php echo $source->p_name;?></td>
+                                                    <td><?php echo $source->p_size;?></td>
+                                                    <td><?php echo $source->p_type;?></td>
+                                                    <td><?php echo $source->name;?></td>
+                                                    <td><?php echo $source->country_name;?></td>
+                                                    <td><?php echo $source->p_deliver_date;?></td>
+                                                    <?php
+                                                    if($source->p_status=='Pending'){
+                                                        ?>
+                                                        <td class="green-color">Open</td>
+                                                        <?php
+                                                    }else{
+                                                        ?>
+                                                        <td>
+                                                            <?php echo $source->p_status;?>    
+                                                        </td>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                    
+                                                    <td>
+                                                        <?php
+                                                        if($source->p_status=='Fulfilled'){
+                                                            ?>
+                                                            <button class=" ticket-btn">Ticket Closed </button>
+                                                            <?php
+                                                        }else{
+                                                            ?>
+                                                            <a href="{{url('stylist-fulfill-source-request/'.$source->p_slug)}}"><button class="px-2">Fufill</button></a>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                </tr>
+                                                <?php
+                                            }
+                                        }else{
+                                            ?>
+                                            <tr>
+                                                <td colspan="5">No Record Found</td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                        
+                                        <!--
                                         <tr>
                                             <td class="d-flex"><span class="dot"></span>Off-White Jordan 4&apos;s
                                             </td>
@@ -179,14 +219,11 @@
                                             <td class="green-color">Open</td>
                                             <td><button class="px-2">Fufill</button></td>
                                         </tr>
+                                        -->
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- <div class="d-flex px-2">
-                                <div class="show-bg"><img src="app-assets/images/icons/show-more.svg" alt="">
-                                </div>
-                                <span class="show px-1">See more</span>
-                            </div> -->
+                            
                         </div>
                     </div>
                 </div>
