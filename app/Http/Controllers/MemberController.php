@@ -122,10 +122,10 @@ class MemberController extends Controller
             if(count($brand_data)){
                 $brand=$brand_data[0]->id;
             }else{
-                $brand=1;
+                $brand_data=$member->addUpdateData(['id'=>0,'name'=>$request->brand,'brand_mg'=>1],'sg_brand');
+                $brand=$brand_data['reference_id'];
             }
             $product_name=$request->product_name;
-            $brand=$brand_data[0]->id;
             $product_type=$request->product_type;
             $product_size=$request->product_size;
             $country=$request->country;

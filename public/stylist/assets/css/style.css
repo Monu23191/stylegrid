@@ -1243,6 +1243,18 @@ input.search-top:-ms-input-placeholder {
   margin-left: auto;
   cursor: pointer;
 }
+#source_image {
+  z-index: 999;
+  opacity: 0;
+  width: 320px;
+  height: 200px;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  cursor: pointer;
+}
 
 .Neon-input-text h3 {
   font-family: 'Silk Serif';

@@ -16,19 +16,13 @@ class StylistWebsiteController extends Controller
     }
     public function stylistRegistration()
     {
-        $member=new Member();
-        $country_list=$member->getCountryList();
-        //$brand_list=$member->getBrandList();
-        return view('stylist.website.stylist-registration',compact('country_list'));
-       // echo "hello";
-        //die;
-        //if(!Session::get('Stylistloggedin')){
-        //    $member=new Member();
-       //     $country_list=$member->getCountryList();
-       //     $brand_list=$member->getBrandList();
-       //     return view('member.website.member-registration',compact('country_list','brand_list'));
-       // }
-        //return redirect('/stylist-dashboard');
+        if(!Session::get('Stylistloggedin')){
+            $member=new Member();
+            $country_list=$member->getCountryList();
+            return view('stylist.website.stylist-registration',compact('country_list'));
+        }
+        return redirect('/stylist-dashboard');
+        
     }  
     public function checkStylistExistance(Request $request){
         if($request->ajax()){
@@ -63,6 +57,7 @@ class StylistWebsiteController extends Controller
                 'shop'=>$request->shop?$request->shop:'',
                 'style'=>$request->style?$request->style:'',
                 'source'=>$request->source?$request->source:'',
+                'verified'=>1
             );
             $response=$member->addUpdateData($save_data,'sg_stylist'); 
             if($response['reference_id']){
@@ -126,8 +121,43 @@ class StylistWebsiteController extends Controller
         }
     }
     function stylistLogin(Request $request){
-        echo "dddd";die;
+        if(!Session::get('Stylistloggedin')){
+            return view('stylist.website.stylist-login');
+        }
+        return redirect('/stylist-dashboard');
     }
+    public function stylistLogout(){
+        session_unset();
+        Session::flush();
+        return redirect("/stylist-login");
+    }
+
+    public function stylistLoginPost(Request $request){
+        if($request->ajax() && !Session::get('Stylistloggedin')){
+            $member=new Member();
+            $email=$request->email;
+            $password=sha1($request->password);
+            $login_data=$member->checkStylistExistance(['s.email'=>$email,'s.password'=>$password]);
+            if($login_data){
+                if($login_data->verified){
+                    Session::put('stylist_data', $login_data);
+                    Session::put('stylist_id', $login_data->id);
+                    Session::put('Stylistloggedin',TRUE);
+                    return json_encode(['status'=>1,'message'=>'you have successfully loggedin']);
+                }
+                return json_encode(
+                    [
+                    'status'=>0,
+                    'message'=>'Account not verified',
+                    //'verification_url'=>\URL::to("/").'/member-account-verification/'.$login_data->token
+                ]);
+            }else{
+                return json_encode(['status'=>0,'message'=>'Email Id or Password not correct!']);
+            }
+        }  
+    }
+    
+    
     
     
     

@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemberController as Member;
+use App\Http\Controllers\StylistController as Stylist;
 use App\Http\Controllers\MemberWebsiteController as Website;
 use App\Http\Controllers\StylistWebsiteController as StylistWebsite;
+use App\Http\Controllers\CreateGridController as CreateGridController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +23,8 @@ use App\Http\Controllers\StylistWebsiteController as StylistWebsite;
   //  return view('welcome');
 //});
   //Route::domain('stylist.com')->group(function () {
-  //Route::get('/','App\Http\Controllers\CreateGridController@index');
-  Route::get('/loadgridview','App\Http\Controllers\CreateGridController@loadgridview');
-    Route::post('/add-grid','App\Http\Controllers\CreateGridController@add_grid');
+  Route::get('/loadgridview',[CreateGridController::class,'loadgridview']);
+  Route::post('/add-grid',[CreateGridController::class,'add_grid']);
  // });
  //stylist Section Start
  Route::get('/', [StylistWebsite::class, 'index']);
@@ -32,8 +34,21 @@ use App\Http\Controllers\StylistWebsiteController as StylistWebsite;
  Route::get('/stylist-account-confirmation/{title}', [StylistWebsite::class, 'stylistAccountConfirmation']);
  Route::post('/add-stylist-second-process', [StylistWebsite::class, 'addStylistSecondProcess']);
  Route::get('/stylist-login', [StylistWebsite::class, 'stylistLogin']);
+ Route::post('/stylist-login-post', [StylistWebsite::class, 'stylistLoginPost']);
+ Route::get('/stylist-dashboard', [Stylist::class, 'stylistDashboard']);
+ Route::get('/stylist-logout', [StylistWebsite::class, 'stylistLogout']);
+ Route::get('/stylist-sourcing', [Stylist::class, 'stylistSourcing']);
+ Route::get('/stylist-fulfill-source-request/{title}', [Stylist::class, 'stylistFulfillSourceRequest']);
+ Route::post('/stylist-fulfill-source-request-post', [Stylist::class, 'stylistFulfillSourceRequestPost']);
+ Route::get('/stylist-source-request-submit', [Stylist::class, 'stylistSourceRequestSubmit']);
+ Route::get('/stylist-create-source-request', [Stylist::class, 'stylistCreateSourceRequest']);
+ Route::post('/get-stylist-brands', [Stylist::class, 'getStylistBrandList']);
+ Route::post('/stylist-submit-request-post', [Stylist::class, 'stylistSubmitRequestPost']);
+ Route::get('/stylist-submit-request-complete', [Stylist::class, 'stylistSubmitRequestComplete']);
+ Route::get('/stylist-offer-received/{title}', [Stylist::class, 'stylistOfferReceived']);
 
-
+ 
+ 
  //stylist section End
  ///member Section Start
 Route::post('/add-member', [Website::class, 'addMember']);

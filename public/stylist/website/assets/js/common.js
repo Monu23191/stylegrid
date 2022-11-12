@@ -1,4 +1,52 @@
 $(function(){
+  $('#stylist-login-btn').click(function(){
+    $('#stylist-login-form input').css('border', '1px solid #ccc');
+    $('.error').html('');
+    $('.message').html('');
+    var email=makeTrim($('#email').val());
+    var password=makeTrim($('#password').val());
+    var status=true;
+    if(email==''){
+      $('#email').css('border', '2px solid #cc0000');
+      $('#email_error').html('Please enter email');
+      status=false;
+    }else{
+      if (!validEmail(email)) {
+        $('#email').css('border', '2px solid #cc0000');
+        $('#email_error').html('Please enter a valid Email ID');
+        status = false;
+      }
+    }
+    if(password==''){
+      $('#password').css('border', '2px solid #cc0000');
+      $('#password_error').html('Please enter password');
+      status=false;
+    }
+    if(status){
+      $.ajax({
+        url : '/stylist-login-post',
+        method : "POST",
+        async: false,
+        data : $('#stylist-login-form').serialize(),
+        success : function (ajaxresponse){
+            response = JSON.parse(ajaxresponse);
+            if(response['status']){
+              $('#message_box').html('<div class="alert alert-success">'+response['message']+'</div>');
+              setTimeout(function(){
+                window.location = "/stylist-dashboard";
+            }, 500);
+            }else{
+              $('#message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
+              //$('#message_box').after("<a href='"+response['verification_url']+"' target='_blank'>Click here to verify your account!</a></p>");
+            }
+        }
+    })
+    }else{
+      $('#message_box').html('<div class="alert alert-danger">Please enter all the mandatory fields!</div>');
+    }
+  })
+
+
   $('#image_preview_remove').click(function(){
     $("#frame-image").val('');
     $('#image_preview_remove').hide();
@@ -159,7 +207,7 @@ function addStylistSecondProcess(){
             $('#next-previous').remove();
             $('#steps-next-previous').remove();
             $('.success_tab').show();
-          // $("#stylist-registration-success-url").prop("href", response['url']);
+           $("#stylist-registration-success-url").prop("href", response['url']);
           }else{
             $('#second_step_message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
             currentTab = currentTab - 1;
@@ -181,7 +229,7 @@ function addStylist(){
           $('#next-previous').remove();
           $('#steps-next-previous').remove();
           $('.success_tab').show();
-        // $("#stylist-registration-success-url").prop("href", response['url']);
+         $("#stylist-registration-success-url").prop("href", response['url']);
         }else{
           $('#fourth_step_message_box').html('<div class="alert alert-danger">'+response['message']+'</div>');
           currentTab = currentTab - 1;
@@ -431,3 +479,5 @@ function validEmail(email) {
   var re = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   return re.test(email);
 }
+
+ 

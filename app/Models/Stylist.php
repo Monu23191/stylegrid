@@ -5,124 +5,22 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 /*
 @author-Sunil Kumar Mishra
-date:19-10-2022
+date:10-11-2022
 */
-class Member extends Model
+class Stylist extends Model
 {
-    public $db;
-	function getCountryList($where=[]){
-		$this->db = DB::table('sg_country AS c');
-		$this->db->select([
-			"c.id",
-			"c.country_code",
-            "c.country_name",
-			"c.status"
-		]);
-        if(count($where)){
-			$this->db->where($where);
-        }
-		$response_data=$this->db->get();
-		return $response_data;
-	}
-	function checkMemberExistance($where){
-		if(count($where)){
-			$this->db = DB::table('sg_member as m');
-			$this->db->select([
-				"m.id",
-				"m.full_name as name",
-				"m.email",
-            	"m.phone",
-            	"m.token",
-				"m.verified"
-			]);
-			$this->db->where($where);
-			$response_data=$this->db->get()->first();
-			return $response_data;
-		}
-	}
-
-	function checkStylistExistance($where){
-		if(count($where)){
-			$this->db = DB::table('sg_stylist as s');
-			$this->db->select([
-				"s.id",
-				"s.full_name as name",
-				"s.email",
-            	"s.phone",
-				"s.verified"
-			]);
-			$this->db->where($where);
-			$response_data=$this->db->get()->first();
-			return $response_data;
-		}
-	}
-	function sourceApplicable($where){
-		if(count($where)){
-			$this->db = DB::table('sg_member_subscription as ms');
-			$this->db->select([
-				"ms.id",
-				"ms.start_date",
-				"ms.end_date",
-				"ms.subscription",
-				DB::raw("DATEDIFF(ms.end_date,'".date('Y-m-d')."') as day_left")
-			]);
-			$this->db->where($where);
-			$this->db->orderBy("ms.id","DESC");
-			$response_data=$this->db->get()->first();
-			return $response_data;
-		}
-	}
-	
-	
-	function getBrandList($where=[],$search=''){
-		$this->db = DB::table('sg_brand AS b');
-		$this->db->select([
-			"b.id",
-			"b.name",
-            "b.logo",
-			"b.status"
-		]);
-        if(count($where)){
-			$this->db->where($where);
-        }
-		if(!empty($search)){
-			$this->db->where('b.name', 'LIKE', '%'.$search.'%');
-		}
-		$response_data=$this->db->get();
-		return $response_data;
-	}
-	function addUpdateData($add_update_data,$table){
-		if(count($add_update_data)>0){
-			if(!empty($table)){
-				if($add_update_data['id']>0){
-					DB::table($table)
-					->where(array('id'=>$add_update_data['id']))
-					->update($add_update_data);
-					$reference_id= $add_update_data['id'];
-					$response=['status'=>1,'reference_id'=>$reference_id,'message'=>'Data successfully updated'];
-				}else{
-					DB::table($table)
-					->insert($add_update_data);
-					$reference_id= DB::getPdo()->lastInsertId();
-					$response=['status'=>1,'reference_id'=>$reference_id,'message'=>'Data successfully added'];
-				}
-			}else{
-				$response=['status'=>1,'reference_id'=>0,'message'=>'table missing'];
-			}
-		}else{
-			$response=['status'=>1,'reference_id'=>0,'message'=>'Request data missing'];
-		}
-		return $response;
-	}
+    public $db;	
 	function getOfferData($where){
 		if(count($where)){
         	$this->db = DB::table('sg_sourcing_offer as so');
 			$this->db->select([
 				"so.id",
 				"so.sourcing_id",
-				"so.stylist_id",
+				"so.sourcing_id",
+				"so.stylelist_id",
 				"so.price",
 				"so.status",
+				//\DB::raw("COUNT(so.id) as total_offer"),
 			]);
 			$this->db->join('sg_sourcing AS s', 's.id', '=', 'so.sourcing_id');
 			$this->db->where($where);
@@ -131,7 +29,7 @@ class Member extends Model
 			return $response_data;
 		}
 	}
-	function getSourceList($where=[],$where_date=[]){
+	function getSourceList($where=[],$stylist_id=0,$where_date=[]){
         $this->db = DB::table('sg_sourcing AS s');
 		$this->db->select([
 			"s.id",
@@ -155,9 +53,13 @@ class Member extends Model
         if(count($where)){
 			$this->db->where($where);
         }
-		if(count($where_date['whereDate'])){
-			$this->db->whereDate($where_date['whereDate']['key'], $where_date['whereDate']['condition'], $where_date['whereDate']['value']);
+		if($stylist_id>0){
+			$this->db->where('s.member_stylist_id', '<>', $stylist_id);
 		}
+
+		//if(count($where_date['whereDate'])){
+			//$this->db->whereDate($where_date['whereDate']['key'], $where_date['whereDate']['condition'], $where_date['whereDate']['value']);
+		//}
 		$this->db->groupBy("s.id");
 		$this->db->orderBy("s.id","DESC");
 		$response_data=$this->db->get();
@@ -170,7 +72,7 @@ class Member extends Model
 			$this->db->select([
 				"so.id",
 				"so.sourcing_id",
-				"so.stylist_id",
+				"so.stylelist_id",
 				"so.price",
 				"so.status",
 				"s.p_image",

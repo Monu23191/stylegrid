@@ -11,7 +11,7 @@
                 <div class="row justify-content-center">
                     <h1>Welcome to StyleGrid.</h1>
                     <p class="text-center">Congratulations on your successful application. You are now officially
-                        part of our global stylist network. Fill in a few details so we can make your profile
+                        part of our global stylist<br> network. Fill in a few details so we can make your profile
                         informative for members. </p>
                 </div>
                 <div id="first_step_message_box" class="message"></div>
@@ -63,7 +63,7 @@
                 <div class="row justify-content-center">
                     <h1>Add some information about yourself.</h1>
                     <p class="text-center">Build your stylist profile by adding a profile picture, short bio and
-                        some of your favourite brands. This will be visible to Stylegrid members and your clients.
+                        some of your favourite<br> brands. This will be visible to Stylegrid members and your clients.
                     </p>
                     <br>
                     <div id="second_step_message_box" class="message"></div>
@@ -89,7 +89,7 @@
                     <div class="col-lg-6">
                             <div class="inputbox-1 mt-5">
                                 <div class="form-group text-center">
-                                    <div class="d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center flex-column">
                                         <textarea name="short_bio" id="short_bio" class="form-control"
                                             placeholder="Type your short bio here"></textarea>
                                         <div id="short_bio_error" class="error"></div>
@@ -98,7 +98,7 @@
                             </div>
                             <div class="inputbox-1 mt-5">
                                 <div class="form-group text-center">
-                                    <div class="d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center flex-column">
                                         <input type="text" name="favourite_brands" id="favourite_brands" class="form-control"
                                             placeholder="Add your favourite brands here">
                                             <div id="favourite_brands_error" class="error"></div>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="inputbox-1 mt-5">
                                 <div class="form-group text-center">
-                                    <div class="d-flex justify-content-center">
+                                    <div class="d-flex justify-content-center flex-column">
                                         <input type="text" name="preferred_style" id="preferred_style" class="form-control"
                                         placeholder="Add your preferred style type/s here">
                                         <div id="preferred_style_error" class="error"></div>
@@ -124,15 +124,16 @@
     <div class="success_tab" style="display:none;">
         <div class="container my-lg-5 py-lg-5">
             <div id="signup-1">
-                <div class="row justify-content-center">
+                <div class="justify-content-center">
                     <h1>Your account is now live!</h1>
                     <p class="text-center pt-3">Your account is now created and is now live. Jump straight in and
                         start
-                        using the StyleGrid dashboard to grow your styling business and service your clients below.
+                        using the<br> StyleGrid dashboard to grow your styling business and service your clients below.
                     </p>
                     <br>
+                    <div class="text-center">
                     <a href="{{url('stylist-login')}}" class="mt-5"><button class="back-to px-5 py-1">Log into your stylist
-                            account</button></a>
+                            account</button></a></div>
                 </div>
             </div>
         </div>

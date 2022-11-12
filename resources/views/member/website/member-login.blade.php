@@ -3,10 +3,10 @@
 <div class="container-fluid">
     <div id="signup">
         <div class="row justify-content-center">
-            <div class="col-md-6 dis-flex mt-5">
-                <div class="signin mt-5">
-                <h1>Sign in to your Member account</h1>
-                <p class="text-center">Please enter your email and password to log in to your Member stylist
+            <div class="col-md-6 dis-flex mt-lg-5">
+                <div class="signin mt-lg-5 mt-3">
+                <h1>Sign in to your<br> Member account</h1>
+                <p class="text-center">Please enter your email and password to<br> log in to your Member stylist
                     account.</p><br>
 
 
@@ -16,24 +16,24 @@
                         @csrf
                         <div class="inputbox">
                             <div class="form-group">
-                                <input type="text" name="email" id="email">
-                                <div id="email_error" class="error"></div>
-                                <span>Email Address</span>
+                                <input type="text" name="email" id="email" placeholder="Email Address...">
+                                <div id="email_error" class="error" ></div>
+                                <!-- <span>Email Address</span> -->
                             </div>
                         </div>
                         <div class="inputbox mb-0">
                             <div class="form-group">
-                                <input type="password" name="password" id="password">
+                                <input type="password" name="password" id="password" placeholder="Password...">
                                 <div id="password_error" class="error"></div>
-                                <span>Password</span>
+                                <!-- <span>Password</span> -->
                             </div>
                         </div>
-                        <div><a href="" class="forgot-pass">
-                            <h3>Forgot password?</h3>
+                        <div><a href="/member-forgot-password" class="forgot-pass">
+                            <h3 class=" mt-2">Forgot password?</h3>
                         </a></div>
-                        <div class="text-center mt-5"><a href="javascript:void(0);"><button type="button" class="sign-in px-2" id="member-login-btn">Sign In</button></a>
+                        <div class="text-center mt-4"><a href="javascript:void(0);"><button type="button" class="sign-in px-3" id="member-login-btn">Sign In</button></a>
                         </div>
-                        <div class="mt-2"><h5>if you are a member,<a href="{{url('/member-registration')}}"> please click here to <br>sign in.</a></h5></div>
+                        <div class="mt-4"><h5 class="click-to-signin">if you are a member,<a href="{{url('/member-registration')}}" class="text-dark"><u> please click here to <br>sign in.</u></a></h5></div>
                     </form>
                 </div>
             </div>
