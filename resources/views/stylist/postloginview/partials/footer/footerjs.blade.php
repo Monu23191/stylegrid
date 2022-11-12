@@ -34,6 +34,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
     var constants = {
+        base_url:"{{URL::to('/')}}",
         current_url:'{{str_replace(URL::to("/"),'',URL::current())}}',
         csrf_token: '{{ csrf_token() }}',
     };

@@ -29,7 +29,7 @@ class Stylist extends Model
 			return $response_data;
 		}
 	}
-	function getSourceList($where=[],$where_date=[]){
+	function getSourceList($where=[],$stylist_id=0,$where_date=[]){
         $this->db = DB::table('sg_sourcing AS s');
 		$this->db->select([
 			"s.id",
@@ -53,6 +53,10 @@ class Stylist extends Model
         if(count($where)){
 			$this->db->where($where);
         }
+		if($stylist_id>0){
+			$this->db->where('s.member_stylist_id', '<>', $stylist_id);
+		}
+
 		//if(count($where_date['whereDate'])){
 			//$this->db->whereDate($where_date['whereDate']['key'], $where_date['whereDate']['condition'], $where_date['whereDate']['value']);
 		//}

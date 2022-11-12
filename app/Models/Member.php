@@ -120,11 +120,9 @@ class Member extends Model
 			$this->db->select([
 				"so.id",
 				"so.sourcing_id",
-				"so.sourcing_id",
-				"so.stylelist_id",
+				"so.stylist_id",
 				"so.price",
 				"so.status",
-				//\DB::raw("COUNT(so.id) as total_offer"),
 			]);
 			$this->db->join('sg_sourcing AS s', 's.id', '=', 'so.sourcing_id');
 			$this->db->where($where);
@@ -172,7 +170,7 @@ class Member extends Model
 			$this->db->select([
 				"so.id",
 				"so.sourcing_id",
-				"so.stylelist_id",
+				"so.stylist_id",
 				"so.price",
 				"so.status",
 				"s.p_image",

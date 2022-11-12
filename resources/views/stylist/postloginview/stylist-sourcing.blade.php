@@ -81,40 +81,46 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        if(count($source_list)){
-                                            foreach($source_list as $source){
+                                        if(count($source_data)){
+                                            foreach($source_data as $source){
                                                 ?>
                                                 <tr>
-                                                    <td class="d-flex"><span class="dot"></span><?php echo $source->p_name;?></td>
-                                                    <td><?php echo $source->p_size;?></td>
-                                                    <td><?php echo $source->p_type;?></td>
-                                                    <td><?php echo $source->name;?></td>
-                                                    <td><?php echo $source->country_name;?></td>
-                                                    <td><?php echo $source->p_deliver_date;?></td>
+                                                    <td class="d-flex"><span class="dot"></span><?php echo $source['p_name'];?></td>
+                                                    <td><?php echo $source['p_size'];?></td>
+                                                    <td><?php echo $source['p_type'];?></td>
+                                                    <td><?php echo $source['name'];?></td>
+                                                    <td><?php echo $source['country_name'];?></td>
+                                                    <td><?php echo $source['p_deliver_date'];?></td>
                                                     <?php
-                                                    if($source->p_status=='Pending'){
-                                                        ?>
-                                                        <td class="green-color">Open</td>
+                                                    if(!$source['requested']){
+                                                        if($source['p_status']=='Pending'){
+                                                            ?>
+                                                            <td class="green-color">Open</td>
+                                                            <?php
+                                                        }else{
+                                                            ?>
+                                                            <td><?php echo $source['p_status'];?></td>
                                                         <?php
+                                                        }
                                                     }else{
                                                         ?>
-                                                        <td>
-                                                            <?php echo $source->p_status;?>    
-                                                        </td>
-                                                        <?php
+                                                        <td class="red-color">Closed</td>
+                                                    <?php
                                                     }
                                                     ?>
                                                     
                                                     <td>
                                                         <?php
-                                                        if($source->p_status=='Fulfilled'){
+                                                        if(!$source['requested']){
+                                                            if($source['p_status']=='Fulfilled'){
                                                             ?>
                                                             <button class=" ticket-btn">Ticket Closed </button>
                                                             <?php
-                                                        }else{
+                                                            }else{
                                                             ?>
-                                                            <a href="{{url('stylist-fulfill-source-request/'.$source->p_slug)}}"><button class="px-2">Fufill</button></a>
+                                                            <a href="{{url('stylist-fulfill-source-request/'.$source['p_slug'])}}"><button class="px-2">Fufill</button></a>
                                                             <?php
+                                                            }
                                                         }
                                                         ?>
                                                     </td>
@@ -130,96 +136,114 @@
                                         }
                                         ?>
                                         
-                                        <!--
+            
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="text-lg-left text-center mt-3">
+                    <h1 class=" pl-1">My Sources</h1>
+                </div>
+
+                <div class="row w-100">
+                    <div id="TabContent" class="tab-content my-2 w-100">
+                        <div class="tab-pane fade active show" id="Fashion_1" role="tabpanel"
+                            aria-labelledby="Fashion-tab">
+                            <div class="text-center ml-2 add-table-border">
+                                <table class="table  w-100 table-responsive">
+                                    <thead>
                                         <tr>
-                                            <td class="d-flex"><span class="dot"></span>Off-White Jordan 4&apos;s
-                                            </td>
-                                            <td>EU37</td>
-                                            <td>Shoes</td>
-                                            <td>Off-White</td>
-                                            <td>Amina Muaddi</td>
-                                            <td>31/09/22</td>
-                                            <td class="green-color">Open</td>
-                                            <td><button class="px-2">Fufill</button></td>
+                                            <th scope="col" class="text-left pl-4">PRODUCT NAME</th>
+                                            <th scope="col">Size</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Brand</th>
+                                            <th scope="col">Destination</th>
+                                            <th scope="col">Due Date</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col"></th>
                                         </tr>
-                                        <tr>
-                                            <td class="d-flex"><span class="dot"></span>Off-White Jordan 4&apos;s
-                                            </td>
-                                            <td>N/A</td>
-                                            <td>Shoes</td>
-                                            <td>Amina Muaddi</td>
-                                            <td>USA</td>
-                                            <td>31/09/22</td>
-                                            <td class="green-color">Open</td>
-                                            <td><button class="px-2">Fufill</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="d-flex"><span class="dot"></span>Hermes Mini Kelly 22
-                                            </td>
-                                            <td>N/A</td>
-                                            <td>@Beg</td>
-                                            <td>Hermes</td>
-                                            <td>UAE</td>
-                                            <td>31/09/22</td>
-                                            <td class="blue-color">Fufilled</td>
-                                            <td><button class=" ticket-btn">Ticket Closed </button></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="d-flex"><span class="blue-dot"></span>Hermes Mini Kelly 22
-                                            </td>
-                                            <td>N/A</td>
-                                            <td>@Beg</td>
-                                            <td>Hermes</td>
-                                            <td>UAE</td>
-                                            <td>31/09/22</td>
-                                            <td class="blue-color">Fufilled</td>
-                                            <td><button class=" ticket-btn">Ticket Closed </button></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="d-flex"><span class="blue-dot"></span>Hermes Mini Kelly 22
-                                            </td>
-                                            <td>N/A</td>
-                                            <td>@Beg</td>
-                                            <td>Hermes</td>
-                                            <td>UAE</td>
-                                            <td>31/09/22</td>
-                                            <td class="blue-color">Fufilled</td>
-                                            <td><button class=" ticket-btn">Ticket Closed </button></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="d-flex"><span class="dot"></span>Off-White Jordan 4&apos;s
-                                            </td>
-                                            <td>EU37</td>
-                                            <td>Shoes</td>
-                                            <td>Off-White</td>
-                                            <td>Amina Muaddi</td>
-                                            <td>31/09/22</td>
-                                            <td class="green-color">Open</td>
-                                            <td><button class="px-2">Fufill</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="d-flex"><span class="dot"></span>Off-White Jordan 4&apos;s
-                                            </td>
-                                            <td>N/A</td>
-                                            <td>Shoes</td>
-                                            <td>Amina Muaddi</td>
-                                            <td>USA</td>
-                                            <td>31/09/22</td>
-                                            <td class="green-color">Open</td>
-                                            <td><button class="px-2">Fufill</button></td>
-                                        </tr>
-                                        <tr style="border-bottom: 0px !important;">
-                                            <td class="d-flex"><span class="dot"></span>Off-White Jordan 4&apos;s
-                                            </td>
-                                            <td>EU37</td>
-                                            <td>Shoes</td>
-                                            <td>Off-White</td>
-                                            <td>Amina Muaddi</td>
-                                            <td>31/09/22</td>
-                                            <td class="green-color">Open</td>
-                                            <td><button class="px-2">Fufill</button></td>
-                                        </tr>
-                                        -->
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        if(count($my_source_data)){
+                                            foreach($my_source_data as $source){
+                                                ?>
+                                                <tr>
+                                                    <td class="d-flex"><span class="dot"></span><?php echo $source['p_name'];?></td>
+                                                    <td><?php echo $source['p_size'];?></td>
+                                                    <td><?php echo $source['p_type'];?></td>
+                                                    <td><?php echo $source['name'];?></td>
+                                                    <td><?php echo $source['country_name'];?></td>
+                                                    <td>{{date('d/m/Y',strtotime($source['p_deliver_date']))}}</td>
+                                                <?php
+
+                                                if($source['total_offer']>0 && $source['p_status']!='Fulfilled'){
+                                                     $balance_offer=$source['total_offer']-$source['decline_offer'];
+                                                    if($balance_offer==0){
+                                                        ?>
+                                                        <td class="orange-color">{{$source['p_status']}}</td>
+                                                        <?php
+                                                    }else{
+                                                        if($source['total_offer']==1){
+                                                        ?>
+                                                        <td class="green-color">Offer Received</td> 
+                                                        <?php
+                                                    }else{
+
+                                                        ?>
+                                                        <td class="green-color">
+                                                            <?php
+                                                             $balance_offer=$source['total_offer']-$source['decline_offer'];
+                                                            if($balance_offer==1){
+                                                                echo "Offer Received";
+                                                            }else{
+                                                                echo $balance_offer. " Offers Received";
+                                                            } 
+                                                            if($source['decline_offer']){
+                                                                 echo "/ ".$source['decline_offer']." Declined";
+                                                            }
+                                                            ?>
+                                                        </td> 
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                    <td><a href="{{'/stylist-offer-received/'.$source['p_slug']}}"><button class="">View Order</button></a></td> 
+                                                    <?php
+                                                    }
+                                                ?>
+                                                <?php
+                                                }else{
+                                                    if($source['p_status']=='Fulfilled'){
+                                                        ?>
+                                                        <td class="blue-color">{{$source['p_status']}}</td>
+                                                        
+                                                        <?php
+                                                    }else{
+                                                        ?>
+                                                        <td class="orange-color">{{$source['p_status']}}</td>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                    
+                                                    <?php
+                                                }
+                                                ?>
+                                                </tr>
+                                                <?php
+                                            }
+                                        }else{
+                                            ?>
+                                            <tr>
+                                                <td colspan="5">No Record Found</td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                        
+            
                                     </tbody>
                                 </table>
                             </div>
