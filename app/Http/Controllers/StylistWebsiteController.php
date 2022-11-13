@@ -87,12 +87,22 @@ class StylistWebsiteController extends Controller
                             'profile_image'=>$profile_image_name,
                             'password'=>sha1($request->password),
                             'short_bio'=>$request->short_bio,
-                            'favourite_brands'=>$request->favourite_brands,
+                            //'favourite_brands'=>$request->favourite_brands,
                             'preferred_style'=>$request->preferred_style,
                             'token'=>'',
                             );
                         $response=$member->addUpdateData($save_data,'sg_stylist'); 
                         if($response['reference_id']){
+                            $favourite_brand_list=explode(',',$request->favourite_brand_list);
+                            if(count($favourite_brand_list)>0){
+                                foreach($favourite_brand_list as $favourite_brand){
+                                    $member->addUpdateData([
+                                        'id'=>0,
+                                        'stylist_id'=>$response['reference_id'],
+                                        'brand_id'=>$favourite_brand,
+                                    ],'sg_stylist_brand'); 
+                                }
+                            }
                             return json_encode(['status'=>1,'message'=>'Stylist Added Successfully!']);
                         }
                     }

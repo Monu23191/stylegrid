@@ -261,7 +261,7 @@
                             industry.
                         </p>
                         <div class="mt-5">
-                            <a href="{{url('/member-login')}}"><button type="submit" class="styling-btn px-5 ">Let’s get
+                            <a href="{{url('/member-login')}}"><button type="button"  class="styling-btn px-5 ">Let’s get
                                     styling</button></a>
                         </div>
                     </div>

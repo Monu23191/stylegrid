@@ -74,7 +74,7 @@ class Member extends Model
 	}
 	
 	
-	function getBrandList($where=[],$search=''){
+	function getBrandList($where=[],$search='',$not_where_in=[]){
 		$this->db = DB::table('sg_brand AS b');
 		$this->db->select([
 			"b.id",
@@ -87,6 +87,10 @@ class Member extends Model
         }
 		if(!empty($search)){
 			$this->db->where('b.name', 'LIKE', '%'.$search.'%');
+		}
+		if(!empty($not_where_in)){
+			//$this->db->whereNotIn('b.id',$not_where_in[0]);
+			$this->db->whereNotIn('b.id',$not_where_in);
 		}
 		$response_data=$this->db->get();
 		return $response_data;
@@ -194,7 +198,7 @@ class Member extends Model
 		}
 	}
 
-	function memberAcceptOffer($offer_id){
+	function acceptOffer($offer_id){
 		$this->db = DB::table('sg_sourcing_offer');
         $this->db->select(["sourcing_id"]);
         $this->db->where(['id'=>$offer_id]);
@@ -212,7 +216,7 @@ class Member extends Model
 		return false;
 	}
 
-	function memberDeclineOffer($offer_id){
+	function declineOffer($offer_id){
 		$this->db = DB::table('sg_sourcing_offer');
         $this->db->select(["sourcing_id"]);
         $this->db->where(['id'=>$offer_id]);
@@ -224,5 +228,16 @@ class Member extends Model
 			return true;
 		}
 		return false;
+	}
+
+	public function sourceNameExistance($where){
+		if(count($where)){
+			$this->db = DB::table('sg_sourcing');
+        	$this->db->select(["id"]);
+        	$this->db->where($where);
+        	$result=$this->db->get()->first();
+			return $result;
+		}
+		
 	}
 }
