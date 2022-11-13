@@ -224,7 +224,7 @@
                             <label for="check-<?php  echo $index;  ?>"></label>
                         </div>
                         <label for="check-<?php  echo $index;  ?>">
-                            <img src="{{asset('member/website/assets/images/shop.png')}}" alt="">
+                            <img src="{{asset('member/website/assets/images/'.$brand->logo)}}" alt="">
 
                         </label>
                     </div>

@@ -54,8 +54,8 @@
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">MEMBERSHIP</a></li>
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">BRANDS</a></li>
                 <li class="px-3 nav-item py-2"><a href="#" class="nav-link">EDITORIAL</a></li>
-                <li class="px-3 nav-item py-2"><a href="{{url('stylist-login')}}" class="nav-link">SIGN IN</a></li>
-                <li class="px-3 nav-item py-2"><a href="{{url('stylist-registration')}}" class="nav-link"><button class="signup-btn py-1 px-2">Sign
+                <li class="px-3 nav-item py-2"><a href="{{url('/member-login')}}" class="nav-link">SIGN IN</a></li>
+                <li class="px-3 nav-item py-2"><a href="{{url('/sign-up')}}" class="nav-link"><button class="signup-btn py-1 px-2">Sign
                             Up</button></a></li>
             </ul>
         </div>

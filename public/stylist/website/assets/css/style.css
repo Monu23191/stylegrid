@@ -1216,3 +1216,7 @@ color: #7A7A7A;
   option{
     
   }
+  
+  a#image_preview_remove {
+    position: absolute;
+}

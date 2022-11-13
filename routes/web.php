@@ -28,6 +28,8 @@ use App\Http\Controllers\CreateGridController as CreateGridController;
  // });
  //stylist Section Start
  Route::get('/', [StylistWebsite::class, 'index']);
+ Route::get('/sign-up', [StylistWebsite::class, 'index']);
+
  Route::get('/stylist-registration', [StylistWebsite::class, 'stylistRegistration']);
  Route::post('/check-stylist-existance', [StylistWebsite::class, 'checkStylistExistance']);
  Route::post('/add-stylist', [StylistWebsite::class, 'addStylist']);

@@ -16,7 +16,7 @@ class MemberWebsiteController extends Controller
         if(!Session::get('Memberloggedin')){
             $member=new Member();
             $country_list=$member->getCountryList();
-            $brand_list=$member->getBrandList();
+            $brand_list=$member->getBrandList(['b.brand_mg' => 0]);
             return view('member.website.member-registration',compact('country_list','brand_list'));
         }
         return redirect('/member-dashboard');
@@ -126,8 +126,5 @@ class MemberWebsiteController extends Controller
         }else{
             return redirect('/member-login');
         }
-    }
-    
-
-     
+    }     
 }

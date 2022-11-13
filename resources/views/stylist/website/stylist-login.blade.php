@@ -30,12 +30,12 @@
                                 <!--<span>Create Password</span>-->
                             </div>
                         </div>
-                        <div><a href="/stylist-forgot-password" class="forgot-pass">
+                        <div><a href="#" class="forgot-pass">
                             <h3>Forgot password?</h3>
                         </a></div>
                         <div class="text-center mt-5"><a href="javascript:void(0)"><button class="sign-in px-2" type="button" id="stylist-login-btn">Sign In</button></a>
                         </div>
-                        <div class="mt-3"><h5>if you are a client,<a class="text-dark" href=""><u> please click here to <br>sign in.</u></a></h5></div>
+                        <div class="mt-3"><h5>if you are a client,<a class="text-dark" href="{{url('/member-login')}}"><u> please click here to <br>sign in.</u></a></h5></div>
                     </form>
                 </div>
             </div>

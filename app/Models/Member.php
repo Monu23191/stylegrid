@@ -85,6 +85,7 @@ class Member extends Model
         if(count($where)){
 			$this->db->where($where);
         }
+		/*$this->db->where(['b.brand_mg' => 0]);		*/
 		if(!empty($search)){
 			$this->db->where('b.name', 'LIKE', '%'.$search.'%');
 		}
