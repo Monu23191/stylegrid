@@ -43,6 +43,7 @@ class CreateGridController extends BaseController
 		// echo '</pre>';
 	// print_r($request->file());
 	// print_r($request->all());
+	// die;
 
 	
 	          $mj_explode=explode('_',$request->grid_block);
@@ -56,6 +57,7 @@ class CreateGridController extends BaseController
             $prdimg_name='';
             $gridimg_name='';
             
+            
             if(!empty($grid_image)){
                 $orgname = rand() . '.' . $grid_image->getClientOriginalExtension();
                 $grid_image->move(public_path('stylist/grid_images'), $orgname);
@@ -65,7 +67,9 @@ class CreateGridController extends BaseController
                 $orgname = rand() . '.' . $prdimg->getClientOriginalExtension();
                 $prdimg->move(public_path('stylist/grid_block'), $orgname);
                 $prdimg_name=$orgname;
-            }
+            }else{
+				$prdimg_name=$request->previous_img;
+			}
             $grid_model=new Grid();
             
             $prdname_row=$request->prdname_row;
@@ -90,14 +94,14 @@ class CreateGridController extends BaseController
                 'stylist_id'=>$stylist_id,
                 
             );
-			echo '<pre>';
-			print_r($add_update_data);
+			// echo '<pre>';
+			// print_r($add_update_data);
             
             $response=$grid_model->addUpdateData($add_update_data);   
             // if($response['reference_id']>0){
                 // $member->addUpdateData(['id'=>$response['reference_id'],'p_slug'=>$add_update_data['p_slug'].'-'.$response['reference_id']],'sg_sourcing');   
             // }
-            // return json_encode($response);
+            return true;
         
 	}
 	}
