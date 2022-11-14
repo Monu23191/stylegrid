@@ -15,10 +15,10 @@
                     <div class="col-8">
                         <h1>Browse your recent StyleGrid’s.</h1>
                         <h3>Look through all your grids in one place.</h3>
-                        <a href=""><button class="grid-btn">Create Grid</button></a>
+                        <a href="{{url('/loadgridview')}}"><button class="grid-btn">Create Grid</button></a>
                     </div>
                     <div class="col-4 quick-link text-right">
-                        <span class="mr-lg-5"><a hrf="">Quick Link</a></span>
+                        <span class="mr-lg-5"><a href="">Quick Link</a></span>
                         <div class="d-flex justify-content-end my-2">
                             <a href="" class="mx-lg-1"><img src="app-assets/images/icons/Chat.svg" alt=""></a>
                             <a href="" class="mx-1"><img src="app-assets/images/icons/File Invoice.svg" alt=""></a>

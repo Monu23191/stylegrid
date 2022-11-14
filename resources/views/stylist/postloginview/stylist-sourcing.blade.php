@@ -104,7 +104,7 @@
                                                         }
                                                     }else{
                                                         ?>
-                                                        <td class="red-color">Closed</td>
+                                                        <td class="red-color">Offer Sent</td>
                                                     <?php
                                                     }
                                                     ?>
@@ -118,7 +118,7 @@
                                                             <?php
                                                             }else{
                                                             ?>
-                                                            <a href="{{url('stylist-fulfill-source-request/'.$source['p_slug'])}}"><button class="px-2">Fufill</button></a>
+                                                            <a href="{{url('stylist-fulfill-source-request/'.$source['p_slug'])}}"><button class="px-2 w-100">Send Offer</button></a>
                                                             <?php
                                                             }
                                                         }

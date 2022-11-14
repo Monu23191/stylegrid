@@ -66,7 +66,7 @@
                 <div class="row" id="fulfill-request">
                     <div class="col-lg-6 text-center">
                         <div class="border-right1 my-3">
-                            <img src="{{asset('member/dashboard/attachments/source/'.$source_data->p_image)}}" class="img-fluid" alt="">
+                            <img src="{{asset('attachments/source/'.$source_data->p_image)}}" class="img-fluid" alt="">
                         </div>
                     </div>
                     <div class="col-lg-6 text-lg-left text-center">
