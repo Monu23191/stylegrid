@@ -6,8 +6,8 @@
   
 <div class="container-fluid">
     <div id="signup">
-        <div class="row justify-content-center">
-            <div class="col-md-6 dis-flex mt-5">
+        <div class="row justify-content-center flex-lg-row flex-column-reverse">
+            <div class="col-lg-6 dis-flex mt-5">
                 <div class="signin mt-5">
                 <h1>Sign in to your<br> Stylist account</h1>
                 <p class="text-center">Please enter your email and password to<br> log in to your StyleGrid stylist
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-            <div class="col-md-6 mt-2">
+            <div class="col-lg-6 mt-2">
                 <div>
                     <img src="{{asset('stylist/website/assets/images/login1.png')}}" class="" alt="" style="width:100% ;">
                 </div>
