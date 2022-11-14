@@ -886,7 +886,7 @@ textarea.form-control {
 }
 
 .nav-link {
-  font-family: 'Genos';
+  font-family: 'Genos-Light';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -898,10 +898,12 @@ textarea.form-control {
 
   color: #000000;
 }
-
+#navbarSupporthbvbedContent{
+  margin-top: -18px;
+}
 .signup-btn {
   background: #172625;
-  font-family: 'Genos';
+  font-family: 'Genos-Light';
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -910,6 +912,7 @@ textarea.form-control {
   letter-spacing: 0.04em;
   border: 0;
   color: #E5E5E5;
+  padding:8px 27px 8px 27px;
 }
 
 /* .custom-toggler .navbar-toggler-icon {
@@ -1104,7 +1107,7 @@ a:hover {
   cursor: pointer;
 }
 select{
-  appearance: none;
+  /* appearance: none; */
 }
 /* .click-to-signin a{
   text-decoration: underline;
