@@ -48,8 +48,8 @@ use App\Http\Controllers\CreateGridController as CreateGridController;
  Route::post('/stylist-submit-request-post', [Stylist::class, 'stylistSubmitRequestPost']);
  Route::get('/stylist-submit-request-complete', [Stylist::class, 'stylistSubmitRequestComplete']);
  Route::get('/stylist-offer-received/{title}', [Stylist::class, 'stylistOfferReceived']);
+ Route::get('/stylist-clients', [Stylist::class, 'stylistClients']);
 
- 
  
  //stylist section End
  ///member Section Start

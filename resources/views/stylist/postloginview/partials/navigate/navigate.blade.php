@@ -81,7 +81,7 @@
                             data-i18n="">Payments</span></a>
 
                 </li>
-                <li class=" nav-item"><a href="client-page.html"><i class="ft-zap"></i><span class="menu-title"
+                <li class=" nav-item"><a href="{{url('/stylist-clients')}}"><i class="ft-zap"></i><span class="menu-title"
                             data-i18n="">Clients</span></a>
 
                 </li>
