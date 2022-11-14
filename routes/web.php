@@ -25,6 +25,7 @@ use App\Http\Controllers\CreateGridController as CreateGridController;
   //Route::domain('stylist.com')->group(function () {
   Route::get('/loadgridview',[CreateGridController::class,'loadgridview']);
   Route::post('/add-grid',[CreateGridController::class,'add_grid']);
+  Route::post('/get-grid-data','App\Http\Controllers\CreateGridController@get_grid_data');
  // });
  //stylist Section Start
  Route::get('/', [StylistWebsite::class, 'index']);
