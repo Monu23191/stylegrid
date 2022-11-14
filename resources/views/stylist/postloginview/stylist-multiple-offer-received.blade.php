@@ -62,110 +62,97 @@
                     </div>
                 </div>
                 <div class="row" id="fulfill-request">
-                    <div class="row">
-                        <div class="col-lg-6 text-center">
-                            <div class="border-right1 my-3">
-                                <img src="app-assets/images/gallery/fulfill-img.png" class="img-fluid" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 text-lg-left text-center">
-                            <div class="p-3">
-                              
-                                <h1>Hermes Mini Kelly 20</h1>
-                                <h6>Hermes</h6>
-                                <h4 class="mt-3">Price offer: £24,000</h4>
-                                <h4>Shipping date: Immediate</h4>
-                                <h4>Condition: New</h4>
-
-                                <div class="mt-3">
-                                    <label for="">Please select if you are happy to accept or decline the quoted price.</label>
-                                </div>
-                                <div class="w-100">
-
-                                    <div class="my-2 row justify-lg-content-start justify-content-center">
-                                        <div class="ml-2">
-
-                                            <button type="submit" class="accept-btn px-3" data-toggle="modal"
-                                                data-target="#accept">Accept
-                                                Offer</button>
-
-                                        </div>
-
-                                        <div class="ml-2 mt-md-0 mt-2">
-
-                                            <button type="submit" class="decline-btn px-3" data-toggle="modal"
-                                                data-target="#decline">Decline
-                                                Offer</button>
+                    <div id="demo" class="carousel slide"  data-touch="false" data-interval="false" >
+    
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                            <li data-target="#demo" data-slide-to="2"></li>
+                        </ul>
+    
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                            <?php
+                            $counter=1;
+                            foreach($offer_list as $offer){
+                                $class='';
+                                if($counter==1){
+                                    $class='active';
+                                }
+                                ?>
+                                <div class="carousel-item {{$class;}}">
+                                    <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="border-right my-3">
+                                            <img src="{{ asset('attachments/source/'.$offer->p_image) }}" class="img-fluid" alt="">
                                         </div>
                                     </div>
-
-                                    <p class="mt-2">Please note, if you decline the submitted stylist offer then your ticket will return to pending and be open for other stylists in our network to submit an offer. All offers expire after 48 hours.</p>
+                                    <div class="col-md-6">
+                                        <div class="p-3">
+                                            <div class="offer-slider">Offer #<?php echo $counter;?> of <?php echo count($offer_list);?></div>
+                                            <h1><?php echo $offer->p_name;?></h1>
+                                            <h6><?php echo $offer->name;?></h6>
+                                            <h4 class="mt-3">Price offer: £<?php echo number_format($offer->price,2);?></h4>
+                                            <h4>Shipping date: <?php echo date('d/m/Y',strtotime($offer->p_deliver_date));?></h4>
+                                            <h4>Condition: New</h4>
+        
+                                            <div class="mt-3">
+                                                <label for="">Please select if you are happy to accept or decline the
+                                                    quoted
+                                                    price.</label>
+                                            </div>
+                                            <div class="w-100">
+                                                <div class="my-2 row offer_class <?php if($offer->status==2){ echo 'decline';}?>" id="declined_section<?php echo $offer->id;?>">
+                                                <?php
+                                                if($offer->status!=2){
+                                                    ?>
+                                                        <div class="ml-2">
+                                                            <button type="button" class="accept-btn px-3 accept-offer" data-id="<?php echo $offer->id;?>">Accept Offer</button> 
+                                                        </div>
+            
+                                                        <div class="ml-2 mt-lg-0 mt-2">
+                                                            <button type="button" class="decline-btn px-3 decline-offer" data-id="<?php echo $offer->id;?>">Decline Offer</button>
+                                                        </div>
+                                                    <?php
+                                                }else{
+                                                    ?>
+                                                    <div class="ml-2">
+                                                        <div class="px-3 red-color"><b>Declined Offer</b></div>
+                                                    </div>
+                                                    <?php
+                                                }
+                                                ?>
+                                                </div>
+        
+                                                <p class="mt-2">Please note, if you decline the submitted stylist offer
+                                                    then your
+                                                    ticket
+                                                    will return to pending and be open for other stylists in our network
+                                                    to submit
+                                                    an
+                                                    offer. All offers expire after 48 hours.</p>
+                                            </div>
+        
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
-
+                                <?php
+                                $counter++;
+                            }
+                            ?>
                         </div>
-
-
+    
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"><i class="bi bi-chevron-left"></i></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"><i class="bi bi-chevron-right"></i></span>
+                        </a>
                     </div>
-
-                    <!-- Left and right controls -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--  accept Modal -->
-    <div class="modal fade" id="accept" tabindex="-1" role="dialog" aria-labelledby="acceptLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content pt-1">
-                <div class="mr-2">
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body py-2">
-                    <h1>Are you sure you’d like to accept this offer?</h1>
-                    <p class="px-3">Once you have accepted this offer you will be able to chat to the stylist who
-                        submitted it.
-                        They will be shown in your messenger tab and the order can be completed there.</p>
-                    <h6>Accept offer?</h6>
-                    <div class="row justify-content-center mt-2">
-                        <div><a href="client-offer-accepted.html"><button class="accept-btn">Accept
-                                    Offer</button></a></div>
-                        <div><a href=""><button class="back-btn ml-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Go Back</button></a></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!--  decline Modal -->
-    <div class="modal fade" id="decline" tabindex="-1" role="dialog" aria-labelledby="declineLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content pt-1">
-                <div class="mr-2">
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body py-2">
-                    <h1>Are you sure you’d like to decline this offer?</h1>
-                    <p class="px-3">Once you have declined this offer, your request will return to our fufillment
-                        database for
-                        other stylists and shoppers to submit offers.</p>
-                    <h6>Decline offer?</h6>
-                    <div class="row justify-content-center mt-2">
-                        <div><a href="client-decline-sourcing.html"><button class="decline-btn">Decline
-                                    Offer</button></a></div>
-                        <div><a href=""><button class="back-btn ml-2" type="button" class="close" data-dismiss="modal" aria-label="Close">Go Back</button></a></div>
-                    </div>
-                </div>
-
+                 </div>
             </div>
         </div>
     </div>

@@ -193,6 +193,13 @@ function showTab(n) {
         }
 
 function addStylistSecondProcess(){
+  var  brands_arr = $('#myTags').tagsValues();
+  var brands_list='';
+  if(brands_arr.length>0){
+    brands_list= brands_arr.toString();
+    $('#favourite_brand_list').val(brands_list);
+  }
+ 
     $.ajax({
       type: 'POST',
       url : '/add-stylist-second-process',
@@ -239,7 +246,7 @@ function addStylist(){
 })
 }
 function stylistSetpOneValidation(){
-  
+
   $('#stylist-registration-final-step-form input ').css('border', '1px solid #ccc');
   $('.error').html('');
   $('.message').html('');
@@ -313,18 +320,18 @@ function stylistSetpOneValidation(){
 function stylistSetpTwoValidation(){
   var status=true;
   var short_bio=makeTrim($('#short_bio').val());
-  var favourite_brands=makeTrim($('#favourite_brands').val());
+ // var favourite_brands=makeTrim($('#favourite_brands').val());
   var preferred_style=makeTrim($('#preferred_style').val());
   if(short_bio==''){
     $('#short_bio').css('border', '2px solid #cc0000');
     $('#short_bio_error').html('This field is required');
     status=false;
   }
-  if(favourite_brands==''){
-    $('#favourite_brands').css('border', '2px solid #cc0000');
-    $('#favourite_brands_error').html('This field is required');
-    status=false;
-  }
+  //if(favourite_brands==''){
+   // $('#favourite_brands').css('border', '2px solid #cc0000');
+   // $('#favourite_brands_error').html('This field is required');
+   // status=false;
+  //}
   if(preferred_style==''){
     $('#preferred_style').css('border', '2px solid #cc0000');
     $('#preferred_style_error').html('This field is required');
@@ -479,5 +486,30 @@ function validEmail(email) {
   var re = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
   return re.test(email);
 }
+function runSuggestions(element,query) {
 
+  let sug_area=$(element).parents().eq(2).find('.autocomplete .autocomplete-items');
+  $.ajax({
+    url : '/get-brands-list',
+    method : "POST",
+    async: false,
+    data : {
+      'brand_search':query,
+      'existing_data':$('#myTags').tagsValues(),
+      '_token': constants.csrf_token
+    },
+    success : function (ajaxresponse){
+        response = JSON.parse(ajaxresponse);
+        if(response['data'].length>0){
+          _tag_input_suggestions_data = response['data'];
+          for(i=0;i<response['data'].length;i++){
+            let template = $("<div>"+response['data'][i]['name']+"</div>").hide();
+            sug_area.append(template);
+            template.show();
+          }
+        }
+         
+    }
+  })
+}
  

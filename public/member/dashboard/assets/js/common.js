@@ -17,7 +17,7 @@ $(function(){
         var brand_search=$(this).val();
         if(brand_search.length>0){
             $.ajax({
-                url : '/get-brands',
+                url : '/get-brands-list',
                 method : "POST",
                 data : {
                     'brand_search':brand_search,
@@ -114,6 +114,7 @@ $(function(){
                             window.location = "/member-submit-request-complete";
                         }, 500);
                     } else {
+                        $('#sourceConfirmationPopUp').modal('hide');
                         $('#message-box').html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>' + response['message'] + '</div>');
                         return false;
                     }

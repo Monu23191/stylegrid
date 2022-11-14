@@ -45,11 +45,13 @@ use App\Http\Controllers\CreateGridController as CreateGridController;
  Route::post('/stylist-fulfill-source-request-post', [Stylist::class, 'stylistFulfillSourceRequestPost']);
  Route::get('/stylist-source-request-submit', [Stylist::class, 'stylistSourceRequestSubmit']);
  Route::get('/stylist-create-source-request', [Stylist::class, 'stylistCreateSourceRequest']);
- Route::post('/get-stylist-brands', [Stylist::class, 'getStylistBrandList']);
+ Route::post('/get-stylist-brands', [Website::class, 'getStylistBrandList']);
  Route::post('/stylist-submit-request-post', [Stylist::class, 'stylistSubmitRequestPost']);
  Route::get('/stylist-submit-request-complete', [Stylist::class, 'stylistSubmitRequestComplete']);
  Route::get('/stylist-offer-received/{title}', [Stylist::class, 'stylistOfferReceived']);
-
+ Route::post('/stylist-accept-offer', [Stylist::class, 'stylistAcceptOffer']);
+ Route::get('/stylist-offer-accepted', [Stylist::class, 'stylistOfferAcceptedSuccessful']);
+ Route::post('/stylist-decline-offer', [Stylist::class, 'stylistDeclineOffer']);
  
  
  //stylist section End
@@ -74,7 +76,7 @@ Route::get('/member-grid', [Member::class, 'memberGrid']);
 Route::get('/member-grid-details', [Member::class, 'memberGridDetails']);
 Route::get('/member-orders', [Member::class, 'memberOrders']);
 Route::get('/member-submit-request', [Member::class, 'memberSubmitRequest']);
-Route::post('/get-brands', [Member::class, 'getBrandList']);
+Route::post('/get-brands-list', [Website::class, 'getBrandList']);
 Route::post('/member-submit-request-post', [Member::class, 'memberSubmitRequestPost']);
 
 //member section End

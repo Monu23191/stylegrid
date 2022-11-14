@@ -56,7 +56,7 @@ $(function(){
     var brand_search=$(this).val();
     if(brand_search.length>0){
         $.ajax({
-            url : '/get-stylist-brands',
+            url : '/get-brands-list',
             method : "POST",
             data : {
                 'brand_search':brand_search,
@@ -155,8 +155,9 @@ $('#add-source-confirm-button').click(function(){
                       window.location = "/stylist-submit-request-complete";
                   }, 500);
               } else {
-                  $('#message-box').html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>' + response['message'] + '</div>');
-                  return false;
+                $('#sourceConfirmationPopUp').modal('hide');
+                $('#message-box').html('<div class="alert alert-danger"><a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>' + response['message'] + '</div>');
+                return false;
               }
           }
       });
@@ -166,6 +167,66 @@ $('#add-source-confirm-button').click(function(){
       $(window).scrollTop(0);
   }
   return false;
+})
+
+$('.accept-offer').click(function(){
+    $('#selected_offer_id').val($(this).attr('data-id'));
+    $('#acceptOffer').modal('show');
+})
+$('.decline-offer').click(function(){
+    $('#decline_offer_id').val($(this).attr('data-id'));
+    $('#declineOffer').modal('show');
+})
+
+$('#accept-offer-btn').click(function(){
+    var selected_offer_id=$('#selected_offer_id').val();
+    if(selected_offer_id>0){
+        $.ajax({
+            url : '/stylist-accept-offer',
+            method : "POST",
+            data : {
+                'selected_offer_id':selected_offer_id,
+                '_token': constants.csrf_token
+            },
+            success : function (ajaxresponse){
+                response = JSON.parse(ajaxresponse);
+                if (response['status']) {
+                    setTimeout(function(){
+                        window.location = "/stylist-offer-accepted";
+                    }, 500);
+                }
+            }
+        })
+    }
+})
+
+$('#decline-offer-btn').click(function(){
+    var decline_offer_id=$('#decline_offer_id').val();
+    if(decline_offer_id>0){
+        $.ajax({
+            url : '/stylist-decline-offer',
+            method : "POST",
+            data : {
+                'decline_offer_id':decline_offer_id,
+                '_token': constants.csrf_token
+            },
+            success : function (ajaxresponse){
+                response = JSON.parse(ajaxresponse);
+                if (response['status']) {
+                    $('#declineOffer').modal('hide');
+                    $('#declined_section'+decline_offer_id).html('<div class="ml-2"><div class="px-3 red-color"><b> Offer Declined </b></div></div>');
+                    var total_class=$('.offer_class').length;
+                    var total_decline_class=$('.decline').length;
+                    if(total_class==total_decline_class){
+                      setTimeout(function(){
+                        window.location = "/stylist-sourcing";
+                    }, 500);
+                    }
+                    
+                }
+            }
+        })
+    }
 })
 })
 

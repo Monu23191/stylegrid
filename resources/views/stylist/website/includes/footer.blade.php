@@ -14,6 +14,7 @@
   };
   
 </script>
+<script src="{{ asset('stylist/website/assets/js/tags.js') }}"></script>
 <script src="{{ asset('stylist/website/assets/js/common.js') }}"></script>
 
 </html>
