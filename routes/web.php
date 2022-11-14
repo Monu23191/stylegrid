@@ -53,6 +53,7 @@ use App\Http\Controllers\CreateGridController as CreateGridController;
  
  //stylist section End
  ///member Section Start
+ //
 Route::post('/add-member', [Website::class, 'addMember']);
 Route::post('/check-member-existance', [Website::class, 'checkMemberExistance']);
 Route::get('/member-login', [Website::class, 'memberLogin']);
@@ -60,6 +61,9 @@ Route::post('/member-login-post', [Website::class, 'memberLoginPost']);
 Route::get('/member-logout', [Website::class, 'memberLogout']);
 Route::get('/member-registration', [Website::class, 'index']);
 Route::get('/member-account-verification/{title}', [Website::class, 'memberAccountVerification']);
+Route::post('get-brands-list', [Website::class, 'getBrandList']);
+
+
 //Route::get('/search-product/{title}','ProductController@searchProduct');
 
 Route::get('/member-dashboard', [Member::class, 'memberDashboard']);
