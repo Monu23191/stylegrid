@@ -71,10 +71,10 @@
                     </div>
                     <div class="col-lg-6 text-lg-left text-center">
                         <div class="p-3">
-                            <h1>Hermes Mini Kelly 20</h1>
-                            <h6>Hermes</h6>
-                            <h4 class="mt-3">Required in: Dubai, UAE</h4>
-                            <h4>Date required: ASAP</h4>
+                            <h1>{{$source_data->p_name}}</h1>
+                            <h6>{{$source_data->name}}</h6>
+                            <h4 class="mt-3">Required in: {{$source_data->country_name}}</h4>
+                            <h4>Date required: <?php echo date('d/m/Y',strtotime($source_data->p_deliver_date));?></h4>
                             <h4>Condition requested: New</h4>
                             <form id="stylist-fulfill-source-request-form" class="mt-3">
                                 @csrf
