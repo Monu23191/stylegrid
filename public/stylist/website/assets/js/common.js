@@ -487,8 +487,7 @@ function validEmail(email) {
   return re.test(email);
 }
 function runSuggestions(element,query) {
-  $('.error').html('');
-if($('#myTags').tagsValues().length<3){
+
   let sug_area=$(element).parents().eq(2).find('.autocomplete .autocomplete-items');
   $.ajax({
     url : '/get-brands-list',
@@ -512,10 +511,5 @@ if($('#myTags').tagsValues().length<3){
          
     }
   })
-}else{
-  $('#favourite_brands_error').html('You can not add more than 3 brands!');
-  return false;
-}
-
 }
  

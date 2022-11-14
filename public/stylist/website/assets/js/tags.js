@@ -73,8 +73,7 @@ function _add_input_tag(el,data,text){
 }
 
 $(".tags-input input").on( "keyup", function(event) {
-    var query=$(this).val()
-
+    var query=$(this).val();
     if(event.which == 8) {
         if(query==""){
             console.log("Clearing suggestions");
@@ -82,8 +81,6 @@ $(".tags-input input").on( "keyup", function(event) {
             return;
         }
     }
-
     $('.tags-input .autocomplete-items').html('');
-    runSuggestions($(this),query)
-
+    runSuggestions($(this),query);
 });
