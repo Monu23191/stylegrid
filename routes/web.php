@@ -25,12 +25,11 @@ use App\Http\Controllers\CreateGridController as CreateGridController;
   //Route::domain('stylist.com')->group(function () {
   Route::get('/loadgridview',[CreateGridController::class,'loadgridview']);
   Route::post('/add-grid',[CreateGridController::class,'add_grid']);
+  Route::get('/view-grid',[CreateGridController::class,'view_grid']);
   Route::post('/get-grid-data','App\Http\Controllers\CreateGridController@get_grid_data');
  // });
  //stylist Section Start
  Route::get('/', [StylistWebsite::class, 'index']);
- Route::get('/sign-up', [StylistWebsite::class, 'index']);
-
  Route::get('/stylist-registration', [StylistWebsite::class, 'stylistRegistration']);
  Route::post('/check-stylist-existance', [StylistWebsite::class, 'checkStylistExistance']);
  Route::post('/add-stylist', [StylistWebsite::class, 'addStylist']);
@@ -45,15 +44,12 @@ use App\Http\Controllers\CreateGridController as CreateGridController;
  Route::post('/stylist-fulfill-source-request-post', [Stylist::class, 'stylistFulfillSourceRequestPost']);
  Route::get('/stylist-source-request-submit', [Stylist::class, 'stylistSourceRequestSubmit']);
  Route::get('/stylist-create-source-request', [Stylist::class, 'stylistCreateSourceRequest']);
- Route::post('/get-stylist-brands', [Website::class, 'getStylistBrandList']);
+ Route::post('/get-stylist-brands', [Stylist::class, 'getStylistBrandList']);
  Route::post('/stylist-submit-request-post', [Stylist::class, 'stylistSubmitRequestPost']);
  Route::get('/stylist-submit-request-complete', [Stylist::class, 'stylistSubmitRequestComplete']);
  Route::get('/stylist-offer-received/{title}', [Stylist::class, 'stylistOfferReceived']);
- Route::post('/stylist-accept-offer', [Stylist::class, 'stylistAcceptOffer']);
- Route::get('/stylist-offer-accepted', [Stylist::class, 'stylistOfferAcceptedSuccessful']);
- Route::post('/stylist-decline-offer', [Stylist::class, 'stylistDeclineOffer']);
  Route::get('/stylist-clients', [Stylist::class, 'stylistClients']);
- 
+
  
  //stylist section End
  ///member Section Start
@@ -77,7 +73,7 @@ Route::get('/member-grid', [Member::class, 'memberGrid']);
 Route::get('/member-grid-details', [Member::class, 'memberGridDetails']);
 Route::get('/member-orders', [Member::class, 'memberOrders']);
 Route::get('/member-submit-request', [Member::class, 'memberSubmitRequest']);
-Route::post('/get-brands-list', [Website::class, 'getBrandList']);
+Route::post('/get-brands', [Member::class, 'getBrandList']);
 Route::post('/member-submit-request-post', [Member::class, 'memberSubmitRequestPost']);
 
 //member section End

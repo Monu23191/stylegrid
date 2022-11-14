@@ -30,6 +30,11 @@ class CreateGridController extends BaseController
         return view('stylist.postloginview.dashboard');
     }
 	
+	public function view_grid()
+	{
+		
+		return view('stylist.postloginview.view_grid');
+	}
 	public function loadgridview()
 	{
 		
