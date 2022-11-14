@@ -11,8 +11,8 @@
                 <div class="row justify-content-center">
                     <h1>Sign up to StyleGrid</h1>
                     <p class="text-center px-3">Create your account today and enjoy a 30 day free trial, with access to a
-                        dedicated stylist and<br>
-                        exclusive luxury product.</p><br>
+                        dedicated stylist and<br class="d-lg-block d-none">
+                        exclusive luxury product.</p>
                 </div>
                 <div id="first_step_message_box" class="message"></div>
                 <div>
@@ -70,8 +70,8 @@
                 <div class="row justify-content-center">
                     <h1>Welcome to StyleGrid</h1>
                     <p class="text-center">It’s time to get styling. For us to be able to find your perfect stylist,
-                        we will need to find out a<br>
-                        little more information about your tastes and style preferences.</p><br>
+                        we will need to find out a<br class="d-lg-block d-none">
+                        little more information about your tastes and style preferences.</p>
 
                 </div>
                 <div id="second_step_message_box" class="message"></div>
@@ -84,7 +84,7 @@
                         <label for="shop">
                             <div class="text-center"><img src="{{ asset('member/website/assets/images/shop.png') }}" class="img-fluid" alt="">
                                 <h2 class="mt-2">Shop</h2>
-                                <h5 class="mb-4">Browse luxury product that you can<br> access through your StyleGrid<br> membership.
+                                <h5 class="mb-4">Browse luxury product that you can<br class="d-lg-block d-none"> access through your StyleGrid<br class="d-lg-block d-none"> membership.
                                 </h5>
                                 <a class="select-btn mt-2 ">Select</a>
                             </div>
@@ -98,7 +98,7 @@
                         <label for="style">
                             <div class="text-center"><img src="{{ asset('member/website/assets/images/style.png') }}" class="img-fluid" alt="">
                                 <h2 class="mt-2">Style</h2>
-                                <h5 class="mb-4">Receive personalised luxury fashion,<br> beauty and homeware all in one<br> place.</h5>
+                                <h5 class="mb-4">Receive personalised luxury fashion,<br class="d-lg-block d-none">beauty and homeware all in one<br class="d-lg-block d-none">place.</h5>
                                 <a class="select-btn mt-2">Select</a>
                             </div>
                         </label>
@@ -111,7 +111,7 @@
                         <label for="source">
                             <div class="text-center"><img src="{{ asset('member/website/assets/images/source.png') }}" class="img-fluid" alt="">
                                 <h2 class="mt-2">Source</h2>
-                                <h5 class="mb-4">Source any item from around the<br> globe using our expansive shopper<br> network.</h5>
+                                <h5 class="mb-4">Source any item from around the<br class="d-lg-block d-none"> globe using our expansive shopper<br class="d-lg-block d-none"> network.</h5>
                                 <a class="select-btn mt-2">Select</a>
                             </div>
                         </label>
@@ -125,8 +125,8 @@
             <div id="signup">
                 <div class=" justify-content-center">
                     <h1>What is your gender?</h1>
-                    <p class="text-center">Understanding how you identify willhelp us match you with stylists and<br>
-                        brands that suit you best.</p><br>
+                    <p class="text-center">Understanding how you identify willhelp us match you with stylists and<br class="d-lg-block d-none">
+                        brands that suit you best.</p>
 
                 </div>
                 <div id="third_step_message_box" class="message"></div>
@@ -175,7 +175,7 @@
                 <div class="justify-content-center">
                     <h1>Where are you based?</h1>
                     <p class="text-center">Style and taste is often influenced by your environment. Let us know
-                        where<br> you are based to help us understand more about you.</p><br>
+                        where<br class="d-lg-block d-none"> you are based to help us understand more about you.</p>
 
                 </div>
                 <div>
@@ -204,9 +204,9 @@
             <div id="signup">
                 <div class="row justify-content-center">
                     <h1>What are your favourite brands?</h1>
-                    <p class="text-center">We want to know what brands you are most passionate about. Select from<br>
+                    <p class="text-center">We want to know what brands you are most passionate about. Select from<br class="d-lg-block d-none">
                         our featured list below, or
-                        use the search bar to expand your choice.</p><br>
+                        use the search bar to expand your choice.</p>
                 </div>
             </div>
         </div>
@@ -240,12 +240,12 @@
                 <div class="row justify-content-center" style="margin:0px ;">
                     <h1>Thank you. It’s time to meet your stylist.</h1>
                     <p class="text-center">Welcome to StyleGrid. Using your information,
-                        we have matched you with<br> one of our stylists. You will be able to request product, shop
-                        luxury brands<br> and receive unlimited styling through your dedicated style dashboard.</p><br>
+                        we have matched you with<br class="d-lg-block d-none"> one of our stylists. You will be able to request product, shop
+                        luxury brands<br class="d-lg-block d-none"> and receive unlimited styling through your dedicated style dashboard.</p>
 
                 </div>
                 <div class="row my-4">
-                    <div class="col-md-5 text-lg-left text-center">
+                    <div class="col-   md-5 text-lg-left text-center">
                         <img src="{{ asset('member/website/assets/images/IMG_0104 1.png') }}" alt="">
                     </div>
                     <div class="col-md-7 text-lg-left text-center">
@@ -253,8 +253,8 @@
                         <p class="new-para text-lg-left text-center">Francesca’s extensive experience is afforded
                             through years of working with prestigious fashion houses including Browns and
                             Net-A-Porter in addition to privately dressing discerning men and women across the globe
-                            <br>
-                            <br><br>Your lifestyle, personality, needs and desires as the foremost priority.
+                            <br class="d-lg-block d-none">
+                            <br class="d-lg-block d-none"><br class="d-lg-block d-none">Your lifestyle, personality, needs and desires as the foremost priority.
                             Believing your wardrobe should resemble you, and enable you to enter a room with
                             confidence, poise, elegance and self-assurance. I believe everyone deserves an
                             individual style, which we can often easily get lost in this fast paced fashion
