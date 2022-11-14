@@ -68,7 +68,9 @@
     text-decoration: none;
     color: #000000;
   }
-  
+  #navbarSupporthbvbedContent{
+    margin-top: -18px;
+  }
   .signup-btn {
     background: #172625;
     font-family: 'Genos';
@@ -81,6 +83,7 @@
     text-decoration: none;
     border: 0;
     color: #E5E5E5;
+    padding:8px 27px 8px 27px;
   }
   .signup-btn:hover{
     background: #172625;
@@ -959,7 +962,7 @@ color: #7A7A7A;
     color: #000000;
   }
   .nav-link {
-    font-family: 'Genos';
+    font-family: 'Genos-Light';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -974,7 +977,7 @@ color: #7A7A7A;
   
   .signup-btn {
     background: #172625;
-    font-family: 'Genos';
+    font-family: 'Genos-Light';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
@@ -1177,9 +1180,9 @@ color: #7A7A7A;
   } */
 
   select {
-    -moz-appearance: none;
+    /* -moz-appearance: none;
     -webkit-appearance: none;
-    appearance: none !important;
+    appearance: none !important; */
     background-image: none;
   } 
   #next-previous{
