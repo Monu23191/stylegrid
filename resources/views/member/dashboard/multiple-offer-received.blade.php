@@ -81,7 +81,7 @@
                                 <div class="row">
                                 <div class="col-md-6">
                                     <div class="border-right my-3">
-                                        <img src="{{ asset('member/dashboard/attachments/source/'.$offer->p_image) }}" class="img-fluid" alt="">
+                                        <img src="{{ asset('attachments/source/'.$offer->p_image) }}" class="img-fluid" alt="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -139,60 +139,6 @@
                             $counter++;
                         }
                         ?>
-                        
-                       <!-- <div class="carousel-item">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="border-right my-3">
-                                        <img src="app-assets/images/gallery/nike.png" class="img-fluid" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="p-3">
-                                        <div class="offer-slider">Offer #1 of 3</div>
-                                        <h1>3Off-White Jordan 4&apos;s</h1>
-                                        <h6>Off White / Nike</h6>
-                                        <h4 class="mt-3">Price offer: £1,200</h4>
-                                        <h4>Shipping date: Immediate</h4>
-                                        <h4>Condition: New</h4>
-
-                                        <div class="mt-3">
-                                            <label for="">Please select if you are happy to accept or decline the
-                                                quoted
-                                                price.</label>
-                                        </div>
-                                        <div class="w-100">
-
-                                            <div class="my-2 row">
-                                                <div class="ml-2">
-
-                                                    <button type="submit" class="accept-btn px-3"
-                                                        data-toggle="modal" data-target="#accept">Accept
-                                                        Offer</button>
-
-                                                </div>
-
-                                                <div class="ml-2 mt-lg-0 mt-2">
-
-                                                    <button type="submit" class="decline-btn px-3"
-                                                        data-toggle="modal" data-target="#decline">Decline
-                                                        Offer</button>
-                                                </div>
-                                            </div>
-
-                                            <p class="mt-2">Please note, if you decline the submitted stylist offer
-                                                then your
-                                                ticket
-                                                will return to pending and be open for other stylists in our network
-                                                to submit
-                                                an
-                                                offer. All offers expire after 48 hours.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                      </div>-->
-                     
                     </div>
 
                     <!-- Left and right controls -->
@@ -207,7 +153,4 @@
         </div>
     </div>
 </div>
-<!-- <script>
-    $('#sourceConfirmationPopUp').modal('show');
-</script> -->
 @stop

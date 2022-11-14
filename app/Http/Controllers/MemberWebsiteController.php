@@ -16,7 +16,7 @@ class MemberWebsiteController extends Controller
         if(!Session::get('Memberloggedin')){
             $member=new Member();
             $country_list=$member->getCountryList();
-            $brand_list=$member->getBrandList();
+            $brand_list=$member->getBrandList(['b.brand_mg' => 0]);
             return view('member.website.member-registration',compact('country_list','brand_list'));
         }
         return redirect('/member-dashboard');
@@ -85,7 +85,32 @@ class MemberWebsiteController extends Controller
         }
         return redirect('/member-dashboard');
     }
-
+    public function getBrandList(Request $request){
+        if($request->ajax()){
+            $member=new Member();
+            $search_brand=$request->brand_search;
+            $not_where_in=[];
+           if(!empty($request->existing_data)){
+                $existing_data=$request->existing_data;
+                if(!empty($existing_data)){
+                    $not_where_in=$existing_data;
+                }
+           }
+           
+            if(!empty($search_brand)){
+                $brand_list=$member->getBrandList([],$search_brand,$not_where_in);
+                if(count($brand_list)){
+                    $response['status']=1;
+                }else{
+                    $response['status']=0;
+                }
+                $response['data']=$brand_list;
+            }else{
+                $response['status']=0;
+            }
+            return json_encode($response);
+        }  
+    }
     public function memberLoginPost(Request $request){
         if($request->ajax() && !Session::get('Memberloggedin')){
             $member=new Member();
@@ -126,8 +151,5 @@ class MemberWebsiteController extends Controller
         }else{
             return redirect('/member-login');
         }
-    }
-    
-
-     
+    }     
 }

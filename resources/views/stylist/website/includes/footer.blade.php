@@ -1,4 +1,5 @@
 
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
@@ -13,6 +14,7 @@
   };
   
 </script>
+<script src="{{ asset('stylist/website/assets/js/tags.js') }}"></script>
 <script src="{{ asset('stylist/website/assets/js/common.js') }}"></script>
 
 </html>

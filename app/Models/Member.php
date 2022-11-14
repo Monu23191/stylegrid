@@ -74,7 +74,7 @@ class Member extends Model
 	}
 	
 	
-	function getBrandList($where=[],$search=''){
+	function getBrandList($where=[],$search='',$not_where_in=[]){
 		$this->db = DB::table('sg_brand AS b');
 		$this->db->select([
 			"b.id",
@@ -85,8 +85,13 @@ class Member extends Model
         if(count($where)){
 			$this->db->where($where);
         }
+		/*$this->db->where(['b.brand_mg' => 0]);		*/
 		if(!empty($search)){
 			$this->db->where('b.name', 'LIKE', '%'.$search.'%');
+		}
+		if(!empty($not_where_in)){
+			//$this->db->whereNotIn('b.id',$not_where_in[0]);
+			$this->db->whereNotIn('b.id',$not_where_in);
 		}
 		$response_data=$this->db->get();
 		return $response_data;
@@ -120,11 +125,9 @@ class Member extends Model
 			$this->db->select([
 				"so.id",
 				"so.sourcing_id",
-				"so.sourcing_id",
-				"so.stylelist_id",
+				"so.stylist_id",
 				"so.price",
 				"so.status",
-				//\DB::raw("COUNT(so.id) as total_offer"),
 			]);
 			$this->db->join('sg_sourcing AS s', 's.id', '=', 'so.sourcing_id');
 			$this->db->where($where);
@@ -172,7 +175,7 @@ class Member extends Model
 			$this->db->select([
 				"so.id",
 				"so.sourcing_id",
-				"so.stylelist_id",
+				"so.stylist_id",
 				"so.price",
 				"so.status",
 				"s.p_image",
@@ -196,7 +199,7 @@ class Member extends Model
 		}
 	}
 
-	function memberAcceptOffer($offer_id){
+	function acceptOffer($offer_id){
 		$this->db = DB::table('sg_sourcing_offer');
         $this->db->select(["sourcing_id"]);
         $this->db->where(['id'=>$offer_id]);
@@ -214,7 +217,7 @@ class Member extends Model
 		return false;
 	}
 
-	function memberDeclineOffer($offer_id){
+	function declineOffer($offer_id){
 		$this->db = DB::table('sg_sourcing_offer');
         $this->db->select(["sourcing_id"]);
         $this->db->where(['id'=>$offer_id]);
@@ -226,5 +229,16 @@ class Member extends Model
 			return true;
 		}
 		return false;
+	}
+
+	public function sourceNameExistance($where){
+		if(count($where)){
+			$this->db = DB::table('sg_sourcing');
+        	$this->db->select(["id"]);
+        	$this->db->where($where);
+        	$result=$this->db->get()->first();
+			return $result;
+		}
+		
 	}
 }

@@ -37,7 +37,7 @@
                     <h3>your product has been sourced.</h3>
                 </div>
                 <div class="col-12 text-center">
-                    <img src="app-assets/images/gallery/TickBox.png" class="img-fluid" alt="">
+                    <img src="{{asset('member/dashboard/app-assets/images/gallery/TickBox.png')}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-12 text-center mt-3">
                     <a href="{{url('/member-sourcing')}}"><button class="back-dashboard px-2">Back to

@@ -97,13 +97,22 @@
                                 </div>
                             </div>
                             <div class="inputbox-1 mt-5">
-                                <div class="form-group text-center">
+                                <div class="tags-input" id="myTags">
+                                    <span class="data">
+                                    </span>
+                                    <span class="autocomplete">
+                                        <input type="text" id="favourite_brands" class="form-control" placeholder="Add your favourite brands here">
+                                        <div class="autocomplete-items"></div>
+                                    </span>
+                                    <div id="favourite_brands_error" class="error"></div>
+                                </div>
+                                <!-- <div class="form-group text-center">
                                     <div class="d-flex justify-content-center flex-column">
                                         <input type="text" name="favourite_brands" id="favourite_brands" class="form-control"
                                             placeholder="Add your favourite brands here">
                                             <div id="favourite_brands_error" class="error"></div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                             <div class="inputbox-1 mt-5">
                                 <div class="form-group text-center">
@@ -143,6 +152,7 @@
         <div style="float:right;">
             <button type="button" id="prevBtn" onclick="nextPrevStep(-1)">Previous</button>
             <button type="button" id="nextBtn" onclick="nextPrevStep(1)">Next</button>
+            <input type="hidden" id="favourite_brand_list" name="favourite_brand_list">
         </div>
     </div>
     <!-- Circles which indicates the steps of the form: -->
@@ -151,4 +161,5 @@
         <span class="step"></span>
     </div>
 </form>
+
 @stop
