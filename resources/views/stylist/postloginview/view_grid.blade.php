@@ -39,7 +39,7 @@
                                             <h1 class="ml-2 mt-3">Pablo’s Ibiza Grid</h1>
                                         </div>
                                         <div class="col-4 text-lg-center text-right">
-                                            <a href="grid-design-1.html"><button class="go-to-grid-btn mt-4">Go to
+                                            <a href="{{url('loadgridview')}}"><button class="go-to-grid-btn mt-4">Go to
                                                     Grid</button></a>
                                         </div>
                                     </div>
