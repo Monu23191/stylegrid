@@ -1215,7 +1215,42 @@ color: #7A7A7A;
   option{
     
   }
-
+  .add-items{
+    border: 1px solid;
+    width: 400px;
+  }
+.add-item-btn{
+  background: rgba(118, 118, 118, 0.15);
+  border-radius: 15px;
+  font-family: 'Genos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #000000;
+  /* width: 108px; */
+    height: 28px;
+    text-decoration: none;
+}
+.add-item-btn-input{
+  background: rgba(118, 118, 118, 0.15);
+  border-radius: 15px;
+  font-family: 'Genos';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #000000;
+  /* width: 108px; */
+    height: 28px;
+    text-decoration: none;
+    position: absolute;
+    left: 20px;
+}
   
   a#image_preview_remove {
     position: absolute;
@@ -1296,4 +1331,4 @@ color: #7A7A7A;
     color: #ffffff;
 }
 
->>>>>>> 5dd727d2a2fec2e3fe1b17b66be8a7b06d98a0dc
+

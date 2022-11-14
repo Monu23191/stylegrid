@@ -19,7 +19,9 @@
       
       </div>
       <div class="col-6 text-center">
-          <a class="navbar-brand " href="{{url('/')}}"><img src="{{ asset('member/website/assets/images/STYLEGRID-LOGO.png')}}" alt=""></a>
+          <a class="navbar-brand " href="{{url('/')}}"><img src="{{ asset('member/website/assets/images/logo2.png')}}" class="h-25" alt="">
+          <img src="{{ asset('member/website/assets/images/STYLEGRID-LOGO.png')}}" alt="">
+        </a>
       </div>      
       <div class="d-lg-flex d-none col-3">
           <div class="form-group has-search col-6">

@@ -123,6 +123,35 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="inputbox-1 mt-5">
+                                <div class="form-group text-center">
+                                    <div class="d-flex justify-content-center flex-column">
+                                        <div>
+                                        <button class="add-item-btn-input px-2 my-2">Streetstyle X</button>
+                                        
+                                        <input type="text" name="preferred_style" id="preferred_style" class="form-control"
+                                        placeholder=""></div>
+                                        <div id="preferred_style_error" class="error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-items py-2 px-3 mt-5">
+                                <div class="row">
+                                    <div class="col-4"><button class="add-item-btn px-2">Streetstyle +</button></div>
+                                    <div class="col-4"><button class="add-item-btn px-3">Smart +</button></div>
+                                    <div class="col-4"><button class="add-item-btn px-2">Minimalist +</button></div>
+                                </div>
+                                <div class="row my-3">
+                                    <div class="col-4"><button class="add-item-btn px-3">Designer +</button></div>
+                                    <div class="col-6"><button class="add-item-btn px-3">Business Casual +</button></div>
+                                    <div class="col-4"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4"><button class="add-item-btn px-3">Athletic +</button></div>
+                                    <div class="col-4"></div>
+                                    <div class="col-4"></div>
+                                </div>
+                            </div>
                        
                     </div>
                 </div>
