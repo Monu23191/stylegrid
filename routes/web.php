@@ -52,6 +52,7 @@ use App\Http\Controllers\CreateGridController as CreateGridController;
  Route::post('/stylist-accept-offer', [Stylist::class, 'stylistAcceptOffer']);
  Route::get('/stylist-offer-accepted', [Stylist::class, 'stylistOfferAcceptedSuccessful']);
  Route::post('/stylist-decline-offer', [Stylist::class, 'stylistDeclineOffer']);
+ Route::get('/stylist-clients', [Stylist::class, 'stylistClients']);
  
  
  //stylist section End

@@ -224,8 +224,10 @@ class StylistController extends Controller
         }  
     }
 
-
-
+    public function stylistClients(Request $request){       
+        return view('stylist.postloginview.stylist-clients');
+    }
+    
 
 
 
