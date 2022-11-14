@@ -72,7 +72,7 @@
                                                             </p>
                                                         </div>
                                                         <div class="text-right col-5">
-                                                         <a href="caro-create-grid.html">
+                                                         <a href="{{url('view-grid')}}">
                                                                <button class="px-2 grey-bg">Go to Grid</button>
                                                             </a>
                                                         </div>
