@@ -111,6 +111,7 @@ body{
 }
 
 @media screen and (max-width: 600px) {
+ 
   .topnav .search-container {
     float: none;
   }
@@ -2522,6 +2523,14 @@ margin-bottom: 23px; */
 /********************end  client-dashboard***************8/
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  #demo .carousel-control-prev{
+    right: 47%;
+    top: 20%;
+}
+#demo .carousel-control-next {
+  right: 38%;
+  top: 20%;
+  }
   .one-caroImg {
     width: 100vw;
   }
@@ -2618,6 +2627,14 @@ margin-bottom: 23px; */
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  #demo .carousel-control-prev{
+    right: 64%;
+    top: 22%;
+}
+#demo .carousel-control-next {
+  right: 56%;
+  top: 22%;
+  }
   .one-caroImg {
     width: 97vw;
   }
@@ -2684,7 +2701,14 @@ margin-bottom: 23px; */
   .raise-bg-img .btn {
     font-size: 10px;
   }
-
+  #demo .carousel-control-prev{
+    right: 22%;
+    top: 8%;
+}
+#demo .carousel-control-next {
+  right: 17%;
+  top: 8%;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -2697,3 +2721,46 @@ margin-bottom: 23px; */
     display: inline-table !important;
   }
 }
+.modal {
+  top: 35% !important;
+}
+.modal-body h1{
+  font-family: 'Silk Serif';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 36px;
+text-align: center;
+color: #000000;
+}
+.modal-body p{
+  font-family: 'Silk Serif';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 128.3%;
+  text-align: center;
+   color: #000000;  
+}
+.modal-body h6{
+  font-family: 'Silk Serif';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 30px;
+text-align: center;
+
+color: #000000;
+}
+.FXox6K {
+  fill: #212121;
+}
+/* .carousel-control-prev._2-wzdc{
+transform: rotate(180deg);
+}
+.carousel-control-next._2-wzdc{
+  transform: rotate(180deg) !important;
+  } */
+._2-wzdc{
+    transform: rotate(180deg) !important;
+    } 

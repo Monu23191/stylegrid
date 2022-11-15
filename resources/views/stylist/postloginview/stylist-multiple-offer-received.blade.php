@@ -83,12 +83,12 @@
                                 ?>
                                 <div class="carousel-item {{$class;}}">
                                     <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="border-right my-3">
                                             <img src="{{ asset('attachments/source/'.$offer->p_image) }}" class="img-fluid" alt="">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-lg-6">
                                         <div class="p-3">
                                             <div class="offer-slider">Offer #<?php echo $counter;?> of <?php echo count($offer_list);?></div>
                                             <h1><?php echo $offer->p_name;?></h1>
@@ -146,10 +146,14 @@
     
                         <!-- Left and right controls -->
                         <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                            <span class="carousel-control-prev-icon"><i class="bi bi-chevron-left"></i></span>
+                            <!-- <span class="carousel-control-prev-icon"><i class="bi bi-chevron-left"></i></span> -->
+                            <svg width="14.6" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class=""><path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="FXox6K"></path></svg>
+
                         </a>
                         <a class="carousel-control-next" href="#demo" data-slide="next">
-                            <span class="carousel-control-next-icon"><i class="bi bi-chevron-right"></i></span>
+                            <!-- <span class="carousel-control-next-icon"><i class="bi bi-chevron-right"></i></span> -->
+                            <svg width="14.6" height="27" viewBox="0 0 16 27" xmlns="http://www.w3.org/2000/svg" class="_2-wzdc"><path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z" fill="#fff" class="FXox6K"></path></svg>
+
                         </a>
                     </div>
                  </div>
